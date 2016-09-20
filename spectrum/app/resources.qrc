@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/qmloscilloscope/main.qml</file>
+        <file>qml/qmloscilloscope/ScopeView.qml</file>
+        <file>qml/qmloscilloscope/ProgressBar.qml</file>
+        <file>qml/qmloscilloscope/ControlPanel.qml</file>
+        <file>qml/qmloscilloscope/IconBtn.qml</file>
+        <file>qml/qmloscilloscope/MediaControlPanel.qml</file>
+        <file>qml/qmloscilloscope/TabView.qml</file>
+        <file>qml/qmloscilloscope/TabViewBtn.qml</file>
+        <file>qml/qmloscilloscope/Page.qml</file>
+        <file>qml/qmloscilloscope/CustomBorder.qml</file>
+        <file>qml/qmloscilloscope/ModalWindow.qml</file>
+        <file>qml/qmloscilloscope/TimeEdit.qml</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>qml/icons/ic_add_to_queue_white_48px.svg</file>
+        <file>qml/icons/ic_assessment_white_48px.svg</file>
+        <file>qml/icons/ic_build_white_48px.svg</file>
+        <file>qml/icons/ic_delete_forever_white_48px.svg</file>
+        <file>qml/icons/Media_Viewer_Icon_-_Close.svg</file>
+        <file>qml/icons/ic_perm_camera_mic_white_48px.svg</file>
+        <file>qml/icons/ic_play_arrow_white_48px.svg</file>
+        <file>qml/icons/ic_settings_applications_white_48px.svg</file>
+        <file>qml/icons/ic_settings_white_48px.svg</file>
+        <file>qml/icons/ic_cancel_white_48px.svg</file>
+        <file>qml/icons/ic_add_location_white_48px.svg</file>
+        <file>qml/icons/ic_add_white_48px.svg</file>
+        <file>qml/icons/ic_link_white_48px.svg</file>
+        <file>qml/icons/ic_pause_circle_outline_white_48px.svg</file>
+        <file>qml/icons/ic_play_circle_outline_white_48px.svg</file>
+        <file>qml/icons/ic_save_white_48px.svg</file>
+        <file>qml/icons/ic_zoom_in_white_48px.svg</file>
+        <file>qml/icons/ic_zoom_out_white_48px.svg</file>
+    </qresource>
+</RCC>
