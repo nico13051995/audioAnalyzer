@@ -97,7 +97,7 @@ Item{
                 TimeEdit{
                     id: timeEditor
                     time: playPosition.timeContainer
-                    textFont.pixelSize: 18
+                    textFont.pixelSize: 18 //parse problem NOT WARNING!!!
                 }
                 Text{
                     anchors.verticalCenter: parent.verticalCenter
