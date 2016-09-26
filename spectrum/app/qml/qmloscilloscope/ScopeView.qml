@@ -37,8 +37,18 @@ ChartView {
     theme: ChartView.ChartThemeDark
     property bool openGL: true
     antialiasing: false;
-    onOpenGLChanged: {
+    ModalWindow{
+        id: chartSettings
+        Item{
+            id: chartSettingsC
+            property int index: 0
+            width: chartSettings.width - 60//50px close btn
+            height: chartSettings.height - 60
 
+            ComboBox{
+
+            }
+        }
     }
     Item{
         id: controllPanel
@@ -52,7 +62,7 @@ ChartView {
             height: parent.height
             IconBtn{
                 url: "qrc:/icons/qml/icons/ic_settings_applications_white_48px.svg"
-                onClick: {_tabView.addTab();}
+                onClick: {chartSettings.show(chartSettingsC)}
 
             }
             IconBtn{

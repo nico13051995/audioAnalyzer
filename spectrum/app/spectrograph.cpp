@@ -93,6 +93,10 @@ void Spectrograph::subsctibeChart(QXYSeries *set)
         set->append(QPointF(0,0));
     }
 }
+void Spectrograph::unSubsctibeChart(QXYSeries *set)
+{
+    this->subscribtionList.removeAll(set);
+}
 
 int Spectrograph::getBarNumber()
 {

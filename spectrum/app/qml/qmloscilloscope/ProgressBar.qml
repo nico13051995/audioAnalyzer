@@ -92,11 +92,12 @@ Item {
                 property double lastX
                 property double savedWidth : -1
                 hoverEnabled: true
+                propagateComposedEvents: true
                 onEntered: {
-                    cursorShape: Qt.IBeamCursor;
+                    controlMouseArea.cursorShape = Qt.PointingHandCursor;
                 }
                 onExited: {
-                    cursorShape: Qt.ArrowCursor;
+                    controlMouseArea.cursorShape = Qt.ArrowCursor;
                 }
 
                 onMouseXChanged: {

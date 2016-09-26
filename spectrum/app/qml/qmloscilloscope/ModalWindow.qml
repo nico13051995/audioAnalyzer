@@ -7,6 +7,7 @@ Rectangle
     color: "#bb000000"
     anchors.fill: parent
     visible: hide.content == null ? false : true
+    z:12
     property bool closable: true
     function close(){
         hide.content = null;
@@ -18,6 +19,11 @@ Rectangle
 
     MouseArea{
         anchors.fill: parent
+        hoverEnabled: true
+        onClicked: {
+            _modalWindow.forceActiveFocus();
+            mouse.accepted = false
+        }
     }
 
     Item{
@@ -33,7 +39,7 @@ Rectangle
         id: realContent
         width: hide.content == null ? 0 : hide.content.width
         height: hide.content == null ? 0 : hide.content.height
-        y: parent.height/2 - height
+        y: parent.height/2 - height/2
         x: parent.width/2 - width/2
         function close(){
             _modalWindow.close();

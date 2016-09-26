@@ -90,6 +90,7 @@ public slots:
     void bufferChanged(qint64 position, qint64 length, const QByteArray &buffer);
 
     void subsctibeChart(QXYSeries *set);
+    void unSubsctibeChart(QXYSeries *set);
     int getBarNumber();
 private:
     int barIndex(qreal frequency) const;

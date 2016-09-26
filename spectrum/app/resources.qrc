@@ -12,6 +12,7 @@
         <file>qml/qmloscilloscope/CustomBorder.qml</file>
         <file>qml/qmloscilloscope/ModalWindow.qml</file>
         <file>qml/qmloscilloscope/TimeEdit.qml</file>
+        <file>qml/qmloscilloscope/ComboBox.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file>qml/icons/ic_add_to_queue_white_48px.svg</file>

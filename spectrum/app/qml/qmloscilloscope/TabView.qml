@@ -39,6 +39,8 @@ Item{
     function addTab()
     {
         var object = privateComponent.componentTemp.createObject(content, privateComponent.componentTemp);
+        /*var test = JSON.stringify(object);
+        object = JSON.parse(test);*/
         privateComponent.childrens.push(object);
         // console.log(privateComponent.childrens.length);
         menu_rep.model = privateComponent.childrens.length;

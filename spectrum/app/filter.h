@@ -8,6 +8,7 @@ class Filter : public QObject
     Q_OBJECT
 public:
     explicit Filter(QObject *parent = 0);
+    virtual void doFilter() = 0;
 
 signals:
 

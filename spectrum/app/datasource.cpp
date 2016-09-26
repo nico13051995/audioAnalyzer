@@ -55,7 +55,7 @@ void WaveFormCustom::bufferChanged(qint64 position, qint64 length, const QByteAr
     //  qDebug() << "length: " << length << "postition: " << position << "size: " << qFloor((length)/16);
     for(int j = 0; j < m_format.channelCount(); j++)
     {
-         m_data[j].clear();
+        m_data[j].clear();
     }
     for(int i=0; i < qFloor((length)/m_format.sampleSize())/m_format.channelCount(); i++)
         for(int j = 0; j < m_format.channelCount(); j++)
@@ -78,10 +78,15 @@ QAbstractSeries *WaveFormCustom::getSeries() const
     return series;
 }
 
-void WaveFormCustom::subscribeSeries(QAbstractSeries *value, int chanel)
+void WaveFormCustom::subscribeSeries(QAbstractSeries *value, int channelCount)
 {
-    if(value != NULL)
-        subscriptionList.append(SeriesChanel(value, chanel));
+    if(value != NULL && channelCount >= 0 &&  channelCount < m_format.channelCount()  )
+        subscriptionList.append(SeriesChanel(value, channelCount));
+}
+
+bool WaveFormCustom::unSubscribeSeries(QAbstractSeries *value, int channelCount)
+{
+    return subscriptionList.removeAll(SeriesChanel(value, channelCount));
 }
 
 QByteArray WaveFormCustom::buffer() const

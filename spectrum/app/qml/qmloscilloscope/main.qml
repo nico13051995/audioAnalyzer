@@ -35,33 +35,17 @@ Rectangle {
     width: 600
     height: 400
     color: "#2c2d37"
-    /*
-    ControlPanel {
-        id: controlPanel
-        anchors.top: parent.top
-        anchors.topMargin: 10
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.leftMargin: 10
-        //![1]
+    MouseArea{
+        z:1
+        anchors.fill: parent;
+        propagateComposedEvents: true
+        onClicked: {
+            root.forceActiveFocus();
+            mouse.accepted = false
+        }
+    }
 
-        onSignalSourceChanged: {
-            if (source == "sin")
-                dataSource.generateData(0, signalCount, sampleCount);
-            else
-                dataSource.generateData(1, signalCount, sampleCount);
-            scopeView.axisX().max = sampleCount;
-        }
-        onSeriesTypeChanged: scopeView.changeSeriesType(type);
-        onRefreshRateChanged: scopeView.changeRefreshRate(rate);
-        onAntialiasingEnabled: scopeView.antialiasing = enabled;
-        onOpenGlChanged: {
-            scopeView.openGL = enabled;
-            antialiasButton.enabled = !enabled;
-            antialiasButton.currentSelection = 0;
-        }
-    }*/
-    //![2]
+
     TabView{
         width: parent.width
         anchors.fill: parent
@@ -72,6 +56,7 @@ Rectangle {
     }
     MediaControlPanel{
         id: mediaControlPanel
+        z:2//for MediaControlPanel overlap
         anchors.bottom: parent.bottom
     }
 }

@@ -170,6 +170,13 @@ void MainWidget::showSettingsDialog()
         m_engine->setAudioOutputDevice(m_settingsDialog->outputDevice());
         m_engine->setWindowFunction(m_settingsDialog->windowFunction());
     }
+    /*
+    QSize size = viewer.size();
+    viewer.setFixedSize(60, 60);
+    viewer.grabFramebuffer().save("test.png");
+    viewer.setFixedSize(size);
+    viewer.setAutoFillBackground(true);
+    */
 }
 
 void MainWidget::initializeRecord()

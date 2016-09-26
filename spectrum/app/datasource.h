@@ -47,6 +47,11 @@ struct SeriesChanel{
         this->series = series;
         this->chanel = chanel;
     }
+    bool operator == (SeriesChanel other)
+    {
+        this->chanel == other.chanel;
+        this->series = other.series;
+    }
 };
 
 class WaveFormCustom : public QObject
@@ -70,8 +75,8 @@ public slots:
     void bufferChanged(qint64 position, qint64 length, const QByteArray &buffer);
 
     QAbstractSeries *getSeries() const;
-    void subscribeSeries(QAbstractSeries *value, int chanel);
-
+    void subscribeSeries(QAbstractSeries *value, int channelCount);
+    bool unSubscribeSeries(QAbstractSeries *value, int channelCount);
 private:
     QAudioFormat        m_format;
     QByteArray              m_buffer;
