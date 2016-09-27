@@ -98,7 +98,8 @@ Engine::Engine(QObject *parent)
 
     CHECKED_CONNECT(m_pushTimer, SIGNAL(timeout()), this, SLOT(pushTimerExpired()))
 
-            initialize();
+    initialize();
+    initializeFilters();
 
 #ifdef DUMP_DATA
     createOutputDir();
@@ -341,14 +342,14 @@ void Engine::audioNotify()
         //   const qint64 spectrumPosition = playPosition - m_spectrumBufferLength;
         if (m_file) {
             if (/*levelPosition > m_bufferPosition ||
-                    m_levelBufferLength > m_dataLength*/ true) {
+                            m_levelBufferLength > m_dataLength*/ true) {
                 m_bufferPosition = 0;
                 m_dataLength = 0;
                 // Data needs to be read into m_buffer in order to be analysed
                 const qint64 readPos = levelPosition;
                 const qint64 readEnd = qMin(m_analysisFile->size(), levelPosition + m_levelBufferLength);
                 const qint64 readLen = readEnd - readPos + audioLength(m_format, WaveformWindowDuration);
-                  /* qDebug() << "Engine::audioNotify [1]"
+                /* qDebug() << "Engine::audioNotify [1]"
                          << "analysisFileSize" << m_analysisFile->size()
                          << "readPos" << readPos
                          << "readLen" << readLen;*/
@@ -524,6 +525,18 @@ bool Engine::initialize()
     ENGINE_DEBUG << "Engine::initialize" << "format" << m_format;
 
     return result;
+}
+
+bool Engine::initializeFilters()
+{
+    supportedFilters.append(new NullFilter());
+    supportedFilters.append(new NullFilter());
+
+    for (int index = 0; index < supportedFilters.size(); index++) {
+        QList<Filter*> initList;
+        initList.append(supportedFilters[index]);
+        createdTemplates.insert("default_" + supportedFilters[index]->getName(), new GraphFilterService(initList));
+    }
 }
 
 bool Engine::selectFormat()
@@ -708,6 +721,10 @@ void Engine::setLevel(qreal rmsLevel, qreal peakLevel, int numSamples)
     m_rmsLevel = rmsLevel;
     m_peakLevel = peakLevel;
     emit levelChanged(m_rmsLevel, m_peakLevel, numSamples);
+}
+QMap<QString, GraphFilterService*> Engine::getCreatedTemplates() const
+{
+    return createdTemplates;
 }
 
 #ifdef DUMP_DATA

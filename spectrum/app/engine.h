@@ -40,10 +40,12 @@
 
 #ifndef ENGINE_H
 #define ENGINE_H
-
+#include "graphfilterservice.h"
 #include "spectrum.h"
 #include "spectrumanalyser.h"
 #include "wavfile.h"
+#include "nullfilter.h"
+
 
 #include <QAudioDeviceInfo>
 #include <QAudioFormat>
@@ -53,6 +55,7 @@
 #include <QObject>
 #include <QVector>
 #include <QTimer>
+
 
 #ifdef DUMP_CAPTURED_AUDIO
 #define DUMP_DATA
@@ -162,10 +165,13 @@ public:
      * Set window function applied to audio data before spectral analysis.
      */
 
+    QMap<QString, GraphFilterService *> getCreatedTemplates() const;
+
 public slots:
     void startRecording();
     void startPlayback();
     void suspend();
+    void stopPlayback();
     void setAudioInputDevice(const QAudioDeviceInfo &device);
     void setAudioOutputDevice(const QAudioDeviceInfo &device);
     void setWindowFunction (WindowFunction func);
@@ -248,9 +254,9 @@ private slots:
 private:
     void resetAudioDevices();
     bool initialize();
+    bool initializeFilters();
     bool selectFormat();
     void stopRecording();
-    void stopPlayback();
     void setState(QAudio::State state);
     void setState(QAudio::Mode mode, QAudio::State state);
     void setFormat(const QAudioFormat &format);
@@ -307,6 +313,9 @@ private:
     qreal               m_peakLevel;
 
     int                 m_count;
+
+    QList<Filter*> supportedFilters;
+    QMap<QString, GraphFilterService*> createdTemplates;
 
 #ifdef DUMP_DATA
     QDir                m_outputDir;

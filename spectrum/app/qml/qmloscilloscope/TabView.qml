@@ -46,63 +46,27 @@ Item{
         menu_rep.model = privateComponent.childrens.length;
         selectTab(privateComponent.childrens.length - 1);
     }
-    ModalWindow{
+    ModalWindowConfirm{
         id: removeSure
-        Item{
-            id: removeSureC
-            property int index: 0
-            width: name.width
-            height: childrenRect.height
-            Column{
-                width: parent.width
-                height: childrenRect.height
-                spacing: 10
-                Text {
-                    id: name
-                    text: "Ви точно бажаєте закрити вкладку?"
-                    font.pixelSize: 24
-                    height: 24
-                    color: "white"
-                }
-                Row{
-                    width: parent.width
-                    height: childrenRect.height
-                    Rectangle{
-                        width: parent.width/2
-                        height: 40
-                        color: "red"
-                        MouseArea{
-                            anchors.fill: parent
-                            onClicked: {
-                                removeSureC.parent.close();
-                            }
-                        }
-                    }
-                    Rectangle{
-                        width: parent.width/2
-                        height: 40
-                        color: "blue"
-                        MouseArea{
-                            anchors.fill: parent
-                            onClicked: {
-                                privateComponent.childrens[removeSureC.index].destroy();
-                                privateComponent.childrens.splice(removeSureC.index, 1);
-                                menu_rep.model = privateComponent.childrens.length;
-                                selectTab(removeSureC.index - 1);
-                                removeSureC.parent.close();
-                            }
-                        }
-                    }
-                }
-            }
+        property int index: 0
+        text: "Ви точно бажаєте закрити вкладку?"
+        callBack: function(){
+            privateComponent.childrens[removeSure.index].destroy();
+            privateComponent.childrens.splice(removeSure.index, 1);
+            menu_rep.model = privateComponent.childrens.length;
+            selectTab(removeSure.index - 1);
         }
+    }
+
+    FiltersConfig{
+        id: filtersConfig
     }
 
 
     function removeTab(index)
     {
-        removeSureC.index = index;
-        removeSure.show(removeSureC);
+        removeSure.index = index;
+        removeSure.show();
 
     }
     function selectTab(indexS){
@@ -180,7 +144,7 @@ Item{
                         title: ""
                         closable: false
                         IconBtn{
-                            url: "qrc:/icons/qml/icons/ic_add_to_queue_white_48px.svg"
+                            url: "qrc:/icons/qml/icons/ic_create_new_folder_white_48px.svg"
                             onClick: {_tabView.addTab();}
                         }
                     }
@@ -231,6 +195,12 @@ Item{
                         url: "qrc:/icons/qml/icons/ic_add_white_48px.svg"
                         onClick: {
                             privateComponent.childrens[privateComponent.selectedTab].createNewView();
+                        }
+                    }
+                    IconBtn{
+                        url: "qrc:/icons/qml/icons/ic_assessment_white_48px.svg"
+                        onClick: {
+                            filtersConfig.show();
                         }
                     }
                     IconBtn{

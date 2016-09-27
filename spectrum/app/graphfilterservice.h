@@ -13,6 +13,8 @@ class GraphFilterService : public QObject
     Q_OBJECT
 public:
     explicit GraphFilterService(QObject *parent = 0);
+    GraphFilterService(QList<Filter*>  &filters, QObject *parent = 0);
+
 
     QString getName() const;
     void setName(const QString &value);
@@ -32,7 +34,7 @@ private:
     //QByteArray m_source_signal;
     QByteArray m_filtered_signal;
 
-    QList<Filter*>  filter;
+    QList<Filter*>  filters;
     WaveFormCustom waveBuilder;
     Spectrograph spectrBuilder;
 

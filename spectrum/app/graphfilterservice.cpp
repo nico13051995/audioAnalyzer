@@ -5,6 +5,11 @@ GraphFilterService::GraphFilterService(QObject *parent) : QObject(parent)
 
 }
 
+GraphFilterService::GraphFilterService(QList<Filter *> &filters, QObject *parent) : QObject(parent)
+{
+    this->filters = filters;
+}
+
 
 void GraphFilterService::bufferChanged(qint64 position, qint64 length, const QByteArray &buffer){
     waveBuilder.bufferChanged(position, length, buffer);

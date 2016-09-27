@@ -51,6 +51,7 @@
 #include <QtCore/QDir>
 #include "datasource.h"
 #include "ui_mainwindow.h"
+#include "graphfilterservice.h"
 
 class Engine;
 class FrequencySpectrum;
@@ -97,9 +98,11 @@ public slots:
     void showSettingsDialog();
     void initializeRecord();
     void play_pause();
+    void stop();
     double getDuration();
     double getTimePosition();
     double setTimePosition(double time);
+    Q_INVOKABLE QStringList getTemplatesQML();
 
 private:
     void createUi();

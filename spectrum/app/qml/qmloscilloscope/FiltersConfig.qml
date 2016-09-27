@@ -28,35 +28,25 @@
 ****************************************************************************/
 
 import QtQuick 2.0
-
-//![1]
-Rectangle {
-    id: root
-    width: 600
-    height: 400
-    color: "#2c2d37"
-    /*MouseArea{
-        z:1
-        anchors.fill: parent;
-        propagateComposedEvents: true
-        onClicked: {
-            root.forceActiveFocus();
-            mouse.accepted = false
-        }
-    }*/
-
-
-    TabView{
-        width: parent.width
-        anchors.fill: parent
-
-        anchors.margins: 20
-        anchors.bottomMargin: mediaControlPanel.height + 3
-        templateName: "Page"
+Item{
+    id: _filtersConfig
+    function show(){
+        _filtersConfigW.show(_filtersConfigC);
     }
-    MediaControlPanel{
-        id: mediaControlPanel
-        z:2//for MediaControlPanel overlap
-        anchors.bottom: parent.bottom
+
+    ModalWindow{
+        id: _filtersConfigW
+        Item{
+            id: _filtersConfigC
+            width: _filtersConfigW.width - 60//50px close btn
+            height: _filtersConfigW.height - 60
+            ListView{
+                id: list
+                Repeater{
+                    id:filtesRep
+                }
+
+            }
+        }
     }
 }

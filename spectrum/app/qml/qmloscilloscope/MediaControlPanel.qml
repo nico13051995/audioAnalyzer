@@ -45,6 +45,18 @@ Item{
                         mainWindow.play_pause();
                     }
                 }
+                IconBtn{
+                    id :stopState
+                    title: "Play/resume"
+                    url: "qrc:/icons/qml/icons/ic_stop_circle_outline_white_48px.svg"
+                    checkable: false
+                    visible: playState.checked
+                    onClick: function(){
+                        playState.checked = false;
+                        mainWindow.stop();
+                    }
+                }
+
             }
         }
         Item{

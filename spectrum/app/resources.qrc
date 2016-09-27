@@ -7,12 +7,14 @@
         <file>qml/qmloscilloscope/IconBtn.qml</file>
         <file>qml/qmloscilloscope/MediaControlPanel.qml</file>
         <file>qml/qmloscilloscope/TabView.qml</file>
-        <file>qml/qmloscilloscope/TabViewBtn.qml</file>
         <file>qml/qmloscilloscope/Page.qml</file>
         <file>qml/qmloscilloscope/CustomBorder.qml</file>
         <file>qml/qmloscilloscope/ModalWindow.qml</file>
         <file>qml/qmloscilloscope/TimeEdit.qml</file>
         <file>qml/qmloscilloscope/ComboBox.qml</file>
+        <file>qml/qmloscilloscope/TabViewBtn.qml</file>
+        <file>qml/qmloscilloscope/ModalWindowConfirm.qml</file>
+        <file>qml/qmloscilloscope/FiltersConfig.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file>qml/icons/ic_add_to_queue_white_48px.svg</file>
@@ -33,5 +35,7 @@
         <file>qml/icons/ic_save_white_48px.svg</file>
         <file>qml/icons/ic_zoom_in_white_48px.svg</file>
         <file>qml/icons/ic_zoom_out_white_48px.svg</file>
+        <file>qml/icons/ic_create_new_folder_white_48px.svg</file>
+        <file>qml/icons/ic_stop_circle_outline_white_48px.svg</file>
     </qresource>
 </RCC>

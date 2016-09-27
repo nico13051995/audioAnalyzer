@@ -201,6 +201,11 @@ void MainWidget::play_pause()
 
 }
 
+void MainWidget::stop()
+{
+    m_engine->stopPlayback();
+}
+
 double MainWidget::getDuration()
 {
     return m_engine->getDuration();
@@ -214,6 +219,13 @@ double MainWidget::getTimePosition()
 double MainWidget::setTimePosition(double time)
 {
     m_engine->setTimePosition(time);
+}
+
+QStringList MainWidget::getTemplatesQML()
+{
+    QStringList list = m_engine->getCreatedTemplates().keys();
+    qDebug() << list;
+   return list;
 }
 
 

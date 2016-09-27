@@ -6,9 +6,14 @@
 class Filter : public QObject
 {
     Q_OBJECT
+private:
+    QString name;
 public:
     explicit Filter(QObject *parent = 0);
-    virtual void doFilter() = 0;
+    virtual QByteArray doFilter(QByteArray array) = 0;
+
+    QString getName() const;
+    void setName(const QString &value);
 
 signals:
 

@@ -27,7 +27,7 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.7
 import QtCharts 2.1
 
 //![1]
@@ -37,6 +37,15 @@ ChartView {
     theme: ChartView.ChartThemeDark
     property bool openGL: true
     antialiasing: false;
+    title: "TEST"
+    function realResetZoom()
+    {
+        chartView.zoomReset();
+        chartView.scrollUp(0);
+        chartView.scrollLeft(0);
+        selectArea.reset();
+    }
+
     ModalWindow{
         id: chartSettings
         Item{
@@ -44,9 +53,27 @@ ChartView {
             property int index: 0
             width: chartSettings.width - 60//50px close btn
             height: chartSettings.height - 60
-
-            ComboBox{
-
+            function range(min, max){
+                var array = [];
+                for(var i = min; i <= max; i++)
+                    array.push(i);
+                return array;
+            }
+            Row{
+                width: parent.width
+                height: childrenRect.height
+                //filter map
+                ComboBox{
+                    id: filter
+                    items: mainWindow.getTemplatesQML();
+                    titleLink: null
+                }
+                //chanels
+                ComboBox{
+                    id:chanel
+                    items: chartSettingsC.range(0,4);
+                    titleLink: null
+                }
             }
         }
     }
@@ -172,6 +199,139 @@ ChartView {
         return Qt.createQmlObject("import QtQuick 2.0; import QtCharts 2.0; ValueAxis { min: "
                                   + min + "; max: " + max + " }", chartView);
     }
+    MouseArea {
+        id: selectArea;
+        anchors.fill: parent;
+        acceptedButtons: Qt.AllButtons
+        propagateComposedEvents: true
+        property point previous: Qt.point(mouseX, mouseY)
+        property point scrollPoint
+        property double scale: -0.5
+        function reset(){
+            scrollPoint = Qt.point(0,0);
+        }
+
+        onWheel: {
+            if (wheel.modifiers & Qt.ControlModifier) {
+                chartView.zoom(wheel.angleDelta.y / 1200 + 1)
+            }
+            wheel.accepted = false;
+
+        }
+        onClicked: {
+            if(mouse.button == Qt.MiddleButton)
+                chartView.realResetZoom();
+            mouse.accepted = false;
+
+        }
+        onDoubleClicked: {
+            if(mouse.button == Qt.LeftButton)
+                chartView.realResetZoom();
+            mouse.accepted = false;
+        }
+
+        onPressed: {
+            if(mouse.button == Qt.LeftButton && mouse.modifiers & Qt.ControlModifier)
+            {
+                if (highlightItem !== null) {
+                    // if there is already a selection, delete it
+                    highlightItem.destroy ();
+                }
+                // create a new rectangle at the wanted position
+                highlightItem = highlightComponent.createObject (selectArea, {
+                                                                     x : mouse.x,  y : mouse.y
+                                                                 });
+                // here you can add you zooming stuff if you want
+            }
+            previous = Qt.point(mouseX, mouseY);
+            mouse.accepted = true;
+        }
+        onPositionChanged: {
+            // on move, update the width of rectangle
+            if (highlightItem !== null) {
+                highlightItem.width = (Math.abs (mouse.x - highlightItem.x));
+                highlightItem.height = (Math.abs (mouse.y - highlightItem.y));
+                if(mouse.x - highlightItem.x > 0)
+                {
+                    highlightItem.invertX = 1;
+                    highlightItem.invertY = 1;
+                }
+                else
+                {
+                    highlightItem.invertX = -1;
+                    if(mouse.y - highlightItem.y > 0)
+                        highlightItem.invertY = 1;
+                    else
+                        highlightItem.invertY = -1;
+                }
+            }
+            else if(pressedButtons & Qt.LeftButton)
+            {
+                if(chartView.isZoomed())
+                {
+                    scrollPoint.x = (previous.x - mouse.x)*scale;
+                    scrollPoint.y = (previous.y - mouse.y)*scale;
+                    console.log(scrollPoint)
+                    if(scrollPoint.y > 0)
+                    {
+                        chartView.scrollUp(scrollPoint.y);
+                        chartView.scrollDown(0);
+                    }
+                    else{
+                        chartView.scrollDown(-scrollPoint.y);
+                        chartView.scrollUp(0);
+                    }
+                    if(scrollPoint.x > 0)
+                    {
+                        chartView.scrollLeft(scrollPoint.x);
+                        chartView.scrollRight(0);
+                    }
+                    else{
+                        chartView.scrollLeft(0);
+                        chartView.scrollRight(-scrollPoint.x);
+                    }
+                }
+                previous = Qt.point(mouse.x, mouse.y);
+            }
+
+        }
+        onReleased: {
+            if (mouse.button == Qt.LeftButton && highlightItem !== null) {
+                var rect = Qt.rect(highlightItem.x, highlightItem.y, highlightItem.invertX*highlightItem.width, highlightItem.invertY*highlightItem.height);
+                //normalization
+                if(rect.width < 0)
+                {
+                    rect.x += rect.width;
+                    rect.width *= -1;
+                }
+                if(rect.height < 0)
+                {
+                    rect.y += rect.height;
+                    rect.height *= -1;
+                }
+                console.log(rect)
+                chartView.zoomIn(rect);
+                highlightItem.destroy ();
+            }
+            mouse.accepted = false;
+            // here you can add you zooming stuff if you want
+        }
+
+        property Rectangle highlightItem : null;
+
+        Component {
+            id: highlightComponent;
+
+            Rectangle {
+                property int invertX: 1
+                property int invertY: 1
+                color: "yellow";
+                opacity: 0.35;
+                transform : Scale {origin.x: 0; origin.y: 0; xScale: invertX; yScale: invertY}
+            }
+        }
+    }
+
 
     Component.onCompleted:{
         dataSource.subscribeSeries(chartView.series(0), 0);
