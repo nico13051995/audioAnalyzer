@@ -44,7 +44,26 @@ Rectangle {
             mouse.accepted = false
         }
     }*/
-
+    Row{
+        id: windowControlPanel
+        anchors.top: parent.top
+        anchors.right: parent.right
+        height: 30
+        IconBtn{
+            id: fullScreenSwitch
+            url: "qrc:/icons/qml/icons/ic_open_with_white_48px.svg"
+            onClick: {
+                mainWindow.switchFullScreen();
+                closeBtn.visible = mainWindow.isFullScreen();
+            }
+        }
+        IconBtn{
+            id: closeBtn
+            url: "qrc:/icons/qml/icons/ic_highlight_off_white_48px.svg"
+            visible: mainWindow.isFullScreen();
+            onClick: mainWindow.close();
+        }
+    }
 
     TabView{
         width: parent.width

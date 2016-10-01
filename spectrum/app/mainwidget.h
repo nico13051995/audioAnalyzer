@@ -98,12 +98,15 @@ public slots:
     void showSettingsDialog();
     void initializeRecord();
     void play_pause();
+    bool isFullScreen();
     void stop();
     double getDuration();
     double getTimePosition();
     double setTimePosition(double time);
     Q_INVOKABLE QStringList getTemplatesQML();
-
+    void switchFullScreen();
+protected:
+    void keyReleaseEvent(QKeyEvent *event);
 private:
     void createUi();
     void createMenus();

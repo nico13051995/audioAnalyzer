@@ -27,8 +27,9 @@ Item {
         color: "lightsteelblue"
         smooth:true;
         Text {
-            anchors.top: parent.top;
-            anchors.left: parent.left;
+            anchors.fill: parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             anchors.margins: 8;
             id:chosenItemText
             text:titleLink == null ? comboBox.items[0] : comboBox.items[0][comboBox.titleLink];
@@ -68,10 +69,9 @@ Item {
                 Text {
                     id: text
                     text: titleLink == null ? modelData : modelData[comboBox.titleLink];
-                    anchors.top: parent.top;
-                    anchors.left: parent.left;
-                    anchors.margins: 5;
-
+                    anchors.fill: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
                 }
                 MouseArea {
                     anchors.fill: parent;

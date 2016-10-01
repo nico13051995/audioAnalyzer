@@ -37,5 +37,8 @@
         <file>qml/icons/ic_zoom_out_white_48px.svg</file>
         <file>qml/icons/ic_create_new_folder_white_48px.svg</file>
         <file>qml/icons/ic_stop_circle_outline_white_48px.svg</file>
+        <file>qml/icons/ic_highlight_off_white_48px.svg</file>
+        <file>qml/icons/ic_info_outline_white_48px.svg</file>
+        <file>qml/icons/ic_open_with_white_48px.svg</file>
     </qresource>
 </RCC>

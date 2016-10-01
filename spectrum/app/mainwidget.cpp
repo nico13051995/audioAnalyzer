@@ -201,6 +201,11 @@ void MainWidget::play_pause()
 
 }
 
+bool MainWidget::isFullScreen()
+{
+    return QMainWindow::isFullScreen();
+}
+
 void MainWidget::stop()
 {
     m_engine->stopPlayback();
@@ -225,7 +230,15 @@ QStringList MainWidget::getTemplatesQML()
 {
     QStringList list = m_engine->getCreatedTemplates().keys();
     qDebug() << list;
-   return list;
+    return list;
+}
+
+void MainWidget::keyReleaseEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_F11)
+    {
+        switchFullScreen();
+    }
 }
 
 
@@ -233,14 +246,25 @@ QStringList MainWidget::getTemplatesQML()
 // Private functions
 //-----------------------------------------------------------------------------
 
+void MainWidget::switchFullScreen()
+{
+    if(this->isFullScreen())
+        this->showNormal();
+    else
+        this->showFullScreen();
+}
+
 void MainWidget::createUi()
 {
 
     /*viewer.engine()->addImportPath(extraImportPath.arg(QGuiApplication::applicationDirPath(),
                                       QString::fromLatin1("qml")));*/
-    // QObject::connect(viewer.engine(), &QQmlEngine::quit, &viewer, &QWindow::close);
+    QObject::connect(viewer.engine(), &QQmlEngine::quit, this, &QMainWindow::close);
 
     ui->setupUi(this);
+    this->setWindowTitle("Spectrum");
+    this->setWindowIcon(QIcon(":/icons/qml/icons/ic_assessment_white_48px.svg"));
+   // this->showFullScreen();
     dataSource = new WaveFormCustom(this);
 
 
@@ -253,6 +277,7 @@ void MainWidget::createUi()
     //viewer.setColor(QColor("#404040"));
     //    viewer.show();
     ui->gridLayout->addWidget(&viewer);
+    grabKeyboard();
 }
 
 void MainWidget::connectUi()
@@ -309,7 +334,7 @@ void MainWidget::connectUi()
             this, SLOT(infoMessage(QString, int)));*/
 
 #ifndef DISABLE_WAVEFORM
-   /* CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
+    /* CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                     m_waveform, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));*/
     CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                     dataSource, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
