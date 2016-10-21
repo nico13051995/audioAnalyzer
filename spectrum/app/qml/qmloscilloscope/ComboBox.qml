@@ -5,8 +5,12 @@ Item {
     function selectedIndex(){
         return listView.currentIndex;
     }
+    function selectedValue(){
+        return comboBox.items[listView.currentIndex];
+    }
     function setCurrent(index){
         listView.currentIndex = index;
+        chosenItemText.text = titleLink == null ? comboBox.items[index] : comboBox.items[index][comboBox.titleLink];
     }
     property var titleLink: "title"
     signal comboClicked;
@@ -54,18 +58,18 @@ Item {
         clip:true;
         radius:4;
         anchors.top: chosenItem.bottom;
-        anchors.margins: 2;
+        anchors.margins: -5;
         color: "lightgray"
-
+        z:-1
         ListView {
             id:listView
             height:parent.height;
             model: comboBox.items
             currentIndex: 0
-            delegate: Item{
+            delegate: Rectangle{
                 width:comboBox.width;
                 height: comboBox.height;
-
+                color: dropDown.color
                 Text {
                     id: text
                     text: titleLink == null ? modelData : modelData[comboBox.titleLink];
@@ -75,6 +79,7 @@ Item {
                 }
                 MouseArea {
                     anchors.fill: parent;
+                    hoverEnabled: true
                     onClicked: {
                         comboBox.state = ""
                         var prevSelection = chosenItemText.text
@@ -84,6 +89,8 @@ Item {
                             comboBox.comboClicked();
                         }
                     }
+                    onEntered: parent.color.r = dropDown.color.r*0.8;
+                    onExited: parent.color = dropDown.color;
                 }
             }
         }

@@ -21,7 +21,8 @@ SOURCES  += main.cpp \
     datasource.cpp \
     filter.cpp \
     graphfilterservice.cpp \
-    nullfilter.cpp
+    nullfilter.cpp \
+    graph.cpp
 
 HEADERS  += engine.h \
             frequencyspectrum.h \
@@ -38,7 +39,8 @@ HEADERS  += engine.h \
     datasource.h \
     filter.h \
     graphfilterservice.h \
-    nullfilter.h
+    nullfilter.h \
+    graph.h
 
 fftreal_dir = ../3rdparty/fftreal
 

@@ -52,6 +52,7 @@
 #include "datasource.h"
 #include "ui_mainwindow.h"
 #include "graphfilterservice.h"
+#include "graph.h"
 
 class Engine;
 class FrequencySpectrum;
@@ -103,10 +104,15 @@ public slots:
     double getDuration();
     double getTimePosition();
     double setTimePosition(double time);
+    Graph* addPraph(QString name, int idView);
+    QList<int> getPraphIds(int idView);
+    Graph *getPraphById(int id, int idView);
     Q_INVOKABLE QStringList getTemplatesQML();
     void switchFullScreen();
 protected:
     void keyReleaseEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+
 private:
     void createUi();
     void createMenus();
@@ -135,6 +141,7 @@ private:
     Spectrograph*           m_spectrograph;
     LevelMeter*             m_levelMeter;
     SettingsDialog*         m_settingsDialog;
+    QMap<int,QMap<int,Graph*>> graphs;
     Ui::MainWindow *ui;
 
 };

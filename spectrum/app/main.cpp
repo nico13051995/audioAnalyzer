@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 #else
     QString extraImportPath(QStringLiteral("%1/../../../%2"));
 #endif*/
-
+    qmlRegisterType<Graph>();
     MainWidget w;
     w.show();
 

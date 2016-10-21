@@ -226,19 +226,46 @@ double MainWidget::setTimePosition(double time)
     m_engine->setTimePosition(time);
 }
 
+Graph *MainWidget::addPraph(QString name, int idView)
+{
+    Graph *nGraph = new Graph(qrand(), name, 0, Graph::WAVE, getTemplatesQML().first(), this);
+    graphs[idView].insert(nGraph->getId(), nGraph);
+    return nGraph;
+}
+
+QList<int> MainWidget::getPraphIds(int idView)
+{
+    return graphs[idView].keys();
+}
+
+Graph *MainWidget::getPraphById(int id, int idView)
+{
+    return graphs[idView][id];
+}
+
 QStringList MainWidget::getTemplatesQML()
 {
     QStringList list = m_engine->getCreatedTemplates().keys();
-    qDebug() << list;
     return list;
 }
 
 void MainWidget::keyReleaseEvent(QKeyEvent *event)
 {
-    if(event->key() == Qt::Key_F11)
-    {
+    QMainWindow::keyReleaseEvent(event);
+    switch (event->key()) {
+    case Qt::Key_F11:
         switchFullScreen();
+        break;
+    default:
+        break;
     }
+    event->setAccepted(false);
+}
+
+void MainWidget::keyPressEvent(QKeyEvent *event)
+{
+    QMainWindow::keyPressEvent(event);
+    event->setAccepted(false);
 }
 
 
@@ -264,7 +291,7 @@ void MainWidget::createUi()
     ui->setupUi(this);
     this->setWindowTitle("Spectrum");
     this->setWindowIcon(QIcon(":/icons/qml/icons/ic_assessment_white_48px.svg"));
-   // this->showFullScreen();
+    // this->showFullScreen();
     dataSource = new WaveFormCustom(this);
 
 
@@ -277,7 +304,7 @@ void MainWidget::createUi()
     //viewer.setColor(QColor("#404040"));
     //    viewer.show();
     ui->gridLayout->addWidget(&viewer);
-    grabKeyboard();
+    //  grabKeyboard();
 }
 
 void MainWidget::connectUi()
