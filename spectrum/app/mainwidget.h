@@ -112,6 +112,7 @@ public slots:
     Q_INVOKABLE bool unSubscribeToTemplate(Graph * graph, QXYSeries *set, int chanel);
 
     void switchFullScreen();
+    void getScreenShot();
 protected:
     void keyReleaseEvent(QKeyEvent *event);
     void keyPressEvent(QKeyEvent *event);

@@ -41,5 +41,6 @@
         <file>qml/icons/ic_highlight_off_white_48px.svg</file>
         <file>qml/icons/ic_info_outline_white_48px.svg</file>
         <file>qml/icons/ic_open_with_white_48px.svg</file>
+        <file>qml/icons/screen-1.svg</file>
     </qresource>
 </RCC>

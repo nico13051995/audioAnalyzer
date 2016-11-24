@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWidget_t {
-    QByteArrayData data[45];
-    char stringdata0[502];
+    QByteArrayData data[47];
+    char stringdata0[538];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -73,7 +73,9 @@ QT_MOC_LITERAL(40, 457, 5), // "graph"
 QT_MOC_LITERAL(41, 463, 10), // "QXYSeries*"
 QT_MOC_LITERAL(42, 474, 3), // "set"
 QT_MOC_LITERAL(43, 478, 6), // "chanel"
-QT_MOC_LITERAL(44, 485, 16) // "switchFullScreen"
+QT_MOC_LITERAL(44, 485, 21), // "unSubscribeToTemplate"
+QT_MOC_LITERAL(45, 507, 16), // "switchFullScreen"
+QT_MOC_LITERAL(46, 524, 13) // "getScreenShot"
 
     },
     "MainWidget\0stateChanged\0\0QAudio::Mode\0"
@@ -89,7 +91,8 @@ QT_MOC_LITERAL(44, 485, 16) // "switchFullScreen"
     "name\0idView\0getPraphIds\0QList<int>\0"
     "getPraphById\0id\0getTemplatesQML\0"
     "subscribeToTemplate\0graph\0QXYSeries*\0"
-    "set\0chanel\0switchFullScreen"
+    "set\0chanel\0unSubscribeToTemplate\0"
+    "switchFullScreen\0getScreenShot"
 };
 #undef QT_MOC_LITERAL
 
@@ -99,7 +102,7 @@ static const uint qt_meta_data_MainWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      23,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -107,27 +110,29 @@ static const uint qt_meta_data_MainWidget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,  119,    2, 0x0a /* Public */,
-       7,    1,  124,    2, 0x0a /* Public */,
-      10,    3,  127,    2, 0x0a /* Public */,
-      15,    2,  134,    2, 0x0a /* Public */,
-      18,    1,  139,    2, 0x0a /* Public */,
-      19,    1,  142,    2, 0x0a /* Public */,
-      20,    0,  145,    2, 0x0a /* Public */,
-      21,    0,  146,    2, 0x0a /* Public */,
-      22,    0,  147,    2, 0x0a /* Public */,
-      23,    0,  148,    2, 0x0a /* Public */,
-      24,    0,  149,    2, 0x0a /* Public */,
-      25,    0,  150,    2, 0x0a /* Public */,
-      26,    0,  151,    2, 0x0a /* Public */,
-      27,    0,  152,    2, 0x0a /* Public */,
-      28,    1,  153,    2, 0x0a /* Public */,
-      30,    2,  156,    2, 0x0a /* Public */,
-      34,    1,  161,    2, 0x0a /* Public */,
-      36,    2,  164,    2, 0x0a /* Public */,
-      38,    0,  169,    2, 0x0a /* Public */,
-      39,    3,  170,    2, 0x0a /* Public */,
-      44,    0,  177,    2, 0x0a /* Public */,
+       1,    2,  129,    2, 0x0a /* Public */,
+       7,    1,  134,    2, 0x0a /* Public */,
+      10,    3,  137,    2, 0x0a /* Public */,
+      15,    2,  144,    2, 0x0a /* Public */,
+      18,    1,  149,    2, 0x0a /* Public */,
+      19,    1,  152,    2, 0x0a /* Public */,
+      20,    0,  155,    2, 0x0a /* Public */,
+      21,    0,  156,    2, 0x0a /* Public */,
+      22,    0,  157,    2, 0x0a /* Public */,
+      23,    0,  158,    2, 0x0a /* Public */,
+      24,    0,  159,    2, 0x0a /* Public */,
+      25,    0,  160,    2, 0x0a /* Public */,
+      26,    0,  161,    2, 0x0a /* Public */,
+      27,    0,  162,    2, 0x0a /* Public */,
+      28,    1,  163,    2, 0x0a /* Public */,
+      30,    2,  166,    2, 0x0a /* Public */,
+      34,    1,  171,    2, 0x0a /* Public */,
+      36,    2,  174,    2, 0x0a /* Public */,
+      38,    0,  179,    2, 0x0a /* Public */,
+      39,    3,  180,    2, 0x0a /* Public */,
+      44,    3,  187,    2, 0x0a /* Public */,
+      45,    0,  194,    2, 0x0a /* Public */,
+      46,    0,  195,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3, 0x80000000 | 5,    4,    6,
@@ -150,6 +155,8 @@ static const uint qt_meta_data_MainWidget[] = {
     0x80000000 | 31, QMetaType::Int, QMetaType::Int,   37,   33,
     QMetaType::QStringList,
     QMetaType::Bool, 0x80000000 | 31, 0x80000000 | 41, QMetaType::Int,   40,   42,   43,
+    QMetaType::Bool, 0x80000000 | 31, 0x80000000 | 41, QMetaType::Int,   40,   42,   43,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -189,7 +196,10 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             if (_a[0]) *reinterpret_cast< QStringList*>(_a[0]) = _r; }  break;
         case 19: { bool _r = _t->subscribeToTemplate((*reinterpret_cast< Graph*(*)>(_a[1])),(*reinterpret_cast< QXYSeries*(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 20: _t->switchFullScreen(); break;
+        case 20: { bool _r = _t->unSubscribeToTemplate((*reinterpret_cast< Graph*(*)>(_a[1])),(*reinterpret_cast< QXYSeries*(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 21: _t->switchFullScreen(); break;
+        case 22: _t->getScreenShot(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -212,6 +222,15 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             }
             break;
         case 19:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< Graph* >(); break;
+            case 1:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QXYSeries* >(); break;
+            }
+            break;
+        case 20:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -249,13 +268,13 @@ int MainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 23;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 23;
     }
     return _id;
 }

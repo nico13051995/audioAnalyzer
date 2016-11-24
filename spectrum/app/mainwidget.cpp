@@ -179,6 +179,23 @@ void MainWidget::showSettingsDialog()
     */
 }
 
+void MainWidget::getScreenShot(){
+    /*QSize size = viewer.size();
+    viewer.setFixedSize(9000, ((double)size.height()/size.width())*9000);
+    QImage img = viewer.grabFramebuffer();
+    viewer.setFixedSize(size);
+    viewer.setAutoFillBackground(true);*/
+    QImage img = viewer.grabFramebuffer();
+    QString filter;
+    QString path = QFileDialog::getSaveFileName(this, QString(), "screenShot.png","PNG (*.png);;JPG (*.jpg);;  GIF (*.gif)", &filter);
+    if(path.isEmpty() == false)
+    {
+        if(filter.isEmpty())
+            path += ".png";
+        img.save(path);
+    }
+}
+
 void MainWidget::initializeRecord()
 {
     reset();

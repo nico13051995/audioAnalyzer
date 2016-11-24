@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.0
 
 Item {
     id: _iconBtn
@@ -15,8 +16,16 @@ Item {
         id: icon
         source: _iconBtn.checked ? urlChecked : url
         scale: 0.8
+        visible: false
         anchors.fill: parent
         fillMode: Image.PreserveAspectFit
+    }
+    ColorOverlay {
+        id: colorVersion
+        anchors.fill: icon
+        source: icon
+        color: "#fff"
+        scale: 0.8
         Behavior on scale {
             NumberAnimation {
                 id: bouncebehavior
@@ -39,10 +48,10 @@ Item {
             _iconBtn.click();
         }
         onEntered: {
-            icon.scale = 1.0;
+            colorVersion.scale = 1.0;
         }
         onExited: {
-            icon.scale = 0.8;
+            colorVersion.scale = 0.8;
         }
     }
 }

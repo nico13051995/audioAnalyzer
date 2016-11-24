@@ -34,7 +34,7 @@ import QtCharts 2.1
 ChartView {
     id: chartView
     animationOptions: ChartView.NoAnimation
-    theme: ChartView.ChartThemeDark
+    theme: root.screenShot ? ChartView.ChartThemeLight : ChartView.ChartThemeDark
     //theme: ChartView.ChartThemeLight
     property bool openGL: true
     property int viewId

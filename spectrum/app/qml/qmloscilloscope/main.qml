@@ -34,9 +34,10 @@ Rectangle {
     id: root
     width: 600
     height: 400
-    color: "#2c2d37"
+    color: root.screenShot ? "#fff" : "#2c2d37"
     //color:"#2c2d37"
     property int nextId: 0
+    property bool screenShot: false
     /*MouseArea{
         z:1
         anchors.fill: parent;
@@ -51,6 +52,27 @@ Rectangle {
         anchors.top: parent.top
         anchors.right: parent.right
         height: 30
+        IconBtn{
+            id: screenShot
+            url: "qrc:/icons/qml/icons/screen-1.svg"
+            onClick: {
+                root.screenShot = true;
+                function Timer() {
+                    return Qt.createQmlObject( "import QtQuick 2.0; Timer {}", root);
+                }
+
+                var timer = new Timer();
+                timer.interval = 1000;
+                timer.repeat = false;
+                timer.triggered.connect(function () {
+                    mainWindow.getScreenShot();
+                    root.screenShot = false;
+                })
+
+                timer.start();
+
+            }
+        }
         IconBtn{
             id: fullScreenSwitch
             url: "qrc:/icons/qml/icons/ic_open_with_white_48px.svg"
