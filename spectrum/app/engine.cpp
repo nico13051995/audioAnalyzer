@@ -535,8 +535,9 @@ bool Engine::initializeFilters()
     for (int index = 0; index < supportedFilters.size(); index++) {
         QList<Filter*> initList;
         initList.append(supportedFilters[index]);
-        createdTemplates.insert("default_" + supportedFilters[index]->getName(), new GraphFilterService(initList));
+        createdTemplates.insert("default_" + supportedFilters[index]->getName(), new GraphFilterService(this, initList));
     }
+    return true;
 }
 
 bool Engine::selectFormat()

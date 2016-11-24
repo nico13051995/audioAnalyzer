@@ -11,11 +11,14 @@ Rectangle
     property bool closable: true
     function close(){
         hide.content = null;
+        _modalWindow.hideEvent();
     }
     function show(item)
     {
         hide.content = item;
     }
+    signal showEvent;
+    signal hideEvent;
 
     MouseArea{
         anchors.fill: parent
@@ -43,6 +46,7 @@ Rectangle
         x: parent.width/2 - width/2
         function close(){
             _modalWindow.close();
+            _modalWindow.hideEvent();
         }
 
         Item{

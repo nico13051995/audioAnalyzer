@@ -36,7 +36,12 @@ Column{
         property var childrens: []
         property var componentTemp: null
     }
-
+    function removeView(object)
+    {
+        var index = privateComponent.childrens.indexOf(object);
+        privateComponent.childrens.splice(index, 1);
+        object.destroy();
+    }
     function createNewView()
     {
         var object = privateComponent.componentTemp.createObject(_tabPage, privateComponent.componentTemp);

@@ -8,14 +8,15 @@
 #include "spectrograph.h"
 #include "spectrumanalyser.h"
 
+
+class Engine;
+
 class GraphFilterService : public QObject
 {
     Q_OBJECT
 public:
-    explicit GraphFilterService(QObject *parent = 0);
-    GraphFilterService(QList<Filter*>  &filters, QObject *parent = 0);
-
-
+    GraphFilterService(Engine *engine, QList<Filter*>  &filters, QObject *parent = 0);
+    ~GraphFilterService();
     QString getName() const;
     void setName(const QString &value);
 
@@ -28,8 +29,10 @@ public slots:
     void subscribeWaveForm(QXYSeries *set, int chanel);
     void unSubscribeWaveFormm(QXYSeries *set, int chanel);
 
-    void subscribeSpectrum(QXYSeries *set);
-    void unSubscribeSpectrum(QXYSeries *set);
+    void subscribeSpectrum(QXYSeries *set, int chanel);
+    void unSubscribeSpectrum(QXYSeries *set, int chanel);
+private slots:
+    void formatChanged(const QAudioFormat &format);
 private:
     //QByteArray m_source_signal;
     QByteArray m_filtered_signal;
@@ -37,6 +40,7 @@ private:
     QList<Filter*>  filters;
     WaveFormCustom waveBuilder;
     Spectrograph spectrBuilder;
+    Engine *engine;
 
     QString name;
 };

@@ -51,6 +51,7 @@ struct SeriesChanel{
     {
         this->chanel == other.chanel;
         this->series = other.series;
+        return true;
     }
 };
 

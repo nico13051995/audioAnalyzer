@@ -221,7 +221,7 @@ double MainWidget::getTimePosition()
     return m_engine->getTimePosition();
 }
 
-double MainWidget::setTimePosition(double time)
+void MainWidget::setTimePosition(double time)
 {
     m_engine->setTimePosition(time);
 }
@@ -245,8 +245,29 @@ Graph *MainWidget::getPraphById(int id, int idView)
 
 QStringList MainWidget::getTemplatesQML()
 {
-    QStringList list = m_engine->getCreatedTemplates().keys();
-    return list;
+    return m_engine->getCreatedTemplates().keys();;
+}
+
+bool MainWidget::subscribeToTemplate(Graph *graph, QXYSeries *set, int chanel)
+{
+    if(graph == NULL)
+        return false;
+    GraphFilterService* servise = m_engine->getCreatedTemplates().value(graph->getTemplateName());
+    if(graph == NULL)
+        return false;
+
+    switch (graph->getType()) {
+    case Graph::SPECTR:
+        servise->subscribeSpectrum(set, chanel);
+        break;
+    case Graph::WAVE:
+        servise->subscribeWaveForm(set, chanel);
+        break;
+    default:
+        return false;
+        break;
+    }
+    return true;
 }
 
 void MainWidget::keyReleaseEvent(QKeyEvent *event)
@@ -309,19 +330,6 @@ void MainWidget::createUi()
 
 void MainWidget::connectUi()
 {
-    /*
-    CHECKED_CONNECT(m_recordButton, SIGNAL(clicked()),
-            m_engine, SLOT(startRecording()));
-
-    CHECKED_CONNECT(m_pauseButton, SIGNAL(clicked()),
-            m_engine, SLOT(suspend()));
-
-    CHECKED_CONNECT(m_playButton, SIGNAL(clicked()),
-            m_engine, SLOT(startPlayback()));
-
-    CHECKED_CONNECT(m_settingsButton, SIGNAL(clicked()),
-            this, SLOT(showSettingsDialog()));
-*/
     CHECKED_CONNECT(m_engine, SIGNAL(stateChanged(QAudio::Mode,QAudio::State)),
                     this, SLOT(stateChanged(QAudio::Mode,QAudio::State)));
 
@@ -361,12 +369,12 @@ void MainWidget::connectUi()
             this, SLOT(infoMessage(QString, int)));*/
 
 #ifndef DISABLE_WAVEFORM
-    /* CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
+    /*CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                     m_waveform, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));*/
-    CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
+    /*CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                     dataSource, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
     CHECKED_CONNECT(m_engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
-                    m_spectrograph, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
+                    m_spectrograph, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));*/
 
 
 #endif

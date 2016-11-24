@@ -289,9 +289,7 @@ void Spectrograph::updateBars()
                 subscribtionList[j]->append(QPointF(i, (float)var/50));
             }
             subscribtionList[j]->append(QPointF(i, m_bars[i].value));
-
         }
-
     }
 }
 

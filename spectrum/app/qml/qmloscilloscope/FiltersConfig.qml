@@ -40,10 +40,73 @@ Item{
             id: _filtersConfigC
             width: _filtersConfigW.width - 60//50px close btn
             height: _filtersConfigW.height - 60
+            Item{
+                id: addComponent
+                width: parent.width
+                height: childrenRect.height
+                Row{
+                    width: parent.width
+                    height: graphNameContainer.height
+                    Rectangle{
+                        id: graphNameContainer
+                        width: parent.width - icon.width
+                        height: 40
+                        color: "transparent"
+                        property int botomBorder: 3
+                        Text{
+                            id: lable
+                            color: "white"
+                            y: parent.height/4 - graphNameContainer.botomBorder*2
+                            font.pointSize: parent.height/2
+                            text: "Імя торби: "
+                        }
+                        TextInput{
+                            id: graphName
+                            anchors.fill: parent
+                            anchors.bottomMargin: graphNameContainer.botomBorder
+                            anchors.topMargin: parent.height/4
+                            anchors.leftMargin: lable.width
+                            color: "white"
+                            font.pointSize: parent.height/2
+                        }
+                        Rectangle{
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            color: "white"
+                            height: graphNameContainer.botomBorder - 1
+                            opacity: 0.5
+                        }
+                    }
+                    IconBtn{
+                        id: icon
+                        url: "qrc:/icons/qml/icons/ic_add_white_48px.svg"
+                        onClick: {
+
+                            console.log("OK = " + mainWindow.addPraph(graphName.text, chartView.viewId).getName());
+                            console.log("OK = " + mainWindow.getPraphIds(chartView.viewId).length);
+                            rows.model = mainWindow.getPraphIds(chartView.viewId).length;
+                            graphName.text = "";
+                        }
+                    }
+                }
+            }
             ListView{
                 id: list
+                anchors.fill: parent
+                anchors.topMargin: addComponent.height
                 Repeater{
                     id:filtesRep
+                    model: mainWindow.getTemplatesQML()
+                    Row{
+                        width: parent.width
+                        height: childrenRect.height
+                        Text {
+                            id: name
+                            text: modelData
+                            onTextChanged: console.log("TEXT: " + modelData)
+                        }
+                    }
                 }
 
             }

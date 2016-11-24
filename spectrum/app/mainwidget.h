@@ -103,11 +103,13 @@ public slots:
     void stop();
     double getDuration();
     double getTimePosition();
-    double setTimePosition(double time);
+    void setTimePosition(double time);
     Graph* addPraph(QString name, int idView);
     QList<int> getPraphIds(int idView);
     Graph *getPraphById(int id, int idView);
     Q_INVOKABLE QStringList getTemplatesQML();
+    Q_INVOKABLE bool subscribeToTemplate(Graph * graph, QXYSeries *set, int chanel);
+
     void switchFullScreen();
 protected:
     void keyReleaseEvent(QKeyEvent *event);

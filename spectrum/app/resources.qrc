@@ -15,6 +15,7 @@
         <file>qml/qmloscilloscope/TabViewBtn.qml</file>
         <file>qml/qmloscilloscope/ModalWindowConfirm.qml</file>
         <file>qml/qmloscilloscope/FiltersConfig.qml</file>
+        <file>qml/qmloscilloscope/ModalWindowGraphsControll.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file>qml/icons/ic_add_to_queue_white_48px.svg</file>

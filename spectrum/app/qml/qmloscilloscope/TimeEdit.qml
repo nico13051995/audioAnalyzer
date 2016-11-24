@@ -76,10 +76,4 @@ Row{
         wrapMode: Text.WrapAnywhere
         text: time.getSeconds()
     }
-   /* Text {
-        id: secondsTitle
-        text: qsTr("сек.")
-        font: _timeEdit.textFont
-        color: _timeEdit.textColor
-    }*/
 }

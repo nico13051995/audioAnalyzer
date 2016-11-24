@@ -37,6 +37,7 @@ ChartView {
     theme: ChartView.ChartThemeDark
     property bool openGL: true
     property int viewId
+    property var graphsList: new Array()
     antialiasing: false;
     function realResetZoom()
     {
@@ -64,162 +65,62 @@ ChartView {
             markerSize: 16
         }
     }
-    function update(){
-        console.log("KAKA");
-        //lineComponent.createObject(chartView, {axisX: axisX,   axisY: axisY1});
-        //var comp = barComponent.createObject(chartView, {axisX: axisX2,   axisYRight: axisY2});
-
-        var comp = chartView.createSeries(ChartView.SeriesTypeLine, "signal 1", axisX, axisY1);
-        comp.useOpenGL = true;
-        dataSource.subscribeSeries(comp, 0);
-        comp = chartView.createSeries(ChartView.SeriesTypeScatter, "signal 2", axisX2, axisY2);
-       // dataSource.subscribeSeries(chartView.series(1), 1);
-        comp.useOpenGL = true;
-        comp.borderColor = "white";
-        comp.borderWidth = 20;
-        comp.markerSize = 16;
-        comp.axisYRight = axisY2;
-        dataSpectr.subsctibeChart(comp);
-    }
-
-    ModalWindow{
-        id: chartSettings
-        Item{
-            id: chartSettingsC
-            property int index: 0
-            width: chartSettings.width - 60//50px close btn
-            height: chartSettings.height - 60
-            function range(min, max){
-                var array = [];
-                for(var i = min; i <= max; i++)
-                    array.push(i);
-                return array;
-            }
-            Item{
-                id: addComponent
-                width: parent.width
-                height: childrenRect.height
-                Row{
-                    width: parent.width
-                    height: graphNameContainer.height
-                    Rectangle{
-                        id: graphNameContainer
-                        width: parent.width - icon.width
-                        height: 40
-                        color: "transparent"
-                        property int botomBorder: 3
-                        Text{
-                            id: lable
-                            color: "white"
-                            y: parent.height/4 - graphNameContainer.botomBorder*2
-                            font.pointSize: parent.height/2
-                            text: "Імя графіку: "
-                        }
-                        TextInput{
-                            id: graphName
-                            anchors.fill: parent
-                            anchors.bottomMargin: graphNameContainer.botomBorder
-                            anchors.topMargin: parent.height/4
-                            anchors.leftMargin: lable.width
-                            color: "white"
-                            font.pointSize: parent.height/2
-                        }
-                        Rectangle{
-                            anchors.bottom: parent.bottom
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            color: "white"
-                            height: graphNameContainer.botomBorder - 1
-                            opacity: 0.5
-                        }
-                    }
-                    IconBtn{
-                        id: icon
-                        url: "qrc:/icons/qml/icons/ic_add_white_48px.svg"
-                        onClick: {
-
-                            console.log("OK = " + mainWindow.addPraph(graphName.text, chartView.viewId).getName());
-                            console.log("OK = " + mainWindow.getPraphIds(chartView.viewId).length);
-                            rows.model = mainWindow.getPraphIds(chartView.viewId).length;
-                            graphName.text = "";
-                        }
-                    }
-                }
-            }
-            Column{
-                anchors.fill: parent
-                anchors.topMargin: addComponent.height + 10
-                spacing: 10
-                Repeater{
-                    id: rows
-                    model: mainWindow.getPraphIds(chartView.viewId).length
-                    Row{
-                        id: graph
-                        property var graphId
-                        property var graphObj
-                        width: parent.width
-                        height: childrenRect.height
-                        spacing: 5
-                        z: 1000 - index
-
-                        Text {
-                            id: name
-                            text: qsTr("text")
-                            color: "white"
-                            width: 200
-                            y: filter.height/4
-                            font.pixelSize: filter.height/2
-                        }
-                        ComboBox{
-                            id: filter
-                            items: mainWindow.getTemplatesQML();
-                            titleLink: null
-                            onComboClicked: {
-                                graph.graphObj.setTemplateName(filter.selectedValue());
-                            }
-                        }
-                        //chanels
-                        ComboBox{
-                            id:chanel
-                            items: chartSettingsC.range(0,3);
-                            titleLink: null
-                            onComboClicked: {
-                                graph.graphObj.setChanel(chanel.selectedValue());
-                            }
-                        }
-                        //chanels
-                        ComboBox{
-                            id:type
-                            items: [{title:"Форма", value: 1},{title:"Спектр", value: 2}]
-                            titleLink: 'title'
-                            onComboClicked: {
-                                console.log(type.selectedValue().value);
-                                graph.graphObj.setType(type.selectedValue().value);
-
-                            }
-                        }
-                        Component.onCompleted: {
-                            graph.graphId = mainWindow.getPraphIds(chartView.viewId)[index];
-                            graph.graphObj = mainWindow.getPraphById(graphId, chartView.viewId)
-
-                            filter.setCurrent(filter.items.indexOf(graph.graphObj.getTemplateName()));
-                            chanel.setCurrent(chanel.items.indexOf(graph.graphObj.getChanel()));
-                            console.log(graph.graphObj.getType());
-                            if(graph.graphObj.getType() == 1)
-                                type.setCurrent(0);
-                            else
-                                type.setCurrent(1);
-
-                            name.text = graph.graphObj.getName();
-                            update();
-                        }
-                    }
-                }
-                Component.onCompleted: {
-                    rows.model = mainWindow.getPraphIds(chartView.viewId).length;
-                }
+    function clear(){
+        for(var i = 0; i < chartView.graphsList.length; i++)
+        {
+            var obj = chartView.graphsList[i];
+            switch(obj.type)
+            {
+            case 1:
+                dataSource.unSubscribeSeries(obj.series, obj.chanel);
+                break;
+            case 2:
+                dataSpectr.unSubsctibeChart(obj.series);
+                break;
             }
         }
+        chartView.graphsList = [];
+        chartView.removeAllSeries();
+    }
+
+    function update(){
+        clear();
+        var listOfGraphsIds = mainWindow.getPraphIds(chartView.viewId);
+        for(var i = 0; i < listOfGraphsIds.length; i++)
+        {
+            var graphObj = mainWindow.getPraphById(listOfGraphsIds[i], chartView.viewId);
+            var qmlObj = {type: graphObj.getType(), series: null};
+            console.log("TEST " + graphObj.getType());
+            switch(graphObj.getType())
+            {
+            case 1:
+                var comp = chartView.createSeries(ChartView.SeriesTypeLine, graphObj.getName(), axisX, axisY1);
+                comp.useOpenGL = true;
+                mainWindow.subscribeToTemplate(graphObj,comp, graphObj.getChanel());
+                //dataSource.subscribeSeries(comp, graphObj.getChanel());
+                qmlObj.series = comp;
+                qmlObj.chanel = graphObj.getChanel();
+                break;
+            case 2:
+                var comp = chartView.createSeries(ChartView.SeriesTypeScatter, graphObj.getName(), axisX2, axisY2);
+                // dataSource.subscribeSeries(chartView.series(1), 1);
+                qmlObj.series = comp;
+                comp.useOpenGL = true;
+                comp.borderColor = "white";
+                comp.borderWidth = 20;
+                comp.markerSize = 16;
+                comp.axisYRight = axisY2;
+                //dataSpectr.subsctibeChart(comp);
+                mainWindow.subscribeToTemplate(graphObj,comp, graphObj.getChanel());
+                break;
+            }
+
+            chartView.graphsList.push(qmlObj);
+        }
+    }
+    ModalWindowGraphsControll{
+        id: chartSettings
+        onHideEvent: chartView.update();
     }
     Item{
         id: controllPanel
@@ -233,12 +134,12 @@ ChartView {
             height: parent.height
             IconBtn{
                 url: "qrc:/icons/qml/icons/ic_settings_applications_white_48px.svg"
-                onClick: {chartSettings.show(chartSettingsC)}
+                onClick: {chartSettings.show()}
 
             }
             IconBtn{
                 url: "qrc:/icons/qml/icons/ic_delete_forever_white_48px.svg"
-                onClick: {_tabView.addTab();}
+                onClick: {chartView.clear();chartView.parent.removeView(chartView)}
             }
         }
     }
@@ -265,7 +166,6 @@ ChartView {
         id: axisX2
         min: -1
         max: dataSpectr.getBarNumber()
-        
     }
 
     //![1]
@@ -453,9 +353,7 @@ ChartView {
 
 
     Component.onCompleted:{
-        chartView.update();
-
         chartView.viewId = root.nextId++;
-
+        chartView.update();
     }
 }
