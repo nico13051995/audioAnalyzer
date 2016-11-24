@@ -77,7 +77,7 @@ MainWidget::MainWidget(QWidget *parent)
 {
 
     m_spectrograph->setParams(SpectrumNumBands, SpectrumLowFreq, SpectrumHighFreq);
-
+   // QCoreApplication::instance()->installEventFilter(this);
     createUi();
     connectUi();
 }
@@ -253,7 +253,7 @@ bool MainWidget::subscribeToTemplate(Graph *graph, QXYSeries *set, int chanel)
     if(graph == NULL)
         return false;
     GraphFilterService* servise = m_engine->getCreatedTemplates().value(graph->getTemplateName());
-    if(graph == NULL)
+    if(servise == NULL)
         return false;
 
     switch (graph->getType()) {
@@ -262,6 +262,28 @@ bool MainWidget::subscribeToTemplate(Graph *graph, QXYSeries *set, int chanel)
         break;
     case Graph::WAVE:
         servise->subscribeWaveForm(set, chanel);
+        break;
+    default:
+        return false;
+        break;
+    }
+    return true;
+}
+
+bool MainWidget::unSubscribeToTemplate(Graph *graph, QXYSeries *set, int chanel)
+{
+    if(graph == NULL)
+        return false;
+    GraphFilterService* servise = m_engine->getCreatedTemplates().value(graph->getTemplateName());
+    if(servise == NULL)
+        return false;
+
+    switch (graph->getType()) {
+    case Graph::SPECTR:
+        servise->unSubscribeSpectrum(set, chanel);
+        break;
+    case Graph::WAVE:
+        servise->unSubscribeWaveFormm(set, chanel);
         break;
     default:
         return false;
@@ -280,13 +302,21 @@ void MainWidget::keyReleaseEvent(QKeyEvent *event)
     default:
         break;
     }
-    event->setAccepted(false);
 }
 
 void MainWidget::keyPressEvent(QKeyEvent *event)
 {
     QMainWindow::keyPressEvent(event);
     event->setAccepted(false);
+}
+
+bool MainWidget::eventFilter(QObject *Object, QEvent *Event)
+{
+    if (Event->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *keyEvent = (QKeyEvent*)Event;
+        keyReleaseEvent(keyEvent);
+    }
 }
 
 
@@ -325,7 +355,11 @@ void MainWidget::createUi()
     //viewer.setColor(QColor("#404040"));
     //    viewer.show();
     ui->gridLayout->addWidget(&viewer);
-    //  grabKeyboard();
+    this->setFocusPolicy(Qt::StrongFocus);
+    //viewer.setFocusProxy(this);
+    setFocusProxy(&viewer);
+    //viewer.setFocusPolicy(Qt::StrongFocus);
+    viewer.grabKeyboard();
 }
 
 void MainWidget::connectUi()

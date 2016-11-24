@@ -109,6 +109,7 @@ public slots:
     Graph *getPraphById(int id, int idView);
     Q_INVOKABLE QStringList getTemplatesQML();
     Q_INVOKABLE bool subscribeToTemplate(Graph * graph, QXYSeries *set, int chanel);
+    Q_INVOKABLE bool unSubscribeToTemplate(Graph * graph, QXYSeries *set, int chanel);
 
     void switchFullScreen();
 protected:
@@ -146,6 +147,7 @@ private:
     QMap<int,QMap<int,Graph*>> graphs;
     Ui::MainWindow *ui;
 
+    bool eventFilter(QObject *Object, QEvent *Event);
 };
 
 #endif // MAINWIDGET_H

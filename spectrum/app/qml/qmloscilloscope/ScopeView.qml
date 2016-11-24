@@ -35,6 +35,7 @@ ChartView {
     id: chartView
     animationOptions: ChartView.NoAnimation
     theme: ChartView.ChartThemeDark
+    //theme: ChartView.ChartThemeLight
     property bool openGL: true
     property int viewId
     property var graphsList: new Array()
@@ -69,7 +70,7 @@ ChartView {
         for(var i = 0; i < chartView.graphsList.length; i++)
         {
             var obj = chartView.graphsList[i];
-            switch(obj.type)
+            /*switch(obj.type)
             {
             case 1:
                 dataSource.unSubscribeSeries(obj.series, obj.chanel);
@@ -77,7 +78,8 @@ ChartView {
             case 2:
                 dataSpectr.unSubsctibeChart(obj.series);
                 break;
-            }
+            }*/
+            mainWindow.unSubscribeToTemplate(obj.obj, obj.series, obj.chanel);
         }
         chartView.graphsList = [];
         chartView.removeAllSeries();
@@ -89,7 +91,7 @@ ChartView {
         for(var i = 0; i < listOfGraphsIds.length; i++)
         {
             var graphObj = mainWindow.getPraphById(listOfGraphsIds[i], chartView.viewId);
-            var qmlObj = {type: graphObj.getType(), series: null};
+            var qmlObj = {type: graphObj.getType(), series: null, obj : graphObj};
             console.log("TEST " + graphObj.getType());
             switch(graphObj.getType())
             {
@@ -105,11 +107,13 @@ ChartView {
                 var comp = chartView.createSeries(ChartView.SeriesTypeScatter, graphObj.getName(), axisX2, axisY2);
                 // dataSource.subscribeSeries(chartView.series(1), 1);
                 qmlObj.series = comp;
+                qmlObj.chanel = graphObj.getChanel();
                 comp.useOpenGL = true;
                 comp.borderColor = "white";
                 comp.borderWidth = 20;
                 comp.markerSize = 16;
                 comp.axisYRight = axisY2;
+
                 //dataSpectr.subsctibeChart(comp);
                 mainWindow.subscribeToTemplate(graphObj,comp, graphObj.getChanel());
                 break;

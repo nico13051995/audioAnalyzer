@@ -35,6 +35,7 @@ Rectangle {
     width: 600
     height: 400
     color: "#2c2d37"
+    //color:"#2c2d37"
     property int nextId: 0
     /*MouseArea{
         z:1
@@ -63,6 +64,12 @@ Rectangle {
             url: "qrc:/icons/qml/icons/ic_highlight_off_white_48px.svg"
             visible: mainWindow.isFullScreen();
             onClick: mainWindow.close();
+            Connections{
+                target: root
+                onWidthChanged:{
+                    closeBtn.visible = mainWindow.isFullScreen();;
+                }
+            }
         }
     }
 

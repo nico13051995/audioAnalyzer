@@ -3,6 +3,7 @@
 
 GraphFilterService::GraphFilterService(Engine *engine, QList<Filter *> &filters, QObject *parent) : QObject(parent)
 {
+    spectrBuilder.setParams(SpectrumNumBands, SpectrumLowFreq, SpectrumHighFreq);
     this->filters = filters;
     this->engine = engine;
     if(engine == NULL)
@@ -72,7 +73,7 @@ void GraphFilterService::subscribeWaveForm(QXYSeries *set, int chanel)
 
 void GraphFilterService::unSubscribeWaveFormm(QXYSeries *set, int chanel)
 {
-    waveBuilder.subscribeSeries(set, chanel);
+    waveBuilder.unSubscribeSeries(set, chanel);
 }
 
 void GraphFilterService::subscribeSpectrum(QXYSeries *set, int chanel)

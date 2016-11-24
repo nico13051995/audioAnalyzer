@@ -9,8 +9,8 @@ class Graph : public QObject
 public:
     enum GRAPHICTYPE
     {
-        SPECTR = 1,
-        WAVE = 2,
+        SPECTR = 2,
+        WAVE = 1,
         STYLE_FILLED
     };
     Q_ENUMS(GRAPHICTYPE)
