@@ -6,6 +6,8 @@ GraphFilterService::GraphFilterService(Engine *engine, QList<Filter *> &filters,
     spectrBuilder.setParams(SpectrumNumBands, SpectrumLowFreq, SpectrumHighFreq);
     this->filters = filters;
     this->engine = engine;
+    this->format = engine->format();
+    qDebug() << this->format.sampleSize();
     if(engine == NULL)
         throw "ENGINE IS NULL" ;
     CHECKED_CONNECT(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
@@ -34,13 +36,25 @@ GraphFilterService::~GraphFilterService()
 
 void GraphFilterService::formatChanged(const QAudioFormat &format)
 {
+    this->format = format;
     waveBuilder.setFormat(format);
     spectrBuilder.setFormat(format);
 }
 
 void GraphFilterService::bufferChanged(qint64 position, qint64 length, const QByteArray &buffer){
-    waveBuilder.bufferChanged(position, length, buffer);
-    spectrBuilder.bufferChanged(position, length, buffer);
+    QByteArray filtered = applyFilters(buffer);
+    waveBuilder.bufferChanged(position, length, filtered);
+    spectrBuilder.bufferChanged(position, length, filtered);
+}
+
+QByteArray GraphFilterService::applyFilters(const QByteArray &buffer)
+{
+    QByteArray filtered = filters[0]->doFilter(format, buffer);//QByteArray(buffer.size(), Qt::Initialization);
+    for(int i = 1; i < filters.size(); i++)
+    {
+        filters[i]->doFilter(format, filtered);
+    }
+    return filtered;
 }
 
 bool GraphFilterService::save(qint64 start, qint64 end, QIODevice *out)

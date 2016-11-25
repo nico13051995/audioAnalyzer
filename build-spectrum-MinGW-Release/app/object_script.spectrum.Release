@@ -16,6 +16,7 @@ INPUT(
 ./release\graphfilterservice.o
 ./release\nullfilter.o
 ./release\graph.o
+./release\customfilter.o
 ./release\qrc_resources.o
 ./release\moc_engine.o
 ./release\moc_levelmeter.o
@@ -29,4 +30,5 @@ INPUT(
 ./release\moc_filter.o
 ./release\moc_graphfilterservice.o
 ./release\moc_graph.o
+./release\moc_customfilter.o
 );

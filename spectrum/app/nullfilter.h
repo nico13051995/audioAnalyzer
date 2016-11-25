@@ -7,7 +7,7 @@ class NullFilter : public Filter
 {
 public:
     NullFilter();
-    QByteArray doFilter(QByteArray array);
+    QByteArray doFilter(QAudioFormat format, QByteArray array);
 };
 
 #endif // NULLFILTER_H

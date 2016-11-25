@@ -24,6 +24,7 @@ signals:
 
 public slots:
     void bufferChanged(qint64 position, qint64 length, const QByteArray &buffer);
+    QByteArray applyFilters(const QByteArray &buffer);
     bool save(qint64 start, qint64 end, QIODevice *out);
 
     void subscribeWaveForm(QXYSeries *set, int chanel);
@@ -36,6 +37,7 @@ private slots:
 private:
     //QByteArray m_source_signal;
     QByteArray m_filtered_signal;
+    QAudioFormat format;
 
     QList<Filter*>  filters;
     WaveFormCustom waveBuilder;

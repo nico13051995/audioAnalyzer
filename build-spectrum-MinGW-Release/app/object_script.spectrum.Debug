@@ -16,6 +16,7 @@ INPUT(
 ./debug\graphfilterservice.o
 ./debug\nullfilter.o
 ./debug\graph.o
+./debug\customfilter.o
 ./debug\qrc_resources.o
 ./debug\moc_engine.o
 ./debug\moc_levelmeter.o
@@ -29,4 +30,5 @@ INPUT(
 ./debug\moc_filter.o
 ./debug\moc_graphfilterservice.o
 ./debug\moc_graph.o
+./debug\moc_customfilter.o
 );
