@@ -314,6 +314,11 @@ void Engine::setTimePosition(qint64 time)
     audioNotify();
 }
 
+void Engine::setPlayTemplate(QString name)
+{
+    filterTempateForPlay = getCreatedTemplates().value(name);
+}
+
 
 //-----------------------------------------------------------------------------
 // Private slots
@@ -467,7 +472,7 @@ void Engine::reset()
     resetAudioDevices();
 }
 void Engine::pushTimerExpired(){
-    p_audioOutputIODevice->write(m_file->read(m_audioOutput->bytesFree()));
+    p_audioOutputIODevice->write(filterTempateForPlay->applyFilters(m_file->read(m_audioOutput->bytesFree())));
 }
 
 bool Engine::initialize()
@@ -529,14 +534,20 @@ bool Engine::initialize()
 
 bool Engine::initializeFilters()
 {
+    QList<float> filterParams;
+    filterParams.append(2.3);
+    CustomFilter *filter = new CustomFilter(filterParams);
+    filter->setName("URRA_TEST_1");
     supportedFilters.append(new NullFilter());
     supportedFilters.append(new NullFilter());
-
+    supportedFilters.append(filter);
+//default_URRA_TEST_1
     for (int index = 0; index < supportedFilters.size(); index++) {
         QList<Filter*> initList;
         initList.append(supportedFilters[index]);
         createdTemplates.insert("default_" + supportedFilters[index]->getName(), new GraphFilterService(this, initList));
     }
+    filterTempateForPlay = createdTemplates.first();
     return true;
 }
 

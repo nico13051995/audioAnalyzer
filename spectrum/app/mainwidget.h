@@ -110,6 +110,7 @@ public slots:
     Q_INVOKABLE QStringList getTemplatesQML();
     Q_INVOKABLE bool subscribeToTemplate(Graph * graph, QXYSeries *set, int chanel);
     Q_INVOKABLE bool unSubscribeToTemplate(Graph * graph, QXYSeries *set, int chanel);
+    Q_INVOKABLE void changePlayTemplate(QString name);
 
     void switchFullScreen();
     void getScreenShot();

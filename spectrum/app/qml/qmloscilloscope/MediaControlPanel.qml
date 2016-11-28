@@ -56,6 +56,15 @@ Item{
                         mainWindow.stop();
                     }
                 }
+                ComboBox{
+                    id: filter
+                    items: mainWindow.getTemplatesQML();
+                    titleLink: null
+                    popUp: true
+                    onComboClicked: {
+                        mainWindow.changePlayTemplate(filter.selectedValue());
+                    }
+                }
 
             }
         }

@@ -86,7 +86,7 @@ ChartView {
     }
 
     function update(){
-        clear();
+
         var listOfGraphsIds = mainWindow.getPraphIds(chartView.viewId);
         for(var i = 0; i < listOfGraphsIds.length; i++)
         {
@@ -138,7 +138,7 @@ ChartView {
             height: parent.height
             IconBtn{
                 url: "qrc:/icons/qml/icons/ic_settings_applications_white_48px.svg"
-                onClick: {chartSettings.show()}
+                onClick: {clear();chartSettings.show()}
 
             }
             IconBtn{

@@ -7,8 +7,8 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
-build-spectrum-Desktop_Qt_5_7_0_MinGW_32bit-Debug/
-build-spectrum-Desktop_Qt_5_7_0_MinGW_32bit-Release/
+build-spectrum-MinGW-Release/
+build-spectrum-MinGW-Release/
 # Windows Installer files
 *.cab
 *.msi

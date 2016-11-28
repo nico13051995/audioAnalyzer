@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Engine_t {
-    QByteArrayData data[51];
-    char stringdata0[628];
+    QByteArrayData data[53];
+    char stringdata0[649];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -76,10 +76,12 @@ QT_MOC_LITERAL(43, 517, 11), // "getDuration"
 QT_MOC_LITERAL(44, 529, 15), // "getTimePosition"
 QT_MOC_LITERAL(45, 545, 15), // "setTimePosition"
 QT_MOC_LITERAL(46, 561, 4), // "time"
-QT_MOC_LITERAL(47, 566, 16), // "pushTimerExpired"
-QT_MOC_LITERAL(48, 583, 11), // "audioNotify"
-QT_MOC_LITERAL(49, 595, 17), // "audioStateChanged"
-QT_MOC_LITERAL(50, 613, 14) // "audioDataReady"
+QT_MOC_LITERAL(47, 566, 15), // "setPlayTemplate"
+QT_MOC_LITERAL(48, 582, 4), // "name"
+QT_MOC_LITERAL(49, 587, 16), // "pushTimerExpired"
+QT_MOC_LITERAL(50, 604, 11), // "audioNotify"
+QT_MOC_LITERAL(51, 616, 17), // "audioStateChanged"
+QT_MOC_LITERAL(52, 634, 14) // "audioDataReady"
 
     },
     "Engine\0stateChanged\0\0QAudio::Mode\0"
@@ -97,8 +99,9 @@ QT_MOC_LITERAL(50, 613, 14) // "audioDataReady"
     "QAudioDeviceInfo\0device\0setAudioOutputDevice\0"
     "setWindowFunction\0WindowFunction\0func\0"
     "getDuration\0getTimePosition\0setTimePosition\0"
-    "time\0pushTimerExpired\0audioNotify\0"
-    "audioStateChanged\0audioDataReady"
+    "time\0setPlayTemplate\0name\0pushTimerExpired\0"
+    "audioNotify\0audioStateChanged\0"
+    "audioDataReady"
 };
 #undef QT_MOC_LITERAL
 
@@ -108,7 +111,7 @@ static const uint qt_meta_data_Engine[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      25,   14, // methods
+      26,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -116,33 +119,34 @@ static const uint qt_meta_data_Engine[] = {
       11,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,  139,    2, 0x06 /* Public */,
-       7,    2,  144,    2, 0x06 /* Public */,
-      10,    2,  149,    2, 0x06 /* Public */,
-      13,    1,  154,    2, 0x06 /* Public */,
-      16,    1,  157,    2, 0x06 /* Public */,
-      18,    1,  160,    2, 0x06 /* Public */,
-      19,    1,  163,    2, 0x06 /* Public */,
-      21,    1,  166,    2, 0x06 /* Public */,
-      22,    3,  169,    2, 0x06 /* Public */,
-      26,    3,  176,    2, 0x06 /* Public */,
-      30,    3,  183,    2, 0x06 /* Public */,
+       1,    2,  144,    2, 0x06 /* Public */,
+       7,    2,  149,    2, 0x06 /* Public */,
+      10,    2,  154,    2, 0x06 /* Public */,
+      13,    1,  159,    2, 0x06 /* Public */,
+      16,    1,  162,    2, 0x06 /* Public */,
+      18,    1,  165,    2, 0x06 /* Public */,
+      19,    1,  168,    2, 0x06 /* Public */,
+      21,    1,  171,    2, 0x06 /* Public */,
+      22,    3,  174,    2, 0x06 /* Public */,
+      26,    3,  181,    2, 0x06 /* Public */,
+      30,    3,  188,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      32,    0,  190,    2, 0x0a /* Public */,
-      33,    0,  191,    2, 0x0a /* Public */,
-      34,    0,  192,    2, 0x0a /* Public */,
-      35,    0,  193,    2, 0x0a /* Public */,
-      36,    1,  194,    2, 0x0a /* Public */,
-      39,    1,  197,    2, 0x0a /* Public */,
-      40,    1,  200,    2, 0x0a /* Public */,
-      43,    0,  203,    2, 0x0a /* Public */,
-      44,    0,  204,    2, 0x0a /* Public */,
-      45,    1,  205,    2, 0x0a /* Public */,
-      47,    0,  208,    2, 0x09 /* Protected */,
-      48,    0,  209,    2, 0x08 /* Private */,
-      49,    1,  210,    2, 0x08 /* Private */,
-      50,    0,  213,    2, 0x08 /* Private */,
+      32,    0,  195,    2, 0x0a /* Public */,
+      33,    0,  196,    2, 0x0a /* Public */,
+      34,    0,  197,    2, 0x0a /* Public */,
+      35,    0,  198,    2, 0x0a /* Public */,
+      36,    1,  199,    2, 0x0a /* Public */,
+      39,    1,  202,    2, 0x0a /* Public */,
+      40,    1,  205,    2, 0x0a /* Public */,
+      43,    0,  208,    2, 0x0a /* Public */,
+      44,    0,  209,    2, 0x0a /* Public */,
+      45,    1,  210,    2, 0x0a /* Public */,
+      47,    1,  213,    2, 0x0a /* Public */,
+      49,    0,  216,    2, 0x09 /* Protected */,
+      50,    0,  217,    2, 0x08 /* Private */,
+      51,    1,  218,    2, 0x08 /* Private */,
+      52,    0,  221,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, 0x80000000 | 5,    4,    6,
@@ -168,6 +172,7 @@ static const uint qt_meta_data_Engine[] = {
     QMetaType::LongLong,
     QMetaType::LongLong,
     QMetaType::Void, QMetaType::LongLong,   46,
+    QMetaType::Void, QMetaType::QString,   48,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 5,    6,
@@ -205,10 +210,11 @@ void Engine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 19: { qint64 _r = _t->getTimePosition();
             if (_a[0]) *reinterpret_cast< qint64*>(_a[0]) = _r; }  break;
         case 20: _t->setTimePosition((*reinterpret_cast< qint64(*)>(_a[1]))); break;
-        case 21: _t->pushTimerExpired(); break;
-        case 22: _t->audioNotify(); break;
-        case 23: _t->audioStateChanged((*reinterpret_cast< QAudio::State(*)>(_a[1]))); break;
-        case 24: _t->audioDataReady(); break;
+        case 21: _t->setPlayTemplate((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 22: _t->pushTimerExpired(); break;
+        case 23: _t->audioNotify(); break;
+        case 24: _t->audioStateChanged((*reinterpret_cast< QAudio::State(*)>(_a[1]))); break;
+        case 25: _t->audioDataReady(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -244,7 +250,7 @@ void Engine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAudioDeviceInfo >(); break;
             }
             break;
-        case 23:
+        case 24:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -360,13 +366,13 @@ int Engine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 25)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 26;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 25)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 26;
     }
     return _id;
 }

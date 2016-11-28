@@ -1,22 +1,42 @@
 #include "customfilter.h"
 
-CustomFilter::CustomFilter(QObject *parent) : Filter(parent)
-{
+#define GETMASK(index, size) (((1 << (size)) - 1) << (index))
+#define READFROM(data, index, size) (((data) & GETMASK((index), (size))) >> (index))
+#define WRITETO(data, index, size, value) ((data) = ((data) & (~GETMASK((index), (size)))) | ((value) << (index)))
 
+CustomFilter::CustomFilter(QList<float> params, QObject *parent) : Filter(parent)
+{
+    parameters = params;
 }
 
 QByteArray CustomFilter::doFilter(QAudioFormat format, QByteArray array)
 {
-    char *inData = array.data();
-    int sampmleSize = format.sampleType();
-    int samplesCount = array.size()/sampmleSize;
-    char *outData = array.data();
 
-    for (int i=0; i<samplesCount; i++)
+    int sampmleSize = format.sampleSize();
+    int samplesCount = (array.size()*8)/sampmleSize;
+    QByteArray out = QByteArray(array.size(), Qt::Uninitialized);
+   // qDebug() << samplesCount;
+    if(sampmleSize == 16)
     {
-        outData[i]=0.;
-        for (int j=0; j<this->size-1; j++)
-            if(i-j>=0)
-                outData[i]+= parameters[j]*inData[i-j];
+        int16_t *outData = (int16_t *)out.data();
+        int16_t *inData = (int16_t *)array.data();
+
+        for (int i=0; i<samplesCount; i++)
+        {
+            int32_t outDataD =0;
+            for (int j=0; j<this->parameters.size(); j++)
+            {
+                if(i-j>=0)
+                {
+                    outDataD += parameters[j]*inData[i-j];
+                 //    qDebug() << "param" << outDataD;
+
+                }
+            }
+            outData[i] = qFloor( outDataD/this->parameters.size());
+
+        }
     }
+
+    return out;
 }

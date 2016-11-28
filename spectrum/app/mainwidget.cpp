@@ -309,6 +309,11 @@ bool MainWidget::unSubscribeToTemplate(Graph *graph, QXYSeries *set, int chanel)
     return true;
 }
 
+void MainWidget::changePlayTemplate(QString name)
+{
+    m_engine->setPlayTemplate(name);
+}
+
 void MainWidget::keyReleaseEvent(QKeyEvent *event)
 {
     QMainWindow::keyReleaseEvent(event);

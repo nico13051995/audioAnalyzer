@@ -13,11 +13,17 @@ Item {
         chosenItemText.text = titleLink == null ? comboBox.items[index] : comboBox.items[index][comboBox.titleLink];
     }
     property var titleLink: "title"
+    property bool popUp: false
+    property var nextState: comboBox.popUp ?  "popUp" : "dropDown"
     signal comboClicked;
     width: 100;
     height: 30;
     smooth:true;
     focus: true
+    onStateChanged: {
+        console.log(comboBox.popUp)
+    }
+
     onFocusChanged: {
         if(focus == false)
             comboBox.state = "";
@@ -30,6 +36,7 @@ Item {
         height:comboBox.height;
         color: "lightsteelblue"
         smooth:true;
+        clip: true
         Text {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
@@ -45,7 +52,7 @@ Item {
         MouseArea {
             anchors.fill: parent;
             onClicked: {
-                comboBox.state = comboBox.state==="dropDown"?"":"dropDown"
+                comboBox.state = comboBox.state === comboBox.nextState ?"": comboBox.nextState
                 comboBox.forceActiveFocus();
             }
         }
@@ -59,6 +66,7 @@ Item {
         radius:4;
         anchors.top: chosenItem.bottom;
         anchors.margins: -5;
+
         color: "lightgray"
         z:-1
         ListView {
@@ -106,13 +114,19 @@ Item {
         }
     }
 
-    states: State {
-        name: "dropDown";
-        PropertyChanges { target: dropDown; height:comboBox.height*comboBox.items.length }
-    }
+    states: [State {
+            name: "dropDown";
+            PropertyChanges { target: dropDown; height:comboBox.height*comboBox.items.length }
+        },
+        State {
+            name: "popUp"
+            PropertyChanges { target: dropDown; height:comboBox.height*comboBox.items.length }
+            PropertyChanges { target: dropDown; anchors.topMargin:-dropDown.height - chosenItem.height}
+        }]
 
     transitions: Transition {
         NumberAnimation { target: dropDown; properties: "height"; easing.type: Easing.OutExpo; duration: 1000 }
+        NumberAnimation { target: dropDown; properties: "anchors.topMargin"; easing.type: Easing.OutExpo; duration: 1000 }
     }
 }
 

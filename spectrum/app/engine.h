@@ -45,6 +45,7 @@
 #include "spectrumanalyser.h"
 #include "wavfile.h"
 #include "nullfilter.h"
+#include "customfilter.h"
 
 
 #include <QAudioDeviceInfo>
@@ -178,6 +179,7 @@ public slots:
     qint64 getDuration();
     qint64 getTimePosition();
     void setTimePosition(qint64 time);
+    void setPlayTemplate(QString name);
 signals:
     void stateChanged(QAudio::Mode mode, QAudio::State state);
 
@@ -316,6 +318,7 @@ private:
 
     QList<Filter*> supportedFilters;
     QMap<QString, GraphFilterService*> createdTemplates;
+    GraphFilterService *filterTempateForPlay;
 
 #ifdef DUMP_DATA
     QDir                m_outputDir;
