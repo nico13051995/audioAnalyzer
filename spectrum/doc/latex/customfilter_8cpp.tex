@@ -1,0 +1,33 @@
+\hypertarget{customfilter_8cpp}{}\section{app/customfilter.cpp File Reference}
+\label{customfilter_8cpp}\index{app/customfilter.\+cpp@{app/customfilter.\+cpp}}
+{\ttfamily \#include \char`\"{}customfilter.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{customfilter_8cpp_ac53f25ffb384c817aa47772fff2ee63e}{G\+E\+T\+M\+A\+SK}(index,  size)~(((1 $<$$<$ (size)) -\/ 1) $<$$<$ (index))
+\item 
+\#define \hyperlink{customfilter_8cpp_a313c096e8acd01970ca4b732f6feb099}{R\+E\+A\+D\+F\+R\+OM}(data,  index,  size)~(((data) \& \hyperlink{customfilter_8cpp_ac53f25ffb384c817aa47772fff2ee63e}{G\+E\+T\+M\+A\+SK}((index), (size))) $>$$>$ (index))
+\item 
+\#define \hyperlink{customfilter_8cpp_af1e7ae2afb5fba6fe89bf838b009704e}{W\+R\+I\+T\+E\+TO}(data,  index,  size,  value)~((data) = ((data) \& ($\sim$\hyperlink{customfilter_8cpp_ac53f25ffb384c817aa47772fff2ee63e}{G\+E\+T\+M\+A\+SK}((index), (size)))) $\vert$ ((value) $<$$<$ (index)))
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{customfilter_8cpp_ac53f25ffb384c817aa47772fff2ee63e}{}\label{customfilter_8cpp_ac53f25ffb384c817aa47772fff2ee63e} 
+\index{customfilter.\+cpp@{customfilter.\+cpp}!G\+E\+T\+M\+A\+SK@{G\+E\+T\+M\+A\+SK}}
+\index{G\+E\+T\+M\+A\+SK@{G\+E\+T\+M\+A\+SK}!customfilter.\+cpp@{customfilter.\+cpp}}
+\subsubsection{\texorpdfstring{G\+E\+T\+M\+A\+SK}{GETMASK}}
+{\footnotesize\ttfamily \#define G\+E\+T\+M\+A\+SK(\begin{DoxyParamCaption}\item[{}]{index,  }\item[{}]{size }\end{DoxyParamCaption})~(((1 $<$$<$ (size)) -\/ 1) $<$$<$ (index))}
+
+\hypertarget{customfilter_8cpp_a313c096e8acd01970ca4b732f6feb099}{}\label{customfilter_8cpp_a313c096e8acd01970ca4b732f6feb099} 
+\index{customfilter.\+cpp@{customfilter.\+cpp}!R\+E\+A\+D\+F\+R\+OM@{R\+E\+A\+D\+F\+R\+OM}}
+\index{R\+E\+A\+D\+F\+R\+OM@{R\+E\+A\+D\+F\+R\+OM}!customfilter.\+cpp@{customfilter.\+cpp}}
+\subsubsection{\texorpdfstring{R\+E\+A\+D\+F\+R\+OM}{READFROM}}
+{\footnotesize\ttfamily \#define R\+E\+A\+D\+F\+R\+OM(\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{index,  }\item[{}]{size }\end{DoxyParamCaption})~(((data) \& \hyperlink{customfilter_8cpp_ac53f25ffb384c817aa47772fff2ee63e}{G\+E\+T\+M\+A\+SK}((index), (size))) $>$$>$ (index))}
+
+\hypertarget{customfilter_8cpp_af1e7ae2afb5fba6fe89bf838b009704e}{}\label{customfilter_8cpp_af1e7ae2afb5fba6fe89bf838b009704e} 
+\index{customfilter.\+cpp@{customfilter.\+cpp}!W\+R\+I\+T\+E\+TO@{W\+R\+I\+T\+E\+TO}}
+\index{W\+R\+I\+T\+E\+TO@{W\+R\+I\+T\+E\+TO}!customfilter.\+cpp@{customfilter.\+cpp}}
+\subsubsection{\texorpdfstring{W\+R\+I\+T\+E\+TO}{WRITETO}}
+{\footnotesize\ttfamily \#define W\+R\+I\+T\+E\+TO(\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{index,  }\item[{}]{size,  }\item[{}]{value }\end{DoxyParamCaption})~((data) = ((data) \& ($\sim$\hyperlink{customfilter_8cpp_ac53f25ffb384c817aa47772fff2ee63e}{G\+E\+T\+M\+A\+SK}((index), (size)))) $\vert$ ((value) $<$$<$ (index)))}
+

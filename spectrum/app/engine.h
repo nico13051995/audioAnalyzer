@@ -168,6 +168,10 @@ public:
 
     QMap<QString, GraphFilterService *> getCreatedTemplates() const;
 
+    WavFile *getFile() const;
+
+    GraphFilterService *getFilterTempateForPlay() const;
+
 public slots:
     void startRecording();
     void startPlayback();
@@ -316,7 +320,7 @@ private:
 
     int                 m_count;
 
-    QList<Filter*> supportedFilters;
+    QList<Filter*> supportedFilters;//< contain all supported filters
     QMap<QString, GraphFilterService*> createdTemplates;
     GraphFilterService *filterTempateForPlay;
 

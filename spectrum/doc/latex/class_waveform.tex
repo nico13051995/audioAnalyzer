@@ -1,0 +1,107 @@
+\hypertarget{class_waveform}{}\section{Waveform Class Reference}
+\label{class_waveform}\index{Waveform@{Waveform}}
+
+
+{\ttfamily \#include $<$waveform.\+h$>$}
+
+Inheritance diagram for Waveform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_waveform}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_waveform_ae4dc908754aa8290280b60b14af11728}{buffer\+Changed} (qint64 position, qint64 length, const Q\+Byte\+Array \&buffer)
+\item 
+void \hyperlink{class_waveform_a3f6b6306fc0da548a763bf41d523fe28}{audio\+Position\+Changed} (qint64 position)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_waveform_a20e3236d7e3d215fcddd51062fcff350}{Waveform} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{class_waveform_af4f2ae8b1749306657602b53a8ab90df}{$\sim$\+Waveform} ()
+\item 
+void \hyperlink{class_waveform_a0c3a57dd99d9d203c1bfd846d639939f}{paint\+Event} (Q\+Paint\+Event $\ast$event)
+\item 
+void \hyperlink{class_waveform_a3d814bfdf6ec4d47e80e34685c2fa464}{resize\+Event} (Q\+Resize\+Event $\ast$event)
+\item 
+void \hyperlink{class_waveform_a0abffebbd2efcd6047137095f99a97f1}{initialize} (const Q\+Audio\+Format \&format, qint64 audio\+Buffer\+Size, qint64 window\+Duration\+Us)
+\item 
+void \hyperlink{class_waveform_ae97ba3abb25987f5df0b237850be5ec7}{reset} ()
+\item 
+void \hyperlink{class_waveform_aa57d2fa418d6ac920de5b81e8ec9e6fc}{set\+Auto\+Update\+Position} (bool enabled)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Widget which displays a section of the audio waveform.
+
+The waveform is rendered on a set of Q\+Pixmaps which form a group of tiles whose extent covers the widget. As the audio position is updated, these tiles are scrolled from left to right; when the left-\/most tile scrolls outside the widget, it is moved to the right end of the tile array and painted with the next section of the waveform. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_waveform_a20e3236d7e3d215fcddd51062fcff350}{}\label{class_waveform_a20e3236d7e3d215fcddd51062fcff350} 
+\index{Waveform@{Waveform}!Waveform@{Waveform}}
+\index{Waveform@{Waveform}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{Waveform()}{Waveform()}}
+{\footnotesize\ttfamily Waveform\+::\+Waveform (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\hypertarget{class_waveform_af4f2ae8b1749306657602b53a8ab90df}{}\label{class_waveform_af4f2ae8b1749306657602b53a8ab90df} 
+\index{Waveform@{Waveform}!````~Waveform@{$\sim$\+Waveform}}
+\index{````~Waveform@{$\sim$\+Waveform}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{$\sim$\+Waveform()}{~Waveform()}}
+{\footnotesize\ttfamily Waveform\+::$\sim$\+Waveform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_waveform_a3f6b6306fc0da548a763bf41d523fe28}{}\label{class_waveform_a3f6b6306fc0da548a763bf41d523fe28} 
+\index{Waveform@{Waveform}!audio\+Position\+Changed@{audio\+Position\+Changed}}
+\index{audio\+Position\+Changed@{audio\+Position\+Changed}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{audio\+Position\+Changed}{audioPositionChanged}}
+{\footnotesize\ttfamily void Waveform\+::audio\+Position\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_waveform_ae4dc908754aa8290280b60b14af11728}{}\label{class_waveform_ae4dc908754aa8290280b60b14af11728} 
+\index{Waveform@{Waveform}!buffer\+Changed@{buffer\+Changed}}
+\index{buffer\+Changed@{buffer\+Changed}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{buffer\+Changed}{bufferChanged}}
+{\footnotesize\ttfamily void Waveform\+::buffer\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position,  }\item[{qint64}]{length,  }\item[{const Q\+Byte\+Array \&}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_waveform_a0abffebbd2efcd6047137095f99a97f1}{}\label{class_waveform_a0abffebbd2efcd6047137095f99a97f1} 
+\index{Waveform@{Waveform}!initialize@{initialize}}
+\index{initialize@{initialize}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Waveform\+::initialize (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format,  }\item[{qint64}]{audio\+Buffer\+Size,  }\item[{qint64}]{window\+Duration\+Us }\end{DoxyParamCaption})}
+
+\hypertarget{class_waveform_a0c3a57dd99d9d203c1bfd846d639939f}{}\label{class_waveform_a0c3a57dd99d9d203c1bfd846d639939f} 
+\index{Waveform@{Waveform}!paint\+Event@{paint\+Event}}
+\index{paint\+Event@{paint\+Event}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{paint\+Event()}{paintEvent()}}
+{\footnotesize\ttfamily void Waveform\+::paint\+Event (\begin{DoxyParamCaption}\item[{Q\+Paint\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+\hypertarget{class_waveform_ae97ba3abb25987f5df0b237850be5ec7}{}\label{class_waveform_ae97ba3abb25987f5df0b237850be5ec7} 
+\index{Waveform@{Waveform}!reset@{reset}}
+\index{reset@{reset}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Waveform\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_waveform_a3d814bfdf6ec4d47e80e34685c2fa464}{}\label{class_waveform_a3d814bfdf6ec4d47e80e34685c2fa464} 
+\index{Waveform@{Waveform}!resize\+Event@{resize\+Event}}
+\index{resize\+Event@{resize\+Event}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{resize\+Event()}{resizeEvent()}}
+{\footnotesize\ttfamily void Waveform\+::resize\+Event (\begin{DoxyParamCaption}\item[{Q\+Resize\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+\hypertarget{class_waveform_aa57d2fa418d6ac920de5b81e8ec9e6fc}{}\label{class_waveform_aa57d2fa418d6ac920de5b81e8ec9e6fc} 
+\index{Waveform@{Waveform}!set\+Auto\+Update\+Position@{set\+Auto\+Update\+Position}}
+\index{set\+Auto\+Update\+Position@{set\+Auto\+Update\+Position}!Waveform@{Waveform}}
+\subsubsection{\texorpdfstring{set\+Auto\+Update\+Position()}{setAutoUpdatePosition()}}
+{\footnotesize\ttfamily void Waveform\+::set\+Auto\+Update\+Position (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{waveform_8h}{waveform.\+h}\item 
+app/\hyperlink{waveform_8cpp}{waveform.\+cpp}\end{DoxyCompactItemize}

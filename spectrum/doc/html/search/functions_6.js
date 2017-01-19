@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['generatedata',['generateData',['../class_wave_form_custom.html#ab69bdeeb043d9304d19723e4b35c2f33',1,'WaveFormCustom']]],
+  ['generateswepttone',['generateSweptTone',['../class_engine.html#a0fa43cb25d35f9da09b58612a8af9e77',1,'Engine']]],
+  ['generatetone',['generateTone',['../class_engine.html#aaaa5e9ce9bf266dac28460e2adaa1270',1,'Engine']]],
+  ['getbarnumber',['getBarNumber',['../class_spectrograph.html#a4a7f2b78c288816942356f2452166211',1,'Spectrograph']]],
+  ['getchanel',['getChanel',['../class_graph.html#acd7e2b641d29b3c1e4da56903614def5',1,'Graph']]],
+  ['getcreatedtemplates',['getCreatedTemplates',['../class_engine.html#a252738800567e88de862458d94bcad15',1,'Engine']]],
+  ['getduration',['getDuration',['../class_engine.html#a165b8efe8055b3da607db4a6bb977a0c',1,'Engine::getDuration()'],['../class_main_widget.html#a13ebd72ba1fe175cf326525399e891ac',1,'MainWidget::getDuration()']]],
+  ['getid',['getId',['../class_graph.html#a1b9029bdcb34e7dd5e8e90eb4ae26482',1,'Graph']]],
+  ['getname',['getName',['../class_filter.html#a61e8bcd49b821b5e994216d87564b672',1,'Filter::getName()'],['../class_graph.html#afbd2fdb1dba6403125c7932d7b18fa8b',1,'Graph::getName()'],['../class_graph_filter_service.html#a16e88d8a688024ab96a4e3ed6a19e238',1,'GraphFilterService::getName()']]],
+  ['getpraphbyid',['getPraphById',['../class_main_widget.html#a5f07ccab510c6d5674b0a301ce0b9712',1,'MainWidget']]],
+  ['getpraphids',['getPraphIds',['../class_main_widget.html#ab020265c95f21766b1aa1f8c426e7f34',1,'MainWidget']]],
+  ['getscreenshot',['getScreenShot',['../class_main_widget.html#ad7b4fcd48d785d3b6d71160971e205a1',1,'MainWidget']]],
+  ['getseries',['getSeries',['../class_wave_form_custom.html#a76683067d578c13b6f5141c74590a746',1,'WaveFormCustom']]],
+  ['gettemplatename',['getTemplateName',['../class_graph.html#aa58147fd7b3e9c2455147dfc2d25160e',1,'Graph']]],
+  ['gettemplatesqml',['getTemplatesQML',['../class_main_widget.html#ae77e3f796aea1d773586b1ef381061c1',1,'MainWidget']]],
+  ['gettimeposition',['getTimePosition',['../class_engine.html#a9861606422c32d2dcd78ca7666f43785',1,'Engine::getTimePosition()'],['../class_main_widget.html#a12f415557fac96812d8d8d502d1f214e',1,'MainWidget::getTimePosition()']]],
+  ['gettype',['getType',['../class_graph.html#a4b6573ea1f4bb9e1803378f1f7a812de',1,'Graph']]],
+  ['graph',['Graph',['../class_graph.html#a3773c87c881cc8d499c976c025eb26c9',1,'Graph']]],
+  ['graphfilterservice',['GraphFilterService',['../class_graph_filter_service.html#af10b79e7d0a0736df08ab20733311b67',1,'GraphFilterService']]]
+];

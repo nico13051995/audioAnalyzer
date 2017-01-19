@@ -15,7 +15,6 @@ QByteArray CustomFilter::doFilter(QAudioFormat format, QByteArray array)
     int sampmleSize = format.sampleSize();
     int samplesCount = (array.size()*8)/sampmleSize;
     QByteArray out = QByteArray(array.size(), Qt::Uninitialized);
-   // qDebug() << samplesCount;
     if(sampmleSize == 16)
     {
         int16_t *outData = (int16_t *)out.data();
@@ -29,12 +28,9 @@ QByteArray CustomFilter::doFilter(QAudioFormat format, QByteArray array)
                 if(i-j>=0)
                 {
                     outDataD += parameters[j]*inData[i-j];
-                 //    qDebug() << "param" << outDataD;
-
                 }
             }
             outData[i] = qFloor( outDataD/this->parameters.size());
-
         }
     }
 

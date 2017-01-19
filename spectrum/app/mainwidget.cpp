@@ -154,12 +154,19 @@ void MainWidget::showFileDialog()
 {
     const QString dir;
     const QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open WAV file"), dir, "*.wav");
-    if (fileNames.count()) {
+    if (fileNames.count() && QFile(fileNames.front()).exists()) {
         reset();
         setMode(LoadFileMode);
         m_engine->loadFile(fileNames.front());
 
     }
+    m_engine->startPlayback();
+    m_engine->suspend();
+}
+
+void MainWidget::aboutQt()
+{
+    QMessageBox::aboutQt(this);
 }
 
 void MainWidget::showSettingsDialog()
@@ -226,6 +233,14 @@ bool MainWidget::isFullScreen()
 void MainWidget::stop()
 {
     m_engine->stopPlayback();
+}
+
+bool MainWidget::saveDump()
+{
+    QBuffer buf;
+    buf.open(QBuffer::ReadWrite);
+    m_engine->getFilterTempateForPlay()->save(0, m_engine->getDuration(), &buf);
+    WavFile::saveWAV("test.wav", buf.data(), m_engine->format());
 }
 
 double MainWidget::getDuration()
@@ -363,7 +378,7 @@ void MainWidget::createUi()
 
     ui->setupUi(this);
     this->setWindowTitle("Spectrum");
-    this->setWindowIcon(QIcon(":/icons/qml/icons/ic_assessment_white_48px.svg"));
+   // this->setWindowIcon(QIcon(":/audio-spectrum-xxl.png"));
     // this->showFullScreen();
     dataSource = new WaveFormCustom(this);
 
@@ -460,5 +475,6 @@ void MainWidget::reset()
 void MainWidget::setMode(Mode mode)
 {
     m_mode = mode;
+    emit modeChanged(mode);
 }
 

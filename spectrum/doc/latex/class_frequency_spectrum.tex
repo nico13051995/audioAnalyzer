@@ -1,0 +1,123 @@
+\hypertarget{class_frequency_spectrum}{}\section{Frequency\+Spectrum Class Reference}
+\label{class_frequency_spectrum}\index{Frequency\+Spectrum@{Frequency\+Spectrum}}
+
+
+{\ttfamily \#include $<$frequencyspectrum.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_frequency_spectrum_1_1_element}{Element}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Q\+Vector$<$ \hyperlink{struct_frequency_spectrum_1_1_element}{Element} $>$\+::\hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{iterator} \hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{iterator}
+\item 
+typedef Q\+Vector$<$ \hyperlink{struct_frequency_spectrum_1_1_element}{Element} $>$\+::\hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{const\+\_\+iterator} \hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{const\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_frequency_spectrum_a6270014538a84e1edb5cecf6c3c918ee}{Frequency\+Spectrum} (int num\+Points=0)
+\item 
+void \hyperlink{class_frequency_spectrum_aa7ea1c62eda905cb7674ea5c9b436aea}{reset} ()
+\item 
+int \hyperlink{class_frequency_spectrum_a23f805be34e28075fe7e720a71f69b7d}{count} () const
+\item 
+\hyperlink{struct_frequency_spectrum_1_1_element}{Element} \& \hyperlink{class_frequency_spectrum_afbe235c3468e16f7acceca10cc46537e}{operator\mbox{[}$\,$\mbox{]}} (int index)
+\item 
+const \hyperlink{struct_frequency_spectrum_1_1_element}{Element} \& \hyperlink{class_frequency_spectrum_a21f7b170c6a74b603acdf1587decbc42}{operator\mbox{[}$\,$\mbox{]}} (int index) const
+\item 
+\hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{iterator} \hyperlink{class_frequency_spectrum_a92aba05b6376874d54ced70d2e81309e}{begin} ()
+\item 
+\hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{iterator} \hyperlink{class_frequency_spectrum_aa141310e65ac810ffb006e082658dbbe}{end} ()
+\item 
+\hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{const\+\_\+iterator} \hyperlink{class_frequency_spectrum_a0c17fa4af644afc2b9555212c80db0f5}{begin} () const
+\item 
+\hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{const\+\_\+iterator} \hyperlink{class_frequency_spectrum_a68dac125fa1f0bca9c0cc97222db2faa}{end} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a frequency spectrum as a series of elements, each of which consists of a frequency, an amplitude and a phase. 
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{}\label{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{const\+\_\+iterator}{const\_iterator}}
+{\footnotesize\ttfamily typedef Q\+Vector$<$\hyperlink{struct_frequency_spectrum_1_1_element}{Element}$>$\+::\hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{const\+\_\+iterator} \hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{Frequency\+Spectrum\+::const\+\_\+iterator}}
+
+\hypertarget{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{}\label{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!iterator@{iterator}}
+\index{iterator@{iterator}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily typedef Q\+Vector$<$\hyperlink{struct_frequency_spectrum_1_1_element}{Element}$>$\+::\hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{iterator} \hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{Frequency\+Spectrum\+::iterator}}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_frequency_spectrum_a6270014538a84e1edb5cecf6c3c918ee}{}\label{class_frequency_spectrum_a6270014538a84e1edb5cecf6c3c918ee} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{Frequency\+Spectrum()}{FrequencySpectrum()}}
+{\footnotesize\ttfamily Frequency\+Spectrum\+::\+Frequency\+Spectrum (\begin{DoxyParamCaption}\item[{int}]{num\+Points = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_frequency_spectrum_a92aba05b6376874d54ced70d2e81309e}{}\label{class_frequency_spectrum_a92aba05b6376874d54ced70d2e81309e} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!begin@{begin}}
+\index{begin@{begin}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{Frequency\+Spectrum\+::iterator} Frequency\+Spectrum\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_frequency_spectrum_a0c17fa4af644afc2b9555212c80db0f5}{}\label{class_frequency_spectrum_a0c17fa4af644afc2b9555212c80db0f5} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!begin@{begin}}
+\index{begin@{begin}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{Frequency\+Spectrum\+::const\+\_\+iterator} Frequency\+Spectrum\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_frequency_spectrum_a23f805be34e28075fe7e720a71f69b7d}{}\label{class_frequency_spectrum_a23f805be34e28075fe7e720a71f69b7d} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!count@{count}}
+\index{count@{count}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily int Frequency\+Spectrum\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_frequency_spectrum_aa141310e65ac810ffb006e082658dbbe}{}\label{class_frequency_spectrum_aa141310e65ac810ffb006e082658dbbe} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!end@{end}}
+\index{end@{end}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_frequency_spectrum_a97c7fc372f25a6caef70041f07e4e1f3}{Frequency\+Spectrum\+::iterator} Frequency\+Spectrum\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_frequency_spectrum_a68dac125fa1f0bca9c0cc97222db2faa}{}\label{class_frequency_spectrum_a68dac125fa1f0bca9c0cc97222db2faa} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!end@{end}}
+\index{end@{end}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_frequency_spectrum_a7dee82b74b040880feb5a0de2d7ab66b}{Frequency\+Spectrum\+::const\+\_\+iterator} Frequency\+Spectrum\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_frequency_spectrum_afbe235c3468e16f7acceca10cc46537e}{}\label{class_frequency_spectrum_afbe235c3468e16f7acceca10cc46537e} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{struct_frequency_spectrum_1_1_element}{Frequency\+Spectrum\+::\+Element} \& Frequency\+Spectrum\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\hypertarget{class_frequency_spectrum_a21f7b170c6a74b603acdf1587decbc42}{}\label{class_frequency_spectrum_a21f7b170c6a74b603acdf1587decbc42} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{struct_frequency_spectrum_1_1_element}{Frequency\+Spectrum\+::\+Element} \& Frequency\+Spectrum\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_frequency_spectrum_aa7ea1c62eda905cb7674ea5c9b436aea}{}\label{class_frequency_spectrum_aa7ea1c62eda905cb7674ea5c9b436aea} 
+\index{Frequency\+Spectrum@{Frequency\+Spectrum}!reset@{reset}}
+\index{reset@{reset}!Frequency\+Spectrum@{Frequency\+Spectrum}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Frequency\+Spectrum\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{frequencyspectrum_8h}{frequencyspectrum.\+h}\item 
+app/\hyperlink{frequencyspectrum_8cpp}{frequencyspectrum.\+cpp}\end{DoxyCompactItemize}

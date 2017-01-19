@@ -4,6 +4,10 @@
 #include <QObject>
 #include <QAudioFormat>
 
+/**
+ * @brief The Filter class
+ * @abstract abstract vision of filter
+ */
 class Filter : public QObject
 {
     Q_OBJECT

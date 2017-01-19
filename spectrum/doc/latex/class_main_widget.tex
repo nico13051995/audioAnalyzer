@@ -1,0 +1,287 @@
+\hypertarget{class_main_widget}{}\section{Main\+Widget Class Reference}
+\label{class_main_widget}\index{Main\+Widget@{Main\+Widget}}
+
+
+{\ttfamily \#include $<$mainwidget.\+h$>$}
+
+Inheritance diagram for Main\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_widget}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_widget_a8d981512811804749379b2d239e38e55}{state\+Changed} (Q\+Audio\+::\+Mode mode, Q\+Audio\+::\+State state)
+\item 
+void \hyperlink{class_main_widget_ab380a0a8574e1054dd6bcfd27fc903ec}{format\+Changed} (const Q\+Audio\+Format \&format)
+\item 
+void \hyperlink{class_main_widget_a48e11cd2d77cfd5cd495884d7d02bc56}{spectrum\+Changed} (qint64 position, qint64 length, const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&spectrum)
+\item 
+void \hyperlink{class_main_widget_a0172df70874e3df4a32a11f6f4779310}{error\+Message} (const Q\+String \&heading, const Q\+String \&detail)
+\item 
+void \hyperlink{class_main_widget_ad3f4f2ec0b4354b72e6626eac21abc52}{audio\+Position\+Changed} (qint64 position)
+\item 
+void \hyperlink{class_main_widget_ac9c894776e1e971fe1c381b5e4b41296}{buffer\+Length\+Changed} (qint64 length)
+\item 
+void \hyperlink{class_main_widget_a6dd4b8c9d62111904f92ae4cbd3de0ea}{show\+File\+Dialog} ()
+\item 
+void \hyperlink{class_main_widget_a532dd01044abf04081c575470c89be17}{show\+Settings\+Dialog} ()
+\item 
+void \hyperlink{class_main_widget_a0f23ec9b7d93ae56e59e5df3e05511d6}{initialize\+Record} ()
+\item 
+void \hyperlink{class_main_widget_adc6c0a1a15d78df19bce3d04458c27e2}{play\+\_\+pause} ()
+\item 
+bool \hyperlink{class_main_widget_a4f4031960df956ff84a49af1c6494366}{is\+Full\+Screen} ()
+\item 
+void \hyperlink{class_main_widget_acc7c201bd760f3e416703569165b94ea}{stop} ()
+\item 
+double \hyperlink{class_main_widget_a13ebd72ba1fe175cf326525399e891ac}{get\+Duration} ()
+\item 
+double \hyperlink{class_main_widget_a12f415557fac96812d8d8d502d1f214e}{get\+Time\+Position} ()
+\item 
+void \hyperlink{class_main_widget_a977bb230bb404db9b34b7c3b2bf412f1}{set\+Time\+Position} (double time)
+\item 
+\hyperlink{class_graph}{Graph} $\ast$ \hyperlink{class_main_widget_add0a22a4b6838c7a07e48cf6a9f4ecb3}{add\+Praph} (Q\+String name, int id\+View)
+\item 
+Q\+List$<$ int $>$ \hyperlink{class_main_widget_ab020265c95f21766b1aa1f8c426e7f34}{get\+Praph\+Ids} (int id\+View)
+\item 
+\hyperlink{class_graph}{Graph} $\ast$ \hyperlink{class_main_widget_a5f07ccab510c6d5674b0a301ce0b9712}{get\+Praph\+By\+Id} (int id, int id\+View)
+\item 
+Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+LE Q\+String\+List \hyperlink{class_main_widget_ae77e3f796aea1d773586b1ef381061c1}{get\+Templates\+Q\+ML} ()
+\item 
+Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+LE bool \hyperlink{class_main_widget_adf1350b871ca05e3c3af8306d7e07acf}{subscribe\+To\+Template} (\hyperlink{class_graph}{Graph} $\ast$graph, Q\+X\+Y\+Series $\ast$set, int chanel)
+\item 
+Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+LE bool \hyperlink{class_main_widget_aafe021c318c70fbf579693ff767bce27}{un\+Subscribe\+To\+Template} (\hyperlink{class_graph}{Graph} $\ast$graph, Q\+X\+Y\+Series $\ast$set, int chanel)
+\item 
+Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+LE void \hyperlink{class_main_widget_aa52172d75102af3717d82ad3146065f1}{change\+Play\+Template} (Q\+String name)
+\item 
+void \hyperlink{class_main_widget_a798a61a3c09fbb3763f93c8aa7ea8a77}{switch\+Full\+Screen} ()
+\begin{DoxyCompactList}\small\item\em switch to full screen mode \end{DoxyCompactList}\item 
+void \hyperlink{class_main_widget_ad7b4fcd48d785d3b6d71160971e205a1}{get\+Screen\+Shot} ()
+\begin{DoxyCompactList}\small\item\em create image from current tab \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_widget_a7ee933a7699c2d3f6e1f489f822640a4}{mode\+Changed} (int mode)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_widget_a326fee5088b7cebaa102ed5332dd59ee}{Main\+Widget} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{class_main_widget_add21c63f8e799303a21a69da3d288c2f}{$\sim$\+Main\+Widget} ()
+\item 
+void \hyperlink{class_main_widget_a2e776dc0a11cab27730e7b9721701a17}{timer\+Event} (Q\+Timer\+Event $\ast$event)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_widget_aeeec4a8f3b1948f7cb8a54832aae29df}{key\+Release\+Event} (Q\+Key\+Event $\ast$event)
+\item 
+void \hyperlink{class_main_widget_a28eb2faaa16c15722645d73b2c178d8f}{key\+Press\+Event} (Q\+Key\+Event $\ast$event)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main application widget, responsible for connecting the various UI elements to the \hyperlink{class_engine}{Engine}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_main_widget_a326fee5088b7cebaa102ed5332dd59ee}{}\label{class_main_widget_a326fee5088b7cebaa102ed5332dd59ee} 
+\index{Main\+Widget@{Main\+Widget}!Main\+Widget@{Main\+Widget}}
+\index{Main\+Widget@{Main\+Widget}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{Main\+Widget()}{MainWidget()}}
+{\footnotesize\ttfamily Main\+Widget\+::\+Main\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\hypertarget{class_main_widget_add21c63f8e799303a21a69da3d288c2f}{}\label{class_main_widget_add21c63f8e799303a21a69da3d288c2f} 
+\index{Main\+Widget@{Main\+Widget}!````~Main\+Widget@{$\sim$\+Main\+Widget}}
+\index{````~Main\+Widget@{$\sim$\+Main\+Widget}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Widget()}{~MainWidget()}}
+{\footnotesize\ttfamily Main\+Widget\+::$\sim$\+Main\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_main_widget_add0a22a4b6838c7a07e48cf6a9f4ecb3}{}\label{class_main_widget_add0a22a4b6838c7a07e48cf6a9f4ecb3} 
+\index{Main\+Widget@{Main\+Widget}!add\+Praph@{add\+Praph}}
+\index{add\+Praph@{add\+Praph}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{add\+Praph}{addPraph}}
+{\footnotesize\ttfamily \hyperlink{class_graph}{Graph} $\ast$ Main\+Widget\+::add\+Praph (\begin{DoxyParamCaption}\item[{Q\+String}]{name,  }\item[{int}]{id\+View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_ad3f4f2ec0b4354b72e6626eac21abc52}{}\label{class_main_widget_ad3f4f2ec0b4354b72e6626eac21abc52} 
+\index{Main\+Widget@{Main\+Widget}!audio\+Position\+Changed@{audio\+Position\+Changed}}
+\index{audio\+Position\+Changed@{audio\+Position\+Changed}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{audio\+Position\+Changed}{audioPositionChanged}}
+{\footnotesize\ttfamily void Main\+Widget\+::audio\+Position\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_ac9c894776e1e971fe1c381b5e4b41296}{}\label{class_main_widget_ac9c894776e1e971fe1c381b5e4b41296} 
+\index{Main\+Widget@{Main\+Widget}!buffer\+Length\+Changed@{buffer\+Length\+Changed}}
+\index{buffer\+Length\+Changed@{buffer\+Length\+Changed}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{buffer\+Length\+Changed}{bufferLengthChanged}}
+{\footnotesize\ttfamily void Main\+Widget\+::buffer\+Length\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_aa52172d75102af3717d82ad3146065f1}{}\label{class_main_widget_aa52172d75102af3717d82ad3146065f1} 
+\index{Main\+Widget@{Main\+Widget}!change\+Play\+Template@{change\+Play\+Template}}
+\index{change\+Play\+Template@{change\+Play\+Template}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{change\+Play\+Template}{changePlayTemplate}}
+{\footnotesize\ttfamily void Main\+Widget\+::change\+Play\+Template (\begin{DoxyParamCaption}\item[{Q\+String}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a0172df70874e3df4a32a11f6f4779310}{}\label{class_main_widget_a0172df70874e3df4a32a11f6f4779310} 
+\index{Main\+Widget@{Main\+Widget}!error\+Message@{error\+Message}}
+\index{error\+Message@{error\+Message}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{error\+Message}{errorMessage}}
+{\footnotesize\ttfamily void Main\+Widget\+::error\+Message (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{heading,  }\item[{const Q\+String \&}]{detail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_ab380a0a8574e1054dd6bcfd27fc903ec}{}\label{class_main_widget_ab380a0a8574e1054dd6bcfd27fc903ec} 
+\index{Main\+Widget@{Main\+Widget}!format\+Changed@{format\+Changed}}
+\index{format\+Changed@{format\+Changed}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{format\+Changed}{formatChanged}}
+{\footnotesize\ttfamily void Main\+Widget\+::format\+Changed (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a13ebd72ba1fe175cf326525399e891ac}{}\label{class_main_widget_a13ebd72ba1fe175cf326525399e891ac} 
+\index{Main\+Widget@{Main\+Widget}!get\+Duration@{get\+Duration}}
+\index{get\+Duration@{get\+Duration}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Duration}{getDuration}}
+{\footnotesize\ttfamily double Main\+Widget\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a5f07ccab510c6d5674b0a301ce0b9712}{}\label{class_main_widget_a5f07ccab510c6d5674b0a301ce0b9712} 
+\index{Main\+Widget@{Main\+Widget}!get\+Praph\+By\+Id@{get\+Praph\+By\+Id}}
+\index{get\+Praph\+By\+Id@{get\+Praph\+By\+Id}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Praph\+By\+Id}{getPraphById}}
+{\footnotesize\ttfamily \hyperlink{class_graph}{Graph} $\ast$ Main\+Widget\+::get\+Praph\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{id\+View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_ab020265c95f21766b1aa1f8c426e7f34}{}\label{class_main_widget_ab020265c95f21766b1aa1f8c426e7f34} 
+\index{Main\+Widget@{Main\+Widget}!get\+Praph\+Ids@{get\+Praph\+Ids}}
+\index{get\+Praph\+Ids@{get\+Praph\+Ids}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Praph\+Ids}{getPraphIds}}
+{\footnotesize\ttfamily Q\+List$<$ int $>$ Main\+Widget\+::get\+Praph\+Ids (\begin{DoxyParamCaption}\item[{int}]{id\+View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_ad7b4fcd48d785d3b6d71160971e205a1}{}\label{class_main_widget_ad7b4fcd48d785d3b6d71160971e205a1} 
+\index{Main\+Widget@{Main\+Widget}!get\+Screen\+Shot@{get\+Screen\+Shot}}
+\index{get\+Screen\+Shot@{get\+Screen\+Shot}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Screen\+Shot}{getScreenShot}}
+{\footnotesize\ttfamily void Main\+Widget\+::get\+Screen\+Shot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+create image from current tab 
+
+\hypertarget{class_main_widget_ae77e3f796aea1d773586b1ef381061c1}{}\label{class_main_widget_ae77e3f796aea1d773586b1ef381061c1} 
+\index{Main\+Widget@{Main\+Widget}!get\+Templates\+Q\+ML@{get\+Templates\+Q\+ML}}
+\index{get\+Templates\+Q\+ML@{get\+Templates\+Q\+ML}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Templates\+Q\+ML}{getTemplatesQML}}
+{\footnotesize\ttfamily Q\+String\+List Main\+Widget\+::get\+Templates\+Q\+ML (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a12f415557fac96812d8d8d502d1f214e}{}\label{class_main_widget_a12f415557fac96812d8d8d502d1f214e} 
+\index{Main\+Widget@{Main\+Widget}!get\+Time\+Position@{get\+Time\+Position}}
+\index{get\+Time\+Position@{get\+Time\+Position}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Time\+Position}{getTimePosition}}
+{\footnotesize\ttfamily double Main\+Widget\+::get\+Time\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a0f23ec9b7d93ae56e59e5df3e05511d6}{}\label{class_main_widget_a0f23ec9b7d93ae56e59e5df3e05511d6} 
+\index{Main\+Widget@{Main\+Widget}!initialize\+Record@{initialize\+Record}}
+\index{initialize\+Record@{initialize\+Record}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{initialize\+Record}{initializeRecord}}
+{\footnotesize\ttfamily void Main\+Widget\+::initialize\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a4f4031960df956ff84a49af1c6494366}{}\label{class_main_widget_a4f4031960df956ff84a49af1c6494366} 
+\index{Main\+Widget@{Main\+Widget}!is\+Full\+Screen@{is\+Full\+Screen}}
+\index{is\+Full\+Screen@{is\+Full\+Screen}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{is\+Full\+Screen}{isFullScreen}}
+{\footnotesize\ttfamily bool Main\+Widget\+::is\+Full\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a28eb2faaa16c15722645d73b2c178d8f}{}\label{class_main_widget_a28eb2faaa16c15722645d73b2c178d8f} 
+\index{Main\+Widget@{Main\+Widget}!key\+Press\+Event@{key\+Press\+Event}}
+\index{key\+Press\+Event@{key\+Press\+Event}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{key\+Press\+Event()}{keyPressEvent()}}
+{\footnotesize\ttfamily void Main\+Widget\+::key\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Key\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_main_widget_aeeec4a8f3b1948f7cb8a54832aae29df}{}\label{class_main_widget_aeeec4a8f3b1948f7cb8a54832aae29df} 
+\index{Main\+Widget@{Main\+Widget}!key\+Release\+Event@{key\+Release\+Event}}
+\index{key\+Release\+Event@{key\+Release\+Event}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{key\+Release\+Event()}{keyReleaseEvent()}}
+{\footnotesize\ttfamily void Main\+Widget\+::key\+Release\+Event (\begin{DoxyParamCaption}\item[{Q\+Key\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_main_widget_a7ee933a7699c2d3f6e1f489f822640a4}{}\label{class_main_widget_a7ee933a7699c2d3f6e1f489f822640a4} 
+\index{Main\+Widget@{Main\+Widget}!mode\+Changed@{mode\+Changed}}
+\index{mode\+Changed@{mode\+Changed}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{mode\+Changed}{modeChanged}}
+{\footnotesize\ttfamily void Main\+Widget\+::mode\+Changed (\begin{DoxyParamCaption}\item[{int}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\hypertarget{class_main_widget_adc6c0a1a15d78df19bce3d04458c27e2}{}\label{class_main_widget_adc6c0a1a15d78df19bce3d04458c27e2} 
+\index{Main\+Widget@{Main\+Widget}!play\+\_\+pause@{play\+\_\+pause}}
+\index{play\+\_\+pause@{play\+\_\+pause}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{play\+\_\+pause}{play\_pause}}
+{\footnotesize\ttfamily void Main\+Widget\+::play\+\_\+pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a977bb230bb404db9b34b7c3b2bf412f1}{}\label{class_main_widget_a977bb230bb404db9b34b7c3b2bf412f1} 
+\index{Main\+Widget@{Main\+Widget}!set\+Time\+Position@{set\+Time\+Position}}
+\index{set\+Time\+Position@{set\+Time\+Position}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{set\+Time\+Position}{setTimePosition}}
+{\footnotesize\ttfamily void Main\+Widget\+::set\+Time\+Position (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a6dd4b8c9d62111904f92ae4cbd3de0ea}{}\label{class_main_widget_a6dd4b8c9d62111904f92ae4cbd3de0ea} 
+\index{Main\+Widget@{Main\+Widget}!show\+File\+Dialog@{show\+File\+Dialog}}
+\index{show\+File\+Dialog@{show\+File\+Dialog}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{show\+File\+Dialog}{showFileDialog}}
+{\footnotesize\ttfamily void Main\+Widget\+::show\+File\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a532dd01044abf04081c575470c89be17}{}\label{class_main_widget_a532dd01044abf04081c575470c89be17} 
+\index{Main\+Widget@{Main\+Widget}!show\+Settings\+Dialog@{show\+Settings\+Dialog}}
+\index{show\+Settings\+Dialog@{show\+Settings\+Dialog}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{show\+Settings\+Dialog}{showSettingsDialog}}
+{\footnotesize\ttfamily void Main\+Widget\+::show\+Settings\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a48e11cd2d77cfd5cd495884d7d02bc56}{}\label{class_main_widget_a48e11cd2d77cfd5cd495884d7d02bc56} 
+\index{Main\+Widget@{Main\+Widget}!spectrum\+Changed@{spectrum\+Changed}}
+\index{spectrum\+Changed@{spectrum\+Changed}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{spectrum\+Changed}{spectrumChanged}}
+{\footnotesize\ttfamily void Main\+Widget\+::spectrum\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position,  }\item[{qint64}]{length,  }\item[{const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&}]{spectrum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a8d981512811804749379b2d239e38e55}{}\label{class_main_widget_a8d981512811804749379b2d239e38e55} 
+\index{Main\+Widget@{Main\+Widget}!state\+Changed@{state\+Changed}}
+\index{state\+Changed@{state\+Changed}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{state\+Changed}{stateChanged}}
+{\footnotesize\ttfamily void Main\+Widget\+::state\+Changed (\begin{DoxyParamCaption}\item[{Q\+Audio\+::\+Mode}]{mode,  }\item[{Q\+Audio\+::\+State}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_acc7c201bd760f3e416703569165b94ea}{}\label{class_main_widget_acc7c201bd760f3e416703569165b94ea} 
+\index{Main\+Widget@{Main\+Widget}!stop@{stop}}
+\index{stop@{stop}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{stop}{stop}}
+{\footnotesize\ttfamily void Main\+Widget\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_adf1350b871ca05e3c3af8306d7e07acf}{}\label{class_main_widget_adf1350b871ca05e3c3af8306d7e07acf} 
+\index{Main\+Widget@{Main\+Widget}!subscribe\+To\+Template@{subscribe\+To\+Template}}
+\index{subscribe\+To\+Template@{subscribe\+To\+Template}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{subscribe\+To\+Template}{subscribeToTemplate}}
+{\footnotesize\ttfamily bool Main\+Widget\+::subscribe\+To\+Template (\begin{DoxyParamCaption}\item[{\hyperlink{class_graph}{Graph} $\ast$}]{graph,  }\item[{Q\+X\+Y\+Series $\ast$}]{set,  }\item[{int}]{chanel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_main_widget_a798a61a3c09fbb3763f93c8aa7ea8a77}{}\label{class_main_widget_a798a61a3c09fbb3763f93c8aa7ea8a77} 
+\index{Main\+Widget@{Main\+Widget}!switch\+Full\+Screen@{switch\+Full\+Screen}}
+\index{switch\+Full\+Screen@{switch\+Full\+Screen}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{switch\+Full\+Screen}{switchFullScreen}}
+{\footnotesize\ttfamily void Main\+Widget\+::switch\+Full\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+switch to full screen mode 
+
+\hypertarget{class_main_widget_a2e776dc0a11cab27730e7b9721701a17}{}\label{class_main_widget_a2e776dc0a11cab27730e7b9721701a17} 
+\index{Main\+Widget@{Main\+Widget}!timer\+Event@{timer\+Event}}
+\index{timer\+Event@{timer\+Event}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{timer\+Event()}{timerEvent()}}
+{\footnotesize\ttfamily void Main\+Widget\+::timer\+Event (\begin{DoxyParamCaption}\item[{Q\+Timer\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+\hypertarget{class_main_widget_aafe021c318c70fbf579693ff767bce27}{}\label{class_main_widget_aafe021c318c70fbf579693ff767bce27} 
+\index{Main\+Widget@{Main\+Widget}!un\+Subscribe\+To\+Template@{un\+Subscribe\+To\+Template}}
+\index{un\+Subscribe\+To\+Template@{un\+Subscribe\+To\+Template}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{un\+Subscribe\+To\+Template}{unSubscribeToTemplate}}
+{\footnotesize\ttfamily bool Main\+Widget\+::un\+Subscribe\+To\+Template (\begin{DoxyParamCaption}\item[{\hyperlink{class_graph}{Graph} $\ast$}]{graph,  }\item[{Q\+X\+Y\+Series $\ast$}]{set,  }\item[{int}]{chanel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{mainwidget_8h}{mainwidget.\+h}\item 
+app/\hyperlink{mainwidget_8cpp}{mainwidget.\+cpp}\end{DoxyCompactItemize}

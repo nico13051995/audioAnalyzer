@@ -1,0 +1,76 @@
+\hypertarget{class_spectrum_analyser_thread}{}\section{Spectrum\+Analyser\+Thread Class Reference}
+\label{class_spectrum_analyser_thread}\index{Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}}
+
+
+{\ttfamily \#include $<$spectrumanalyser.\+h$>$}
+
+Inheritance diagram for Spectrum\+Analyser\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_spectrum_analyser_thread}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_spectrum_analyser_thread_a823681736ef2719fbb6aec132a75b6cb}{set\+Window\+Function} (\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function} type)
+\item 
+void \hyperlink{class_spectrum_analyser_thread_a6dc32705bf41e75f8d16f9c27bd2ee65}{calculate\+Spectrum} (const Q\+Byte\+Array \&buffer, int input\+Frequency, int bytes\+Per\+Sample)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_spectrum_analyser_thread_adb2c9b6a5e017cd0805dac29c754b7f0}{calculation\+Complete} (const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&spectrum)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_spectrum_analyser_thread_a35109a92c671b97f2cdaef0dcc5ab6c2}{Spectrum\+Analyser\+Thread} (Q\+Object $\ast$parent)
+\item 
+\hyperlink{class_spectrum_analyser_thread_a5d8f22dd659e87447f29bb7271a5f289}{$\sim$\+Spectrum\+Analyser\+Thread} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of the spectrum analysis which can be run in a separate thread. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_spectrum_analyser_thread_a35109a92c671b97f2cdaef0dcc5ab6c2}{}\label{class_spectrum_analyser_thread_a35109a92c671b97f2cdaef0dcc5ab6c2} 
+\index{Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}!Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}}
+\index{Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}!Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}}
+\subsubsection{\texorpdfstring{Spectrum\+Analyser\+Thread()}{SpectrumAnalyserThread()}}
+{\footnotesize\ttfamily Spectrum\+Analyser\+Thread\+::\+Spectrum\+Analyser\+Thread (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent }\end{DoxyParamCaption})}
+
+\hypertarget{class_spectrum_analyser_thread_a5d8f22dd659e87447f29bb7271a5f289}{}\label{class_spectrum_analyser_thread_a5d8f22dd659e87447f29bb7271a5f289} 
+\index{Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}!````~Spectrum\+Analyser\+Thread@{$\sim$\+Spectrum\+Analyser\+Thread}}
+\index{````~Spectrum\+Analyser\+Thread@{$\sim$\+Spectrum\+Analyser\+Thread}!Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}}
+\subsubsection{\texorpdfstring{$\sim$\+Spectrum\+Analyser\+Thread()}{~SpectrumAnalyserThread()}}
+{\footnotesize\ttfamily Spectrum\+Analyser\+Thread\+::$\sim$\+Spectrum\+Analyser\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_spectrum_analyser_thread_a6dc32705bf41e75f8d16f9c27bd2ee65}{}\label{class_spectrum_analyser_thread_a6dc32705bf41e75f8d16f9c27bd2ee65} 
+\index{Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}!calculate\+Spectrum@{calculate\+Spectrum}}
+\index{calculate\+Spectrum@{calculate\+Spectrum}!Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}}
+\subsubsection{\texorpdfstring{calculate\+Spectrum}{calculateSpectrum}}
+{\footnotesize\ttfamily void Spectrum\+Analyser\+Thread\+::calculate\+Spectrum (\begin{DoxyParamCaption}\item[{const Q\+Byte\+Array \&}]{buffer,  }\item[{int}]{input\+Frequency,  }\item[{int}]{bytes\+Per\+Sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrum_analyser_thread_adb2c9b6a5e017cd0805dac29c754b7f0}{}\label{class_spectrum_analyser_thread_adb2c9b6a5e017cd0805dac29c754b7f0} 
+\index{Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}!calculation\+Complete@{calculation\+Complete}}
+\index{calculation\+Complete@{calculation\+Complete}!Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}}
+\subsubsection{\texorpdfstring{calculation\+Complete}{calculationComplete}}
+{\footnotesize\ttfamily void Spectrum\+Analyser\+Thread\+::calculation\+Complete (\begin{DoxyParamCaption}\item[{const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&}]{spectrum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\hypertarget{class_spectrum_analyser_thread_a823681736ef2719fbb6aec132a75b6cb}{}\label{class_spectrum_analyser_thread_a823681736ef2719fbb6aec132a75b6cb} 
+\index{Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}!set\+Window\+Function@{set\+Window\+Function}}
+\index{set\+Window\+Function@{set\+Window\+Function}!Spectrum\+Analyser\+Thread@{Spectrum\+Analyser\+Thread}}
+\subsubsection{\texorpdfstring{set\+Window\+Function}{setWindowFunction}}
+{\footnotesize\ttfamily void Spectrum\+Analyser\+Thread\+::set\+Window\+Function (\begin{DoxyParamCaption}\item[{\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{spectrumanalyser_8h}{spectrumanalyser.\+h}\item 
+app/\hyperlink{spectrumanalyser_8cpp}{spectrumanalyser.\+cpp}\end{DoxyCompactItemize}

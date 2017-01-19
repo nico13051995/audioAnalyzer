@@ -128,6 +128,7 @@ void Spectrograph::setParams(int numBars, qreal lowFreq, qreal highFreq)
     m_bars.resize(numBars);
     m_lowFreq = lowFreq;
     m_highFreq = highFreq;
+    /// reinit list
     for(int j = 0; j < subscribtionList.size(); j++)
     {
         subscribtionList[j]->remove(0,  subscribtionList[j]->count());

@@ -33,9 +33,12 @@ public:
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->setWindowModality(Qt::ApplicationModal);
         MainWindow->resize(800, 600);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/icons/audio-spectrum-xxl.png"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         MainWindow->setStyleSheet(QStringLiteral(""));
         MainWindow->setToolButtonStyle(Qt::ToolButtonFollowStyle);
-        MainWindow->setAnimated(false);
+        MainWindow->setAnimated(true);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);

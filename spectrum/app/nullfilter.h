@@ -2,7 +2,10 @@
 #define NULLFILTER_H
 
 #include "filter.h"
-
+/**
+ * @brief The NullFilter class
+ * @author Nicolas
+ */
 class NullFilter : public Filter
 {
 public:

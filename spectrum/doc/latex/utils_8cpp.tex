@@ -1,0 +1,96 @@
+\hypertarget{utils_8cpp}{}\section{app/utils.cpp File Reference}
+\label{utils_8cpp}\index{app/utils.\+cpp@{app/utils.\+cpp}}
+{\ttfamily \#include $<$Q\+Audio\+Format$>$}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+qint64 \hyperlink{utils_8cpp_a8ac2311760fd491edac24e2b309d0602}{audio\+Duration} (const Q\+Audio\+Format \&format, qint64 bytes)
+\item 
+qint64 \hyperlink{utils_8cpp_ac0eadc3f50d9ce2e46e5593963cad576}{audio\+Length} (const Q\+Audio\+Format \&format, qint64 micro\+Seconds)
+\item 
+qreal \hyperlink{utils_8cpp_aeaa522aea022ca45b6463dfd4a38dc29}{nyquist\+Frequency} (const Q\+Audio\+Format \&format)
+\item 
+Q\+String \hyperlink{utils_8cpp_afa9db1b58174c53a5cf12d91d2cf048a}{format\+To\+String} (const Q\+Audio\+Format \&format)
+\item 
+bool \hyperlink{utils_8cpp_a96349530b414e46bcd8a60404d5a8449}{is\+P\+CM} (const Q\+Audio\+Format \&format)
+\item 
+bool \hyperlink{utils_8cpp_a7371caad2c65e8cffc9d71efec278a25}{is\+P\+C\+M\+S16\+LE} (const Q\+Audio\+Format \&format)
+\item 
+qreal \hyperlink{utils_8cpp_a931bea9b0fc4dbd056d87517ca4d9157}{pcm\+To\+Real} (qint16 pcm)
+\item 
+qint16 \hyperlink{utils_8cpp_af2841016e5e3f3f242cf02b20d5d65aa}{real\+To\+Pcm} (qreal real)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const qint16 \hyperlink{utils_8cpp_a1d7e1c8201cfc9603f8ab1a58171226b}{P\+C\+M\+S16\+Max\+Value} = 32767
+\item 
+const quint16 \hyperlink{utils_8cpp_a31596b8bf48bc59756caf6673ed21347}{P\+C\+M\+S16\+Max\+Amplitude} = 32768
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{utils_8cpp_a8ac2311760fd491edac24e2b309d0602}{}\label{utils_8cpp_a8ac2311760fd491edac24e2b309d0602} 
+\index{utils.\+cpp@{utils.\+cpp}!audio\+Duration@{audio\+Duration}}
+\index{audio\+Duration@{audio\+Duration}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{audio\+Duration()}{audioDuration()}}
+{\footnotesize\ttfamily qint64 audio\+Duration (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format,  }\item[{qint64}]{bytes }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8cpp_ac0eadc3f50d9ce2e46e5593963cad576}{}\label{utils_8cpp_ac0eadc3f50d9ce2e46e5593963cad576} 
+\index{utils.\+cpp@{utils.\+cpp}!audio\+Length@{audio\+Length}}
+\index{audio\+Length@{audio\+Length}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{audio\+Length()}{audioLength()}}
+{\footnotesize\ttfamily qint64 audio\+Length (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format,  }\item[{qint64}]{micro\+Seconds }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8cpp_afa9db1b58174c53a5cf12d91d2cf048a}{}\label{utils_8cpp_afa9db1b58174c53a5cf12d91d2cf048a} 
+\index{utils.\+cpp@{utils.\+cpp}!format\+To\+String@{format\+To\+String}}
+\index{format\+To\+String@{format\+To\+String}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{format\+To\+String()}{formatToString()}}
+{\footnotesize\ttfamily Q\+String format\+To\+String (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8cpp_a96349530b414e46bcd8a60404d5a8449}{}\label{utils_8cpp_a96349530b414e46bcd8a60404d5a8449} 
+\index{utils.\+cpp@{utils.\+cpp}!is\+P\+CM@{is\+P\+CM}}
+\index{is\+P\+CM@{is\+P\+CM}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{is\+P\+C\+M()}{isPCM()}}
+{\footnotesize\ttfamily bool is\+P\+CM (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8cpp_a7371caad2c65e8cffc9d71efec278a25}{}\label{utils_8cpp_a7371caad2c65e8cffc9d71efec278a25} 
+\index{utils.\+cpp@{utils.\+cpp}!is\+P\+C\+M\+S16\+LE@{is\+P\+C\+M\+S16\+LE}}
+\index{is\+P\+C\+M\+S16\+LE@{is\+P\+C\+M\+S16\+LE}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{is\+P\+C\+M\+S16\+L\+E()}{isPCMS16LE()}}
+{\footnotesize\ttfamily bool is\+P\+C\+M\+S16\+LE (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8cpp_aeaa522aea022ca45b6463dfd4a38dc29}{}\label{utils_8cpp_aeaa522aea022ca45b6463dfd4a38dc29} 
+\index{utils.\+cpp@{utils.\+cpp}!nyquist\+Frequency@{nyquist\+Frequency}}
+\index{nyquist\+Frequency@{nyquist\+Frequency}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{nyquist\+Frequency()}{nyquistFrequency()}}
+{\footnotesize\ttfamily qreal nyquist\+Frequency (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8cpp_a931bea9b0fc4dbd056d87517ca4d9157}{}\label{utils_8cpp_a931bea9b0fc4dbd056d87517ca4d9157} 
+\index{utils.\+cpp@{utils.\+cpp}!pcm\+To\+Real@{pcm\+To\+Real}}
+\index{pcm\+To\+Real@{pcm\+To\+Real}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{pcm\+To\+Real()}{pcmToReal()}}
+{\footnotesize\ttfamily qreal pcm\+To\+Real (\begin{DoxyParamCaption}\item[{qint16}]{pcm }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8cpp_af2841016e5e3f3f242cf02b20d5d65aa}{}\label{utils_8cpp_af2841016e5e3f3f242cf02b20d5d65aa} 
+\index{utils.\+cpp@{utils.\+cpp}!real\+To\+Pcm@{real\+To\+Pcm}}
+\index{real\+To\+Pcm@{real\+To\+Pcm}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{real\+To\+Pcm()}{realToPcm()}}
+{\footnotesize\ttfamily qint16 real\+To\+Pcm (\begin{DoxyParamCaption}\item[{qreal}]{real }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{utils_8cpp_a31596b8bf48bc59756caf6673ed21347}{}\label{utils_8cpp_a31596b8bf48bc59756caf6673ed21347} 
+\index{utils.\+cpp@{utils.\+cpp}!P\+C\+M\+S16\+Max\+Amplitude@{P\+C\+M\+S16\+Max\+Amplitude}}
+\index{P\+C\+M\+S16\+Max\+Amplitude@{P\+C\+M\+S16\+Max\+Amplitude}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{P\+C\+M\+S16\+Max\+Amplitude}{PCMS16MaxAmplitude}}
+{\footnotesize\ttfamily const quint16 P\+C\+M\+S16\+Max\+Amplitude = 32768}
+
+\hypertarget{utils_8cpp_a1d7e1c8201cfc9603f8ab1a58171226b}{}\label{utils_8cpp_a1d7e1c8201cfc9603f8ab1a58171226b} 
+\index{utils.\+cpp@{utils.\+cpp}!P\+C\+M\+S16\+Max\+Value@{P\+C\+M\+S16\+Max\+Value}}
+\index{P\+C\+M\+S16\+Max\+Value@{P\+C\+M\+S16\+Max\+Value}!utils.\+cpp@{utils.\+cpp}}
+\subsubsection{\texorpdfstring{P\+C\+M\+S16\+Max\+Value}{PCMS16MaxValue}}
+{\footnotesize\ttfamily const qint16 P\+C\+M\+S16\+Max\+Value = 32767}
+

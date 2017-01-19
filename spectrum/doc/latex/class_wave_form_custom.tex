@@ -1,0 +1,110 @@
+\hypertarget{class_wave_form_custom}{}\section{Wave\+Form\+Custom Class Reference}
+\label{class_wave_form_custom}\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+
+
+{\ttfamily \#include $<$datasource.\+h$>$}
+
+Inheritance diagram for Wave\+Form\+Custom\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_wave_form_custom}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_wave_form_custom_ab69bdeeb043d9304d19723e4b35c2f33}{generate\+Data} (int type, int row\+Count, int col\+Count)
+\item 
+void \hyperlink{class_wave_form_custom_a78ba2270b3d08781fac5de6b39cb3a53}{buffer\+Changed} (qint64 position, qint64 length, const Q\+Byte\+Array \&\hyperlink{class_wave_form_custom_a90fb1825e9929177cf5e034a464e4e24}{buffer})
+\item 
+Q\+Abstract\+Series $\ast$ \hyperlink{class_wave_form_custom_a76683067d578c13b6f5141c74590a746}{get\+Series} () const
+\item 
+void \hyperlink{class_wave_form_custom_ac6c2dbc11bd5789cee99674077307799}{subscribe\+Series} (Q\+Abstract\+Series $\ast$value, int channel\+Count)
+\item 
+bool \hyperlink{class_wave_form_custom_a51bbb3f0a646f2fbac70617cad686d75}{un\+Subscribe\+Series} (Q\+Abstract\+Series $\ast$value, int channel\+Count)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_wave_form_custom_af4c78a9a88ccb502909249d5069bb238}{Wave\+Form\+Custom} (Q\+Object $\ast$parent=0)
+\item 
+Q\+Audio\+Format \hyperlink{class_wave_form_custom_a4fc6efc93c4e13d29fb5cbabb8354cfb}{format} () const
+\item 
+void \hyperlink{class_wave_form_custom_a4280e281f1b4e91710c791751b4c956d}{set\+Format} (const Q\+Audio\+Format \&\hyperlink{class_wave_form_custom_a4fc6efc93c4e13d29fb5cbabb8354cfb}{format})
+\item 
+Q\+Byte\+Array \hyperlink{class_wave_form_custom_a90fb1825e9929177cf5e034a464e4e24}{buffer} () const
+\item 
+void \hyperlink{class_wave_form_custom_aa30d2651a92723178f74d0d14fa13809}{set\+Buffer} (const Q\+Byte\+Array \&\hyperlink{class_wave_form_custom_a90fb1825e9929177cf5e034a464e4e24}{buffer})
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_wave_form_custom_af4c78a9a88ccb502909249d5069bb238}{}\label{class_wave_form_custom_af4c78a9a88ccb502909249d5069bb238} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{Wave\+Form\+Custom()}{WaveFormCustom()}}
+{\footnotesize\ttfamily Q\+T\+\_\+\+C\+H\+A\+R\+T\+S\+\_\+\+U\+S\+E\+\_\+\+N\+A\+M\+E\+S\+P\+A\+CE Wave\+Form\+Custom\+::\+Wave\+Form\+Custom (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_wave_form_custom_a90fb1825e9929177cf5e034a464e4e24}{}\label{class_wave_form_custom_a90fb1825e9929177cf5e034a464e4e24} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!buffer@{buffer}}
+\index{buffer@{buffer}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{buffer()}{buffer()}}
+{\footnotesize\ttfamily Q\+Byte\+Array Wave\+Form\+Custom\+::buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_wave_form_custom_a78ba2270b3d08781fac5de6b39cb3a53}{}\label{class_wave_form_custom_a78ba2270b3d08781fac5de6b39cb3a53} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!buffer\+Changed@{buffer\+Changed}}
+\index{buffer\+Changed@{buffer\+Changed}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{buffer\+Changed}{bufferChanged}}
+{\footnotesize\ttfamily void Wave\+Form\+Custom\+::buffer\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position,  }\item[{qint64}]{length,  }\item[{const Q\+Byte\+Array \&}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_wave_form_custom_a4fc6efc93c4e13d29fb5cbabb8354cfb}{}\label{class_wave_form_custom_a4fc6efc93c4e13d29fb5cbabb8354cfb} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!format@{format}}
+\index{format@{format}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{format()}{format()}}
+{\footnotesize\ttfamily Q\+Audio\+Format Wave\+Form\+Custom\+::format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_wave_form_custom_ab69bdeeb043d9304d19723e4b35c2f33}{}\label{class_wave_form_custom_ab69bdeeb043d9304d19723e4b35c2f33} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!generate\+Data@{generate\+Data}}
+\index{generate\+Data@{generate\+Data}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{generate\+Data}{generateData}}
+{\footnotesize\ttfamily void Wave\+Form\+Custom\+::generate\+Data (\begin{DoxyParamCaption}\item[{int}]{type,  }\item[{int}]{row\+Count,  }\item[{int}]{col\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_wave_form_custom_a76683067d578c13b6f5141c74590a746}{}\label{class_wave_form_custom_a76683067d578c13b6f5141c74590a746} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!get\+Series@{get\+Series}}
+\index{get\+Series@{get\+Series}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{get\+Series}{getSeries}}
+{\footnotesize\ttfamily Q\+Abstract\+Series $\ast$ Wave\+Form\+Custom\+::get\+Series (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_wave_form_custom_aa30d2651a92723178f74d0d14fa13809}{}\label{class_wave_form_custom_aa30d2651a92723178f74d0d14fa13809} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!set\+Buffer@{set\+Buffer}}
+\index{set\+Buffer@{set\+Buffer}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{set\+Buffer()}{setBuffer()}}
+{\footnotesize\ttfamily void Wave\+Form\+Custom\+::set\+Buffer (\begin{DoxyParamCaption}\item[{const Q\+Byte\+Array \&}]{buffer }\end{DoxyParamCaption})}
+
+\hypertarget{class_wave_form_custom_a4280e281f1b4e91710c791751b4c956d}{}\label{class_wave_form_custom_a4280e281f1b4e91710c791751b4c956d} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!set\+Format@{set\+Format}}
+\index{set\+Format@{set\+Format}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{set\+Format()}{setFormat()}}
+{\footnotesize\ttfamily void Wave\+Form\+Custom\+::set\+Format (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{class_wave_form_custom_ac6c2dbc11bd5789cee99674077307799}{}\label{class_wave_form_custom_ac6c2dbc11bd5789cee99674077307799} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!subscribe\+Series@{subscribe\+Series}}
+\index{subscribe\+Series@{subscribe\+Series}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{subscribe\+Series}{subscribeSeries}}
+{\footnotesize\ttfamily void Wave\+Form\+Custom\+::subscribe\+Series (\begin{DoxyParamCaption}\item[{Q\+Abstract\+Series $\ast$}]{value,  }\item[{int}]{channel\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_wave_form_custom_a51bbb3f0a646f2fbac70617cad686d75}{}\label{class_wave_form_custom_a51bbb3f0a646f2fbac70617cad686d75} 
+\index{Wave\+Form\+Custom@{Wave\+Form\+Custom}!un\+Subscribe\+Series@{un\+Subscribe\+Series}}
+\index{un\+Subscribe\+Series@{un\+Subscribe\+Series}!Wave\+Form\+Custom@{Wave\+Form\+Custom}}
+\subsubsection{\texorpdfstring{un\+Subscribe\+Series}{unSubscribeSeries}}
+{\footnotesize\ttfamily bool Wave\+Form\+Custom\+::un\+Subscribe\+Series (\begin{DoxyParamCaption}\item[{Q\+Abstract\+Series $\ast$}]{value,  }\item[{int}]{channel\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{datasource_8h}{datasource.\+h}\item 
+app/\hyperlink{datasource_8cpp}{datasource.\+cpp}\end{DoxyCompactItemize}

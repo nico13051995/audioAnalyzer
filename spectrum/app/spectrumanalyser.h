@@ -53,6 +53,7 @@
 
 #include "frequencyspectrum.h"
 #include "spectrum.h"
+#include "utils.h"
 
 #ifndef DISABLE_FFT
 #include "FFTRealFixLenParam.h"

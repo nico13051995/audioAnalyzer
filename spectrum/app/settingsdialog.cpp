@@ -70,7 +70,7 @@ SettingsDialog::SettingsDialog(
         m_outputDeviceComboBox->addItem(device.deviceName(),
                                        QVariant::fromValue(device));
 
-    m_windowFunctionComboBox->addItem(tr("None"), QVariant::fromValue(int(NoWindow)));
+    m_windowFunctionComboBox->addItem(tr("Відсутня"), QVariant::fromValue(int(NoWindow)));
     m_windowFunctionComboBox->addItem("Hann", QVariant::fromValue(int(HannWindow)));
     m_windowFunctionComboBox->setCurrentIndex(m_windowFunction);
 
@@ -83,21 +83,21 @@ SettingsDialog::SettingsDialog(
     // Add widgets to layout
 
     QScopedPointer<QHBoxLayout> inputDeviceLayout(new QHBoxLayout);
-    QLabel *inputDeviceLabel = new QLabel(tr("Input device"), this);
+    QLabel *inputDeviceLabel = new QLabel(tr("Пристрій захвату"), this);
     inputDeviceLayout->addWidget(inputDeviceLabel);
     inputDeviceLayout->addWidget(m_inputDeviceComboBox);
     dialogLayout->addLayout(inputDeviceLayout.data());
     inputDeviceLayout.take(); // ownership transferred to dialogLayout
 
     QScopedPointer<QHBoxLayout> outputDeviceLayout(new QHBoxLayout);
-    QLabel *outputDeviceLabel = new QLabel(tr("Output device"), this);
+    QLabel *outputDeviceLabel = new QLabel(tr("Пристрій відтворення"), this);
     outputDeviceLayout->addWidget(outputDeviceLabel);
     outputDeviceLayout->addWidget(m_outputDeviceComboBox);
     dialogLayout->addLayout(outputDeviceLayout.data());
     outputDeviceLayout.take(); // ownership transferred to dialogLayout
 
     QScopedPointer<QHBoxLayout> windowFunctionLayout(new QHBoxLayout);
-    QLabel *windowFunctionLabel = new QLabel(tr("Window function"), this);
+    QLabel *windowFunctionLabel = new QLabel(tr("Функція \"Вікна\""), this);
     windowFunctionLayout->addWidget(windowFunctionLabel);
     windowFunctionLayout->addWidget(m_windowFunctionComboBox);
     dialogLayout->addLayout(windowFunctionLayout.data());

@@ -11,10 +11,10 @@ GraphFilterService::GraphFilterService(Engine *engine, QList<Filter *> &filters,
     if(engine == NULL)
         throw "ENGINE IS NULL" ;
     CHECKED_CONNECT(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
-                        this, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
+                    this, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
     CHECKED_CONNECT(engine,  SIGNAL(formatChanged(const QAudioFormat &)),
-               this, SLOT(formatChanged(const QAudioFormat &)));
-   /* CHECKED_CONNECT(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
+                    this, SLOT(formatChanged(const QAudioFormat &)));
+    /* CHECKED_CONNECT(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                     &waveBuilder, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
     CHECKED_CONNECT(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                     &spectrBuilder, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));*/
@@ -27,7 +27,7 @@ GraphFilterService::~GraphFilterService()
                    this, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
         disconnect(engine, SIGNAL(formatChanged(const QAudioFormat &)),
                    this, SLOT(formatChanged(const QAudioFormat &format)));
-  /*      disconnect(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
+        /*      disconnect(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                    &waveBuilder, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));
         disconnect(engine, SIGNAL(bufferChanged(qint64, qint64, const QByteArray &)),
                    &spectrBuilder, SLOT(bufferChanged(qint64, qint64, const QByteArray &)));*/
@@ -64,7 +64,7 @@ bool GraphFilterService::save(qint64 start, qint64 end, QIODevice *out)
         qWarning() << "IO == NULL(file)!!!";
         return false;
     }
-
+    
     if(!out->isOpen())
     {
         qWarning() << "Out not init, try do it!!!";
@@ -74,9 +74,20 @@ bool GraphFilterService::save(qint64 start, qint64 end, QIODevice *out)
             return false;
         }
     }
-    /*
-     * CODE FOR WRITE
-    */
+
+    if(engine->getFile() != NULL)
+    {
+        QFile file(engine->getFile()->fileName());
+        if(file.open(QFile::ReadOnly))
+        {
+            qint64 startByte = engine->getFile()->headerLength() + audioLength(format, start);
+            qDebug() << startByte;
+            qint64 length = audioLength(format, end);
+            file.seek(startByte);
+            QByteArray data = file.read(length);
+            out->write(applyFilters(data));
+        }
+    }
     out->close();
 }
 

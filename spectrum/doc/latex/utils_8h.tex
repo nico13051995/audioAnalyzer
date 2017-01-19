@@ -1,0 +1,121 @@
+\hypertarget{utils_8h}{}\section{app/utils.h File Reference}
+\label{utils_8h}\index{app/utils.\+h@{app/utils.\+h}}
+{\ttfamily \#include $<$Qt\+Core/qglobal.\+h$>$}\newline
+{\ttfamily \#include $<$Q\+Debug$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_power_of_two}{Power\+Of\+Two$<$ N $>$}
+\item 
+class \hyperlink{class_power_of_two_3_010_01_4}{Power\+Of\+Two$<$ 0 $>$}
+\item 
+class \hyperlink{class_null_debug}{Null\+Debug}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{utils_8h_a1a4015effd65ce85fe7463f88aa6833c}{E\+N\+G\+I\+N\+E\+\_\+\+D\+E\+B\+UG}~\hyperlink{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{null\+Debug}()
+\item 
+\#define \hyperlink{utils_8h_a0f2f8887d721d3c4c91d7935783a0c0d}{S\+P\+E\+C\+T\+R\+U\+M\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+D\+E\+B\+UG}~\hyperlink{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{null\+Debug}()
+\item 
+\#define \hyperlink{utils_8h_a26965d2609ece594299f59669a2818bc}{W\+A\+V\+E\+F\+O\+R\+M\+\_\+\+D\+E\+B\+UG}~\hyperlink{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{null\+Debug}()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+qint64 \hyperlink{utils_8h_a8ac2311760fd491edac24e2b309d0602}{audio\+Duration} (const Q\+Audio\+Format \&format, qint64 bytes)
+\item 
+qint64 \hyperlink{utils_8h_ac0eadc3f50d9ce2e46e5593963cad576}{audio\+Length} (const Q\+Audio\+Format \&format, qint64 micro\+Seconds)
+\item 
+Q\+String \hyperlink{utils_8h_afa9db1b58174c53a5cf12d91d2cf048a}{format\+To\+String} (const Q\+Audio\+Format \&format)
+\item 
+qreal \hyperlink{utils_8h_aeaa522aea022ca45b6463dfd4a38dc29}{nyquist\+Frequency} (const Q\+Audio\+Format \&format)
+\item 
+qreal \hyperlink{utils_8h_a931bea9b0fc4dbd056d87517ca4d9157}{pcm\+To\+Real} (qint16 pcm)
+\item 
+qint16 \hyperlink{utils_8h_af2841016e5e3f3f242cf02b20d5d65aa}{real\+To\+Pcm} (qreal real)
+\item 
+bool \hyperlink{utils_8h_a96349530b414e46bcd8a60404d5a8449}{is\+P\+CM} (const Q\+Audio\+Format \&format)
+\item 
+bool \hyperlink{utils_8h_a7371caad2c65e8cffc9d71efec278a25}{is\+P\+C\+M\+S16\+LE} (const Q\+Audio\+Format \&format)
+\item 
+\hyperlink{class_null_debug}{Null\+Debug} \hyperlink{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{null\+Debug} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{utils_8h_a1a4015effd65ce85fe7463f88aa6833c}{}\label{utils_8h_a1a4015effd65ce85fe7463f88aa6833c} 
+\index{utils.\+h@{utils.\+h}!E\+N\+G\+I\+N\+E\+\_\+\+D\+E\+B\+UG@{E\+N\+G\+I\+N\+E\+\_\+\+D\+E\+B\+UG}}
+\index{E\+N\+G\+I\+N\+E\+\_\+\+D\+E\+B\+UG@{E\+N\+G\+I\+N\+E\+\_\+\+D\+E\+B\+UG}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{E\+N\+G\+I\+N\+E\+\_\+\+D\+E\+B\+UG}{ENGINE\_DEBUG}}
+{\footnotesize\ttfamily \#define E\+N\+G\+I\+N\+E\+\_\+\+D\+E\+B\+UG~\hyperlink{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{null\+Debug}()}
+
+\hypertarget{utils_8h_a0f2f8887d721d3c4c91d7935783a0c0d}{}\label{utils_8h_a0f2f8887d721d3c4c91d7935783a0c0d} 
+\index{utils.\+h@{utils.\+h}!S\+P\+E\+C\+T\+R\+U\+M\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+D\+E\+B\+UG@{S\+P\+E\+C\+T\+R\+U\+M\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+D\+E\+B\+UG}}
+\index{S\+P\+E\+C\+T\+R\+U\+M\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+D\+E\+B\+UG@{S\+P\+E\+C\+T\+R\+U\+M\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+D\+E\+B\+UG}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{S\+P\+E\+C\+T\+R\+U\+M\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+D\+E\+B\+UG}{SPECTRUMANALYSER\_DEBUG}}
+{\footnotesize\ttfamily \#define S\+P\+E\+C\+T\+R\+U\+M\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+D\+E\+B\+UG~\hyperlink{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{null\+Debug}()}
+
+\hypertarget{utils_8h_a26965d2609ece594299f59669a2818bc}{}\label{utils_8h_a26965d2609ece594299f59669a2818bc} 
+\index{utils.\+h@{utils.\+h}!W\+A\+V\+E\+F\+O\+R\+M\+\_\+\+D\+E\+B\+UG@{W\+A\+V\+E\+F\+O\+R\+M\+\_\+\+D\+E\+B\+UG}}
+\index{W\+A\+V\+E\+F\+O\+R\+M\+\_\+\+D\+E\+B\+UG@{W\+A\+V\+E\+F\+O\+R\+M\+\_\+\+D\+E\+B\+UG}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{W\+A\+V\+E\+F\+O\+R\+M\+\_\+\+D\+E\+B\+UG}{WAVEFORM\_DEBUG}}
+{\footnotesize\ttfamily \#define W\+A\+V\+E\+F\+O\+R\+M\+\_\+\+D\+E\+B\+UG~\hyperlink{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{null\+Debug}()}
+
+
+
+\subsection{Function Documentation}
+\hypertarget{utils_8h_a8ac2311760fd491edac24e2b309d0602}{}\label{utils_8h_a8ac2311760fd491edac24e2b309d0602} 
+\index{utils.\+h@{utils.\+h}!audio\+Duration@{audio\+Duration}}
+\index{audio\+Duration@{audio\+Duration}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{audio\+Duration()}{audioDuration()}}
+{\footnotesize\ttfamily qint64 audio\+Duration (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format,  }\item[{qint64}]{bytes }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8h_ac0eadc3f50d9ce2e46e5593963cad576}{}\label{utils_8h_ac0eadc3f50d9ce2e46e5593963cad576} 
+\index{utils.\+h@{utils.\+h}!audio\+Length@{audio\+Length}}
+\index{audio\+Length@{audio\+Length}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{audio\+Length()}{audioLength()}}
+{\footnotesize\ttfamily qint64 audio\+Length (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format,  }\item[{qint64}]{micro\+Seconds }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8h_afa9db1b58174c53a5cf12d91d2cf048a}{}\label{utils_8h_afa9db1b58174c53a5cf12d91d2cf048a} 
+\index{utils.\+h@{utils.\+h}!format\+To\+String@{format\+To\+String}}
+\index{format\+To\+String@{format\+To\+String}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{format\+To\+String()}{formatToString()}}
+{\footnotesize\ttfamily Q\+String format\+To\+String (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8h_a96349530b414e46bcd8a60404d5a8449}{}\label{utils_8h_a96349530b414e46bcd8a60404d5a8449} 
+\index{utils.\+h@{utils.\+h}!is\+P\+CM@{is\+P\+CM}}
+\index{is\+P\+CM@{is\+P\+CM}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{is\+P\+C\+M()}{isPCM()}}
+{\footnotesize\ttfamily bool is\+P\+CM (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8h_a7371caad2c65e8cffc9d71efec278a25}{}\label{utils_8h_a7371caad2c65e8cffc9d71efec278a25} 
+\index{utils.\+h@{utils.\+h}!is\+P\+C\+M\+S16\+LE@{is\+P\+C\+M\+S16\+LE}}
+\index{is\+P\+C\+M\+S16\+LE@{is\+P\+C\+M\+S16\+LE}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{is\+P\+C\+M\+S16\+L\+E()}{isPCMS16LE()}}
+{\footnotesize\ttfamily bool is\+P\+C\+M\+S16\+LE (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3}{}\label{utils_8h_a0b3c59b012e8fe5c48e3fccf997a5cb3} 
+\index{utils.\+h@{utils.\+h}!null\+Debug@{null\+Debug}}
+\index{null\+Debug@{null\+Debug}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{null\+Debug()}{nullDebug()}}
+{\footnotesize\ttfamily \hyperlink{class_null_debug}{Null\+Debug} null\+Debug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{utils_8h_aeaa522aea022ca45b6463dfd4a38dc29}{}\label{utils_8h_aeaa522aea022ca45b6463dfd4a38dc29} 
+\index{utils.\+h@{utils.\+h}!nyquist\+Frequency@{nyquist\+Frequency}}
+\index{nyquist\+Frequency@{nyquist\+Frequency}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{nyquist\+Frequency()}{nyquistFrequency()}}
+{\footnotesize\ttfamily qreal nyquist\+Frequency (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8h_a931bea9b0fc4dbd056d87517ca4d9157}{}\label{utils_8h_a931bea9b0fc4dbd056d87517ca4d9157} 
+\index{utils.\+h@{utils.\+h}!pcm\+To\+Real@{pcm\+To\+Real}}
+\index{pcm\+To\+Real@{pcm\+To\+Real}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{pcm\+To\+Real()}{pcmToReal()}}
+{\footnotesize\ttfamily qreal pcm\+To\+Real (\begin{DoxyParamCaption}\item[{qint16}]{pcm }\end{DoxyParamCaption})}
+
+\hypertarget{utils_8h_af2841016e5e3f3f242cf02b20d5d65aa}{}\label{utils_8h_af2841016e5e3f3f242cf02b20d5d65aa} 
+\index{utils.\+h@{utils.\+h}!real\+To\+Pcm@{real\+To\+Pcm}}
+\index{real\+To\+Pcm@{real\+To\+Pcm}!utils.\+h@{utils.\+h}}
+\subsubsection{\texorpdfstring{real\+To\+Pcm()}{realToPcm()}}
+{\footnotesize\ttfamily qint16 real\+To\+Pcm (\begin{DoxyParamCaption}\item[{qreal}]{real }\end{DoxyParamCaption})}
+

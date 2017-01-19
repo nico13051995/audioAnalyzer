@@ -1,0 +1,89 @@
+\hypertarget{class_spectrum_analyser}{}\section{Spectrum\+Analyser Class Reference}
+\label{class_spectrum_analyser}\index{Spectrum\+Analyser@{Spectrum\+Analyser}}
+
+
+{\ttfamily \#include $<$spectrumanalyser.\+h$>$}
+
+Inheritance diagram for Spectrum\+Analyser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_spectrum_analyser}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_spectrum_analyser_af2dd8d387193fa6743ac15d3f8163ee0}{spectrum\+Changed} (const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&spectrum)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_spectrum_analyser_abf706ac78327bc590b90b586086c0cd5}{Spectrum\+Analyser} (Q\+Object $\ast$parent=0)
+\item 
+\hyperlink{class_spectrum_analyser_a3737f48dd1d95b09aeeaf3e1f081591e}{$\sim$\+Spectrum\+Analyser} ()
+\item 
+void \hyperlink{class_spectrum_analyser_a6aeb6c39dd89dd5c5881198ae413ec74}{set\+Window\+Function} (\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function} type)
+\item 
+void \hyperlink{class_spectrum_analyser_aecd698124fcdd83760b9e808f003e1a6}{calculate} (const Q\+Byte\+Array \&buffer, const Q\+Audio\+Format \&format)
+\item 
+bool \hyperlink{class_spectrum_analyser_acac3bd1ac5fc255c01ea0288e50fee6c}{is\+Ready} () const
+\item 
+void \hyperlink{class_spectrum_analyser_a1ed17c67c3676facec7e987512eaa962}{cancel\+Calculation} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class which performs frequency spectrum analysis on a window of audio samples, provided to it by the \hyperlink{class_engine}{Engine}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_spectrum_analyser_abf706ac78327bc590b90b586086c0cd5}{}\label{class_spectrum_analyser_abf706ac78327bc590b90b586086c0cd5} 
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\subsubsection{\texorpdfstring{Spectrum\+Analyser()}{SpectrumAnalyser()}}
+{\footnotesize\ttfamily Spectrum\+Analyser\+::\+Spectrum\+Analyser (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\hypertarget{class_spectrum_analyser_a3737f48dd1d95b09aeeaf3e1f081591e}{}\label{class_spectrum_analyser_a3737f48dd1d95b09aeeaf3e1f081591e} 
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!````~Spectrum\+Analyser@{$\sim$\+Spectrum\+Analyser}}
+\index{````~Spectrum\+Analyser@{$\sim$\+Spectrum\+Analyser}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\subsubsection{\texorpdfstring{$\sim$\+Spectrum\+Analyser()}{~SpectrumAnalyser()}}
+{\footnotesize\ttfamily Spectrum\+Analyser\+::$\sim$\+Spectrum\+Analyser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_spectrum_analyser_aecd698124fcdd83760b9e808f003e1a6}{}\label{class_spectrum_analyser_aecd698124fcdd83760b9e808f003e1a6} 
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!calculate@{calculate}}
+\index{calculate@{calculate}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\subsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily void Spectrum\+Analyser\+::calculate (\begin{DoxyParamCaption}\item[{const Q\+Byte\+Array \&}]{buffer,  }\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})}
+
+\hypertarget{class_spectrum_analyser_a1ed17c67c3676facec7e987512eaa962}{}\label{class_spectrum_analyser_a1ed17c67c3676facec7e987512eaa962} 
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!cancel\+Calculation@{cancel\+Calculation}}
+\index{cancel\+Calculation@{cancel\+Calculation}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\subsubsection{\texorpdfstring{cancel\+Calculation()}{cancelCalculation()}}
+{\footnotesize\ttfamily void Spectrum\+Analyser\+::cancel\+Calculation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_spectrum_analyser_acac3bd1ac5fc255c01ea0288e50fee6c}{}\label{class_spectrum_analyser_acac3bd1ac5fc255c01ea0288e50fee6c} 
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!is\+Ready@{is\+Ready}}
+\index{is\+Ready@{is\+Ready}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\subsubsection{\texorpdfstring{is\+Ready()}{isReady()}}
+{\footnotesize\ttfamily bool Spectrum\+Analyser\+::is\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_spectrum_analyser_a6aeb6c39dd89dd5c5881198ae413ec74}{}\label{class_spectrum_analyser_a6aeb6c39dd89dd5c5881198ae413ec74} 
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!set\+Window\+Function@{set\+Window\+Function}}
+\index{set\+Window\+Function@{set\+Window\+Function}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\subsubsection{\texorpdfstring{set\+Window\+Function()}{setWindowFunction()}}
+{\footnotesize\ttfamily void Spectrum\+Analyser\+::set\+Window\+Function (\begin{DoxyParamCaption}\item[{\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function}}]{type }\end{DoxyParamCaption})}
+
+\hypertarget{class_spectrum_analyser_af2dd8d387193fa6743ac15d3f8163ee0}{}\label{class_spectrum_analyser_af2dd8d387193fa6743ac15d3f8163ee0} 
+\index{Spectrum\+Analyser@{Spectrum\+Analyser}!spectrum\+Changed@{spectrum\+Changed}}
+\index{spectrum\+Changed@{spectrum\+Changed}!Spectrum\+Analyser@{Spectrum\+Analyser}}
+\subsubsection{\texorpdfstring{spectrum\+Changed}{spectrumChanged}}
+{\footnotesize\ttfamily void Spectrum\+Analyser\+::spectrum\+Changed (\begin{DoxyParamCaption}\item[{const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&}]{spectrum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{spectrumanalyser_8h}{spectrumanalyser.\+h}\item 
+app/\hyperlink{spectrumanalyser_8cpp}{spectrumanalyser.\+cpp}\end{DoxyCompactItemize}

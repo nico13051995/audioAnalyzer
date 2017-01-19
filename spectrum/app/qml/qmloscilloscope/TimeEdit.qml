@@ -39,12 +39,35 @@ Row{
     property color textColor: "white"
     property font textFont: new Font()
     property date time: new Date()
+    property bool lock: false
+
+    function format(num)
+    {
+        if(num > 9)
+            return num;
+        return '0'+num;
+    }
+
+    onTimeChanged: {
+        if(lock)
+            return;
+        hours.text = format(time.getHours());
+        minutes.text = format(time.getMinutes());
+        seconds.text = format(time.getSeconds());
+    }
+
+    function read(){
+        time.setHours(hours.text);
+        time.setMinutes(minutes.text);
+        time.setSeconds(seconds.text);
+    }
 
     TextInput{
         id: hours
         height: parent.height
+        width: font.pointSize*1.5
         color: _timeEdit.textColor
-        visible: text != "0"
+        visible: text != "00"
         font: _timeEdit.textFont
         text: time.getHours()
     }
@@ -58,6 +81,7 @@ Row{
     TextInput{
         id: minutes
         height: parent.height
+        width: font.pointSize*1.5
         font: _timeEdit.textFont
         color: _timeEdit.textColor
         text: time.getMinutes()
@@ -71,6 +95,7 @@ Row{
     TextInput{
         id: seconds
         height: parent.height
+        width: font.pointSize*1.5
         font: _timeEdit.textFont
         color: _timeEdit.textColor
         wrapMode: Text.WrapAnywhere

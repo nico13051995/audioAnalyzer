@@ -1,0 +1,135 @@
+\hypertarget{spectrum_8h}{}\section{app/spectrum.h File Reference}
+\label{spectrum_8h}\index{app/spectrum.\+h@{app/spectrum.\+h}}
+{\ttfamily \#include $<$qglobal.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fftreal\+\_\+wrapper.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_tone}{Tone}
+\item 
+struct \hyperlink{struct_swept_tone}{Swept\+Tone}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spectrum_8h_abb4bca356f9e80ea41b7e87dd2d866ef}{C\+H\+E\+C\+K\+E\+D\+\_\+\+C\+O\+N\+N\+E\+CT}(source,  signal,  receiver,  slot)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function} \{ \hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a3c85ee4818c0d4aef48d165fbd486761}{No\+Window}, 
+\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a81f20050357e7517102be8032f48263e}{Hann\+Window}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{spectrum_8h_a155300284c79f3250ecc94e67f369df0}{Spectrum\+Length\+Samples} = \hyperlink{class_power_of_two}{Power\+Of\+Two}$<$F\+F\+T\+Length\+Power\+Of\+Two$>$\+::Result
+\item 
+const int \hyperlink{spectrum_8h_a3bbbe1d3e3a993e0699ae88edd8ad0b4}{Spectrum\+Num\+Bands} = 10
+\item 
+const qreal \hyperlink{spectrum_8h_a24e1d44bafabebd174ae0b89c11b5e5d}{Spectrum\+Low\+Freq} = 0.\+0
+\item 
+const qreal \hyperlink{spectrum_8h_a7cc711535185d0f28465f791685404a5}{Spectrum\+High\+Freq} = 44000.\+0
+\item 
+const qint64 \hyperlink{spectrum_8h_a95dd1e13365fc160dfc314ea3d8b43b6}{Waveform\+Window\+Duration} = 6000 $\ast$ 1000
+\item 
+const int \hyperlink{spectrum_8h_a8f12ac7c35b2acfbaad5ef5e872ef9e0}{Waveform\+Tile\+Length} = 4096
+\item 
+const qreal \hyperlink{spectrum_8h_af94e0ab4db5ca0ce1a01dbfa4e61e634}{Spectrum\+Analyser\+Multiplier} = 0.\+15
+\item 
+const int \hyperlink{spectrum_8h_a2851753c1e1a8c8bba0797f3598ce772}{Null\+Message\+Timeout} = -\/1
+\item 
+const \hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function} \hyperlink{spectrum_8h_a8f201fc7de1518efc4cc91e7333599c9}{Default\+Window\+Function} = \hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a81f20050357e7517102be8032f48263e}{Hann\+Window}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{spectrum_8h_abb4bca356f9e80ea41b7e87dd2d866ef}{}\label{spectrum_8h_abb4bca356f9e80ea41b7e87dd2d866ef} 
+\index{spectrum.\+h@{spectrum.\+h}!C\+H\+E\+C\+K\+E\+D\+\_\+\+C\+O\+N\+N\+E\+CT@{C\+H\+E\+C\+K\+E\+D\+\_\+\+C\+O\+N\+N\+E\+CT}}
+\index{C\+H\+E\+C\+K\+E\+D\+\_\+\+C\+O\+N\+N\+E\+CT@{C\+H\+E\+C\+K\+E\+D\+\_\+\+C\+O\+N\+N\+E\+CT}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{C\+H\+E\+C\+K\+E\+D\+\_\+\+C\+O\+N\+N\+E\+CT}{CHECKED\_CONNECT}}
+{\footnotesize\ttfamily \#define C\+H\+E\+C\+K\+E\+D\+\_\+\+C\+O\+N\+N\+E\+CT(\begin{DoxyParamCaption}\item[{}]{source,  }\item[{}]{signal,  }\item[{}]{receiver,  }\item[{}]{slot }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (!connect(source, signal, receiver, slot)) \(\backslash\)
+        qt\_assert\_x(Q\_FUNC\_INFO, \textcolor{stringliteral}{"CHECKED\_CONNECT failed"}, \_\_FILE\_\_, \_\_LINE\_\_);
+\end{DoxyCode}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{}\label{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4} 
+\index{spectrum.\+h@{spectrum.\+h}!Window\+Function@{Window\+Function}}
+\index{Window\+Function@{Window\+Function}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Window\+Function}{WindowFunction}}
+{\footnotesize\ttfamily enum \hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{No\+Window@{No\+Window}!spectrum.\+h@{spectrum.\+h}}\index{spectrum.\+h@{spectrum.\+h}!No\+Window@{No\+Window}}}\hypertarget{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a3c85ee4818c0d4aef48d165fbd486761}{}\label{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a3c85ee4818c0d4aef48d165fbd486761} 
+No\+Window&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Hann\+Window@{Hann\+Window}!spectrum.\+h@{spectrum.\+h}}\index{spectrum.\+h@{spectrum.\+h}!Hann\+Window@{Hann\+Window}}}\hypertarget{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a81f20050357e7517102be8032f48263e}{}\label{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a81f20050357e7517102be8032f48263e} 
+Hann\+Window&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Variable Documentation}
+\hypertarget{spectrum_8h_a8f201fc7de1518efc4cc91e7333599c9}{}\label{spectrum_8h_a8f201fc7de1518efc4cc91e7333599c9} 
+\index{spectrum.\+h@{spectrum.\+h}!Default\+Window\+Function@{Default\+Window\+Function}}
+\index{Default\+Window\+Function@{Default\+Window\+Function}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Default\+Window\+Function}{DefaultWindowFunction}}
+{\footnotesize\ttfamily const \hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function} Default\+Window\+Function = \hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4a81f20050357e7517102be8032f48263e}{Hann\+Window}}
+
+\hypertarget{spectrum_8h_a2851753c1e1a8c8bba0797f3598ce772}{}\label{spectrum_8h_a2851753c1e1a8c8bba0797f3598ce772} 
+\index{spectrum.\+h@{spectrum.\+h}!Null\+Message\+Timeout@{Null\+Message\+Timeout}}
+\index{Null\+Message\+Timeout@{Null\+Message\+Timeout}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Null\+Message\+Timeout}{NullMessageTimeout}}
+{\footnotesize\ttfamily const int Null\+Message\+Timeout = -\/1}
+
+\hypertarget{spectrum_8h_af94e0ab4db5ca0ce1a01dbfa4e61e634}{}\label{spectrum_8h_af94e0ab4db5ca0ce1a01dbfa4e61e634} 
+\index{spectrum.\+h@{spectrum.\+h}!Spectrum\+Analyser\+Multiplier@{Spectrum\+Analyser\+Multiplier}}
+\index{Spectrum\+Analyser\+Multiplier@{Spectrum\+Analyser\+Multiplier}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Spectrum\+Analyser\+Multiplier}{SpectrumAnalyserMultiplier}}
+{\footnotesize\ttfamily const qreal Spectrum\+Analyser\+Multiplier = 0.\+15}
+
+\hypertarget{spectrum_8h_a7cc711535185d0f28465f791685404a5}{}\label{spectrum_8h_a7cc711535185d0f28465f791685404a5} 
+\index{spectrum.\+h@{spectrum.\+h}!Spectrum\+High\+Freq@{Spectrum\+High\+Freq}}
+\index{Spectrum\+High\+Freq@{Spectrum\+High\+Freq}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Spectrum\+High\+Freq}{SpectrumHighFreq}}
+{\footnotesize\ttfamily const qreal Spectrum\+High\+Freq = 44000.\+0}
+
+\hypertarget{spectrum_8h_a155300284c79f3250ecc94e67f369df0}{}\label{spectrum_8h_a155300284c79f3250ecc94e67f369df0} 
+\index{spectrum.\+h@{spectrum.\+h}!Spectrum\+Length\+Samples@{Spectrum\+Length\+Samples}}
+\index{Spectrum\+Length\+Samples@{Spectrum\+Length\+Samples}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Spectrum\+Length\+Samples}{SpectrumLengthSamples}}
+{\footnotesize\ttfamily const int Spectrum\+Length\+Samples = \hyperlink{class_power_of_two}{Power\+Of\+Two}$<$F\+F\+T\+Length\+Power\+Of\+Two$>$\+::Result}
+
+\hypertarget{spectrum_8h_a24e1d44bafabebd174ae0b89c11b5e5d}{}\label{spectrum_8h_a24e1d44bafabebd174ae0b89c11b5e5d} 
+\index{spectrum.\+h@{spectrum.\+h}!Spectrum\+Low\+Freq@{Spectrum\+Low\+Freq}}
+\index{Spectrum\+Low\+Freq@{Spectrum\+Low\+Freq}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Spectrum\+Low\+Freq}{SpectrumLowFreq}}
+{\footnotesize\ttfamily const qreal Spectrum\+Low\+Freq = 0.\+0}
+
+\hypertarget{spectrum_8h_a3bbbe1d3e3a993e0699ae88edd8ad0b4}{}\label{spectrum_8h_a3bbbe1d3e3a993e0699ae88edd8ad0b4} 
+\index{spectrum.\+h@{spectrum.\+h}!Spectrum\+Num\+Bands@{Spectrum\+Num\+Bands}}
+\index{Spectrum\+Num\+Bands@{Spectrum\+Num\+Bands}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Spectrum\+Num\+Bands}{SpectrumNumBands}}
+{\footnotesize\ttfamily const int Spectrum\+Num\+Bands = 10}
+
+\hypertarget{spectrum_8h_a8f12ac7c35b2acfbaad5ef5e872ef9e0}{}\label{spectrum_8h_a8f12ac7c35b2acfbaad5ef5e872ef9e0} 
+\index{spectrum.\+h@{spectrum.\+h}!Waveform\+Tile\+Length@{Waveform\+Tile\+Length}}
+\index{Waveform\+Tile\+Length@{Waveform\+Tile\+Length}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Waveform\+Tile\+Length}{WaveformTileLength}}
+{\footnotesize\ttfamily const int Waveform\+Tile\+Length = 4096}
+
+\hypertarget{spectrum_8h_a95dd1e13365fc160dfc314ea3d8b43b6}{}\label{spectrum_8h_a95dd1e13365fc160dfc314ea3d8b43b6} 
+\index{spectrum.\+h@{spectrum.\+h}!Waveform\+Window\+Duration@{Waveform\+Window\+Duration}}
+\index{Waveform\+Window\+Duration@{Waveform\+Window\+Duration}!spectrum.\+h@{spectrum.\+h}}
+\subsubsection{\texorpdfstring{Waveform\+Window\+Duration}{WaveformWindowDuration}}
+{\footnotesize\ttfamily const qint64 Waveform\+Window\+Duration = 6000 $\ast$ 1000}
+

@@ -26,6 +26,15 @@ Item{
                 id: addComponent
                 width: parent.width
                 height: childrenRect.height
+                function add(){
+                    if(graphName.text.length == 0)
+                        return;
+                    console.log("OK = " + mainWindow.addPraph(graphName.text, chartView.viewId).getName());
+                    console.log("OK = " + mainWindow.getPraphIds(chartView.viewId).length);
+                    rows.model = mainWindow.getPraphIds(chartView.viewId).length;
+                    graphName.text = "";
+                }
+
                 Row{
                     width: parent.width
                     height: graphNameContainer.height
@@ -50,6 +59,15 @@ Item{
                             anchors.leftMargin: lable.width
                             color: "white"
                             font.pointSize: parent.height/2
+                            onAccepted: {
+                                addComponent.add();
+                            }
+
+                            Keys.onPressed: {
+                                if (event.key == Qt.Key_Enter) {
+                                    addComponent.add();
+                                }
+                            }
                         }
                         Rectangle{
                             anchors.bottom: parent.bottom
@@ -63,12 +81,10 @@ Item{
                     IconBtn{
                         id: icon
                         url: "qrc:/icons/qml/icons/ic_add_white_48px.svg"
+                        enabled: graphName.text.length > 0
+                        onEnabledChanged: enabled ? opacity = 1 : opacity = 0.5;
                         onClick: {
-
-                            console.log("OK = " + mainWindow.addPraph(graphName.text, chartView.viewId).getName());
-                            console.log("OK = " + mainWindow.getPraphIds(chartView.viewId).length);
-                            rows.model = mainWindow.getPraphIds(chartView.viewId).length;
-                            graphName.text = "";
+                            addComponent.add();
                         }
                     }
                 }
@@ -77,6 +93,52 @@ Item{
                 anchors.fill: parent
                 anchors.topMargin: addComponent.height + 10
                 spacing: 10
+                Item{
+                    visible: rows.model > 0
+                    width: parent.width
+                    height: filterHead.height +3
+                    Rectangle{
+                        color: "white";
+                        width: parent.width
+                        height: 2
+                        anchors.bottom: parent.bottom
+                    }
+
+                    Row{
+                        id: heads
+                        spacing: 5;
+                        Item{
+                            id: textHead
+                            width: 200
+                            height: 24
+                        }
+
+                        Text{
+                            id: filterHead
+                            text: qsTr("Фільтер")
+                            color: "white"
+                            horizontalAlignment: Text.AlignHCenter
+                            width: 100
+                          //  font.underline: true
+                        }
+                        Text{
+                            id: chanelHead
+                            text: qsTr("Канал")
+                            color: "white"
+                            horizontalAlignment: Text.AlignHCenter
+                            width: 100
+                          //  font.underline: true
+                        }
+                        Text{
+                            id: typeHead
+                            text: qsTr("Тип графіку")
+                            color: "white"
+                            horizontalAlignment: Text.AlignHCenter
+                            width: 100
+                          //  font.underline: true
+                        }
+                    }
+                }
                 Repeater{
                     id: rows
                     model: mainWindow.getPraphIds(chartView.viewId).length
@@ -93,12 +155,13 @@ Item{
                             id: name
                             text: qsTr("text")
                             color: "white"
-                            width: 200
+                            width: textHead.width
                             y: filter.height/4
                             font.pixelSize: filter.height/2
                         }
                         ComboBox{
                             id: filter
+                            width: filterHead.width
                             items: mainWindow.getTemplatesQML();
                             titleLink: null
                             onComboClicked: {
@@ -108,10 +171,10 @@ Item{
                         //chanels
                         ComboBox{
                             id:chanel
-                            items: _chartSettingsC.range(0,3);
+                            items: _chartSettingsC.range(1,4);
                             titleLink: null
                             onComboClicked: {
-                                graph.graphObj.setChanel(chanel.selectedValue());
+                                graph.graphObj.setChanel(chanel.selectedValue() - 1);
                             }
                         }
                         //chanels

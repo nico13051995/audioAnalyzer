@@ -35,23 +35,32 @@ Rectangle {
     width: 600
     height: 400
     color: root.screenShot ? "#fff" : "#2c2d37"
-    //color:"#2c2d37"
     property int nextId: 0
     property bool screenShot: false
-    /*MouseArea{
-        z:1
-        anchors.fill: parent;
-        propagateComposedEvents: true
-        onClicked: {
-            root.forceActiveFocus();
-            mouse.accepted = false
+
+
+    Row{
+        id: windowInfoPanel
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        height: 30
+        spacing: 5
+        IconBtn{
+            id: aboutQt
+            url: "qrc:/icons/qml/icons/ic_help_white_24px.svg"
+            onClick: {
+                mainWindow.aboutQt();
+            }
         }
-    }*/
+    }
+
     Row{
         id: windowControlPanel
         anchors.top: parent.top
         anchors.right: parent.right
         height: 30
+        spacing: 5
         IconBtn{
             id: screenShot
             url: "qrc:/icons/qml/icons/screen-1.svg"
@@ -73,6 +82,8 @@ Rectangle {
 
             }
         }
+
+
         IconBtn{
             id: fullScreenSwitch
             url: "qrc:/icons/qml/icons/ic_open_with_white_48px.svg"
@@ -83,7 +94,7 @@ Rectangle {
         }
         IconBtn{
             id: closeBtn
-            url: "qrc:/icons/qml/icons/ic_highlight_off_white_48px.svg"
+            url: "qrc:/icons/qml/icons/ic_power_settings_new_white_24px.svg"
             visible: mainWindow.isFullScreen();
             onClick: mainWindow.close();
             Connections{

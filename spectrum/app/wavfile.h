@@ -45,6 +45,10 @@
 #include <QFile>
 #include <QAudioFormat>
 
+/**
+ * @brief The WavFile class
+ * Simple wraper to wav file
+ */
 class WavFile : public QFile
 {
 public:
@@ -55,12 +59,18 @@ public:
     const QAudioFormat &fileFormat() const;
     qint64 headerLength() const;
 
+    static bool saveWAV(char * filename, unsigned long num_bytes, int16_t *data, int s_rate);
+    static bool saveWAV(QString name, QByteArray data, QAudioFormat format);
 private:
+    /**
+     * @brief parce wav head for reading audio info
+     * @return is success
+     */
     bool readHeader();
 
 private:
     QAudioFormat m_fileFormat;
-    qint64 m_headerLength;
+    qint64 m_headerLength = -1;
 };
 
 #endif // WAVFILE_H

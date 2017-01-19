@@ -9,11 +9,13 @@ class Graph : public QObject
 public:
     enum GRAPHICTYPE
     {
+        /// show specter
         SPECTR = 2,
+        /// show form
         WAVE = 1,
         STYLE_FILLED
     };
-    Q_ENUMS(GRAPHICTYPE)
+    Q_ENUMS(GRAPHICTYPE) /// add enums to QML
     explicit Graph(QObject *parent = 0);
     Graph(int id, QString name, int chanel, GRAPHICTYPE type, QString templateName, QObject *parent = 0);
 

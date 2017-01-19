@@ -1,0 +1,145 @@
+\hypertarget{class_spectrograph}{}\section{Spectrograph Class Reference}
+\label{class_spectrograph}\index{Spectrograph@{Spectrograph}}
+
+
+{\ttfamily \#include $<$spectrograph.\+h$>$}
+
+Inheritance diagram for Spectrograph\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_spectrograph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_spectrograph_a63c0355273ab24b5206817695421747d}{reset} ()
+\item 
+void \hyperlink{class_spectrograph_af9cdafaa2e367c697a253a66e25c62a4}{spectrum\+Changed} (const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&spectrum)
+\item 
+void \hyperlink{class_spectrograph_a3c6f5ae666d675d0326271511b38f4a2}{set\+Window\+Function} (\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function} type)
+\item 
+void \hyperlink{class_spectrograph_aec6520868d48dc83485d6716b977f65b}{calculate\+Spectrum} (Q\+Byte\+Array \&m\+\_\+buffer, qint64 position)
+\item 
+void \hyperlink{class_spectrograph_ae267e7e06cb7eaec965150a73c21e4ce}{set\+Format} (const Q\+Audio\+Format \&format)
+\item 
+void \hyperlink{class_spectrograph_af6a83c1feec2657104a983ae334ceae3}{buffer\+Changed} (qint64 position, qint64 length, const Q\+Byte\+Array \&buffer)
+\item 
+void \hyperlink{class_spectrograph_a94b5df4c4d57b03cc588b2ecfc0d9596}{subsctibe\+Chart} (Q\+X\+Y\+Series $\ast$set)
+\item 
+void \hyperlink{class_spectrograph_a6c5811644f0e182a7814027f7d9b702c}{un\+Subsctibe\+Chart} (Q\+X\+Y\+Series $\ast$set)
+\item 
+int \hyperlink{class_spectrograph_a4a7f2b78c288816942356f2452166211}{get\+Bar\+Number} ()
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_spectrograph_a1046b17fbd22d0724f06d461acb77bef}{info\+Message} (const Q\+String \&message, int interval\+Ms)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_spectrograph_afcfc87c4b07094a705dabb1b43c366ee}{Spectrograph} (Q\+Object $\ast$parent=0)
+\item 
+\hyperlink{class_spectrograph_aede83dadf66ffca77b01b023ee35d8b6}{$\sim$\+Spectrograph} ()
+\item 
+void \hyperlink{class_spectrograph_a5eba417e888dc0871f5ad1348849b693}{set\+Params} (int num\+Bars, qreal low\+Freq, qreal high\+Freq)
+\item 
+void \hyperlink{class_spectrograph_a9141c4da693b8c00d4ab8d9b5ba6e670}{timer\+Event} (Q\+Timer\+Event $\ast$event)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_spectrograph_afcfc87c4b07094a705dabb1b43c366ee}{}\label{class_spectrograph_afcfc87c4b07094a705dabb1b43c366ee} 
+\index{Spectrograph@{Spectrograph}!Spectrograph@{Spectrograph}}
+\index{Spectrograph@{Spectrograph}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{Spectrograph()}{Spectrograph()}}
+{\footnotesize\ttfamily Spectrograph\+::\+Spectrograph (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\hypertarget{class_spectrograph_aede83dadf66ffca77b01b023ee35d8b6}{}\label{class_spectrograph_aede83dadf66ffca77b01b023ee35d8b6} 
+\index{Spectrograph@{Spectrograph}!````~Spectrograph@{$\sim$\+Spectrograph}}
+\index{````~Spectrograph@{$\sim$\+Spectrograph}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{$\sim$\+Spectrograph()}{~Spectrograph()}}
+{\footnotesize\ttfamily Spectrograph\+::$\sim$\+Spectrograph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_spectrograph_af6a83c1feec2657104a983ae334ceae3}{}\label{class_spectrograph_af6a83c1feec2657104a983ae334ceae3} 
+\index{Spectrograph@{Spectrograph}!buffer\+Changed@{buffer\+Changed}}
+\index{buffer\+Changed@{buffer\+Changed}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{buffer\+Changed}{bufferChanged}}
+{\footnotesize\ttfamily void Spectrograph\+::buffer\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position,  }\item[{qint64}]{length,  }\item[{const Q\+Byte\+Array \&}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_aec6520868d48dc83485d6716b977f65b}{}\label{class_spectrograph_aec6520868d48dc83485d6716b977f65b} 
+\index{Spectrograph@{Spectrograph}!calculate\+Spectrum@{calculate\+Spectrum}}
+\index{calculate\+Spectrum@{calculate\+Spectrum}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{calculate\+Spectrum}{calculateSpectrum}}
+{\footnotesize\ttfamily void Spectrograph\+::calculate\+Spectrum (\begin{DoxyParamCaption}\item[{Q\+Byte\+Array \&}]{m\+\_\+buffer,  }\item[{qint64}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_a4a7f2b78c288816942356f2452166211}{}\label{class_spectrograph_a4a7f2b78c288816942356f2452166211} 
+\index{Spectrograph@{Spectrograph}!get\+Bar\+Number@{get\+Bar\+Number}}
+\index{get\+Bar\+Number@{get\+Bar\+Number}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{get\+Bar\+Number}{getBarNumber}}
+{\footnotesize\ttfamily int Spectrograph\+::get\+Bar\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_a1046b17fbd22d0724f06d461acb77bef}{}\label{class_spectrograph_a1046b17fbd22d0724f06d461acb77bef} 
+\index{Spectrograph@{Spectrograph}!info\+Message@{info\+Message}}
+\index{info\+Message@{info\+Message}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{info\+Message}{infoMessage}}
+{\footnotesize\ttfamily void Spectrograph\+::info\+Message (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{message,  }\item[{int}]{interval\+Ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\hypertarget{class_spectrograph_a63c0355273ab24b5206817695421747d}{}\label{class_spectrograph_a63c0355273ab24b5206817695421747d} 
+\index{Spectrograph@{Spectrograph}!reset@{reset}}
+\index{reset@{reset}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{reset}{reset}}
+{\footnotesize\ttfamily void Spectrograph\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_ae267e7e06cb7eaec965150a73c21e4ce}{}\label{class_spectrograph_ae267e7e06cb7eaec965150a73c21e4ce} 
+\index{Spectrograph@{Spectrograph}!set\+Format@{set\+Format}}
+\index{set\+Format@{set\+Format}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{set\+Format}{setFormat}}
+{\footnotesize\ttfamily void Spectrograph\+::set\+Format (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_a5eba417e888dc0871f5ad1348849b693}{}\label{class_spectrograph_a5eba417e888dc0871f5ad1348849b693} 
+\index{Spectrograph@{Spectrograph}!set\+Params@{set\+Params}}
+\index{set\+Params@{set\+Params}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{set\+Params()}{setParams()}}
+{\footnotesize\ttfamily void Spectrograph\+::set\+Params (\begin{DoxyParamCaption}\item[{int}]{num\+Bars,  }\item[{qreal}]{low\+Freq,  }\item[{qreal}]{high\+Freq }\end{DoxyParamCaption})}
+
+reinit list \hypertarget{class_spectrograph_a3c6f5ae666d675d0326271511b38f4a2}{}\label{class_spectrograph_a3c6f5ae666d675d0326271511b38f4a2} 
+\index{Spectrograph@{Spectrograph}!set\+Window\+Function@{set\+Window\+Function}}
+\index{set\+Window\+Function@{set\+Window\+Function}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{set\+Window\+Function}{setWindowFunction}}
+{\footnotesize\ttfamily void Spectrograph\+::set\+Window\+Function (\begin{DoxyParamCaption}\item[{\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_af9cdafaa2e367c697a253a66e25c62a4}{}\label{class_spectrograph_af9cdafaa2e367c697a253a66e25c62a4} 
+\index{Spectrograph@{Spectrograph}!spectrum\+Changed@{spectrum\+Changed}}
+\index{spectrum\+Changed@{spectrum\+Changed}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{spectrum\+Changed}{spectrumChanged}}
+{\footnotesize\ttfamily void Spectrograph\+::spectrum\+Changed (\begin{DoxyParamCaption}\item[{const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&}]{spectrum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_a94b5df4c4d57b03cc588b2ecfc0d9596}{}\label{class_spectrograph_a94b5df4c4d57b03cc588b2ecfc0d9596} 
+\index{Spectrograph@{Spectrograph}!subsctibe\+Chart@{subsctibe\+Chart}}
+\index{subsctibe\+Chart@{subsctibe\+Chart}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{subsctibe\+Chart}{subsctibeChart}}
+{\footnotesize\ttfamily void Spectrograph\+::subsctibe\+Chart (\begin{DoxyParamCaption}\item[{Q\+X\+Y\+Series $\ast$}]{set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_spectrograph_a9141c4da693b8c00d4ab8d9b5ba6e670}{}\label{class_spectrograph_a9141c4da693b8c00d4ab8d9b5ba6e670} 
+\index{Spectrograph@{Spectrograph}!timer\+Event@{timer\+Event}}
+\index{timer\+Event@{timer\+Event}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{timer\+Event()}{timerEvent()}}
+{\footnotesize\ttfamily void Spectrograph\+::timer\+Event (\begin{DoxyParamCaption}\item[{Q\+Timer\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+\hypertarget{class_spectrograph_a6c5811644f0e182a7814027f7d9b702c}{}\label{class_spectrograph_a6c5811644f0e182a7814027f7d9b702c} 
+\index{Spectrograph@{Spectrograph}!un\+Subsctibe\+Chart@{un\+Subsctibe\+Chart}}
+\index{un\+Subsctibe\+Chart@{un\+Subsctibe\+Chart}!Spectrograph@{Spectrograph}}
+\subsubsection{\texorpdfstring{un\+Subsctibe\+Chart}{unSubsctibeChart}}
+{\footnotesize\ttfamily void Spectrograph\+::un\+Subsctibe\+Chart (\begin{DoxyParamCaption}\item[{Q\+X\+Y\+Series $\ast$}]{set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{spectrograph_8h}{spectrograph.\+h}\item 
+app/\hyperlink{spectrograph_8cpp}{spectrograph.\+cpp}\end{DoxyCompactItemize}

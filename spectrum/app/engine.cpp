@@ -333,10 +333,6 @@ void Engine::audioNotify()
         const qint64 levelPosition = m_dataLength - m_levelBufferLength;
         if (levelPosition >= 0)
             calculateLevel(levelPosition, m_levelBufferLength);
-        /*if (m_dataLength >= m_spectrumBufferLength) {
-            const qint64 spectrumPosition = m_dataLength - m_spectrumBufferLength;
-            calculateSpectrum(spectrumPosition);
-        }*/
         emit bufferChanged(0, m_dataLength, m_buffer);
     }
         break;
@@ -733,6 +729,16 @@ void Engine::setLevel(qreal rmsLevel, qreal peakLevel, int numSamples)
     m_rmsLevel = rmsLevel;
     m_peakLevel = peakLevel;
     emit levelChanged(m_rmsLevel, m_peakLevel, numSamples);
+}
+
+GraphFilterService *Engine::getFilterTempateForPlay() const
+{
+    return filterTempateForPlay;
+}
+
+WavFile *Engine::getFile() const
+{
+    return m_file;
 }
 QMap<QString, GraphFilterService*> Engine::getCreatedTemplates() const
 {

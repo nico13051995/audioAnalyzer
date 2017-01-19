@@ -43,6 +43,8 @@
 #include <QDebug>
 #include "utils.h"
 #include "wavfile.h"
+#include <stdio.h>
+#include <assert.h>
 
 struct chunk
 {
@@ -99,7 +101,87 @@ const QAudioFormat &WavFile::fileFormat() const
 
 qint64 WavFile::headerLength() const
 {
-return m_headerLength;
+    return m_headerLength;
+}
+
+void write_little_endian(unsigned int word, int num_bytes, FILE *wav_file)
+{
+    unsigned buf;
+    while(num_bytes>0)
+    {   buf = word & 0xff;
+        fwrite(&buf, 1,1, wav_file);
+        num_bytes--;
+        word >>= 8;
+    }
+}
+
+/* information about the WAV file format from
+    http://ccrma.stanford.edu/courses/422/projects/WaveFormat/
+ */
+
+static bool saveWAV(char * filename, unsigned long num_samples, short int * data, int s_rate);
+
+bool WavFile::saveWAV(QString name, QByteArray data, QAudioFormat format){
+    //return WavFile::saveWAV(name.toLatin1().data(), (unsigned long)data.size(),(short int *) data.data(), format.sampleRate());
+
+    long num_bytes = data.size();
+    qDebug() << "LLLL:" << format.sampleSize();
+    long sampleSize = format.sampleSize()/8;
+    long samplecount = num_bytes/sampleSize;
+    long riffsize    = samplecount*sampleSize+0x24;
+    long datasize    = samplecount*sampleSize;
+    long s_rate = format.sampleRate();
+
+    struct
+    {
+        unsigned short    wFormatTag;
+        unsigned short    wChannels;
+        unsigned long     dwSamplesPerSec;
+        unsigned long     dwAvgBytesPerSec;
+        unsigned short    wBlockAlign;
+        unsigned short    wBitsPerSample;
+    } fmt;
+
+    FILE *wav=fopen(name.toLatin1().data(),"wb");
+    if(!wav)
+    {
+        return -3;
+    }
+    long chunksize=0x10;
+
+    fwrite( "RIFF",     1, 4, wav );
+    fwrite( &riffsize,  4, 1, wav );
+    fwrite( "WAVEfmt ", 1, 8, wav );
+    fwrite( &chunksize, 4, 1, wav );
+
+    fmt.wFormatTag = 1;      // PCM
+    fmt.wChannels  = format.channelCount();      // MONO
+    fmt.dwSamplesPerSec  = s_rate*1;
+    fmt.dwAvgBytesPerSec = s_rate*sampleSize*fmt.wChannels; // 16 bit
+    fmt.wBlockAlign      = fmt.wChannels*sampleSize;
+    fmt.wBitsPerSample   = sampleSize*8;
+
+    fwrite( &fmt,      sizeof(fmt), 1, wav );
+    fwrite( "data",    1,           4, wav );
+    fwrite( &datasize, 4,           1, wav );
+    fwrite(data.data(), num_bytes, 1, wav);
+
+    fclose(wav);
+}
+
+struct
+{
+    unsigned short    wFormatTag;
+    unsigned short    wChannels;
+    unsigned long     dwSamplesPerSec;
+    unsigned long     dwAvgBytesPerSec;
+    unsigned short    wBlockAlign;
+    unsigned short    wBitsPerSample;
+} fmt;
+
+bool WavFile::saveWAV(char * filename, unsigned long num_bytes, short int * data, int s_rate)
+{
+
 }
 
 bool WavFile::readHeader()
@@ -109,10 +191,10 @@ bool WavFile::readHeader()
     bool result = read(reinterpret_cast<char *>(&header), sizeof(CombinedHeader)) == sizeof(CombinedHeader);
     if (result) {
         if ((memcmp(&header.riff.descriptor.id, "RIFF", 4) == 0
-            || memcmp(&header.riff.descriptor.id, "RIFX", 4) == 0)
-            && memcmp(&header.riff.type, "WAVE", 4) == 0
-            && memcmp(&header.wave.descriptor.id, "fmt ", 4) == 0
-            && (header.wave.audioFormat == 1 || header.wave.audioFormat == 0)) {
+             || memcmp(&header.riff.descriptor.id, "RIFX", 4) == 0)
+                && memcmp(&header.riff.type, "WAVE", 4) == 0
+                && memcmp(&header.wave.descriptor.id, "fmt ", 4) == 0
+                && (header.wave.audioFormat == 1 || header.wave.audioFormat == 0)) {
 
             // Read off remaining header information
             DATAHeader dataHeader;

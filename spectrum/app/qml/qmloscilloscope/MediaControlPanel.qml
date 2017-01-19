@@ -3,20 +3,29 @@ import QtQuick 2.0
 Item{
     width: parent.width;
     height: 60;
+    id: _mediaControlPanel
+    property int mode: 0
 
     function getDate(value){
         var date = new Date();
         date.setFullYear(0);
-        date.setHours(Math.floor( value/(1000*1000*60*60)));
-        date.setMinutes(Math.floor(value/(1000*1000*60) - date.getHours() * 60));
-        date.setSeconds(Math.floor(value / (1000*1000) - date.getMinutes()*60 - date.getHours()*60));
+        date.setMonth(0);
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
         date.setMilliseconds(Math.floor(value / (1000) - date.getSeconds()*1000 - date.getMinutes()*60 - date.getHours()*60))
         return date;
     }
     function toMicroseconds(time){
         return time.getHours()*1000*1000*60*60 + time.getMinutes()*1000*1000*60 + time.getSeconds()*1000*1000 + time.getMilliseconds()*1000;
     }
-
+    Connections{
+        target: mainWindow
+        onModeChanged:{
+            console.log("QQQQQQQQQQQQQQQQQQQQ:" + mode);
+            _mediaControlPanel.mode = mode;
+        }
+    }
 
     Row {
         anchors.fill: parent;
@@ -29,6 +38,7 @@ Item{
             Row {
                 height: parent.height
                 width: childrenRect.width
+                spacing: 5
                 IconBtn{
                     title: "Open"
                     url: "qrc:/icons/qml/icons/ic_perm_camera_mic_white_48px.svg"
@@ -41,6 +51,7 @@ Item{
                     urlChecked: "qrc:/icons/qml/icons/ic_pause_circle_outline_white_48px.svg"
                     checkable: true
                     checked: false
+                    visible:  _mediaControlPanel.mode == 2
                     onClick: function(){
                         mainWindow.play_pause();
                     }
@@ -56,13 +67,39 @@ Item{
                         mainWindow.stop();
                     }
                 }
+                Rectangle{
+                    visible:  _mediaControlPanel.mode == 2
+                    height: parent.height*.8
+                    y: parent.height*.1
+                    width: 2
+                    color: "white"
+                }
                 ComboBox{
                     id: filter
+                    //height: parent.height
                     items: mainWindow.getTemplatesQML();
+                    visible:  _mediaControlPanel.mode == 2
                     titleLink: null
                     popUp: true
                     onComboClicked: {
                         mainWindow.changePlayTemplate(filter.selectedValue());
+                    }
+                    Text{
+                        text: "Поточний фільтр"
+                        color: "white"
+                        anchors.top: parent.bottom
+                        font.pointSize: btnContainer.height - parent.height
+                        x: (parent.width - paintedWidth)/2
+                    }
+                }
+                IconBtn{
+                    id :saveDump
+                    title: "Save dump"
+                    url: "qrc:/icons/qml/icons/ic_save_white_48px.svg"
+                    checkable: false
+                    visible:  _mediaControlPanel.mode == 2
+                    onClick: function(){
+                        mainWindow.saveDump();
                     }
                 }
 
@@ -72,6 +109,7 @@ Item{
             id :playPositionContainer
             height: parent.height
             width: parent.width - btnContainer.width
+            visible:  _mediaControlPanel.mode == 2
             Row{
                 id: timeLine
                 anchors.fill: parent

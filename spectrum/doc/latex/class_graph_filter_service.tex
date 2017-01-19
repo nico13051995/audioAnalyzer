@@ -1,0 +1,183 @@
+\hypertarget{class_graph_filter_service}{}\section{Graph\+Filter\+Service Class Reference}
+\label{class_graph_filter_service}\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+
+
+The \hyperlink{class_graph_filter_service}{Graph\+Filter\+Service} class This class acts as an intermediate element between the user interface and classes for charts.  
+
+
+
+
+{\ttfamily \#include $<$graphfilterservice.\+h$>$}
+
+Inheritance diagram for Graph\+Filter\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_graph_filter_service}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_graph_filter_service_a0e7878bc2027bd8cb1480baf82783ed7}{buffer\+Changed} (qint64 position, qint64 length, const Q\+Byte\+Array \&buffer)
+\item 
+Q\+Byte\+Array \hyperlink{class_graph_filter_service_a399267e98d3977af552dfd0c0c39bac2}{apply\+Filters} (const Q\+Byte\+Array \&buffer)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_graph_filter_service_a399267e98d3977af552dfd0c0c39bac2}{Graph\+Filter\+Service\+::apply\+Filters}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_graph_filter_service_a0ce26d46d68fd45bc4de9104e9b7a317}{save} (qint64 start, qint64 end, Q\+I\+O\+Device $\ast$out)
+\begin{DoxyCompactList}\small\item\em save -\/ function for dump filtered data \end{DoxyCompactList}\item 
+void \hyperlink{class_graph_filter_service_af02cad074674e6ff8030c2e8fc3be111}{subscribe\+Wave\+Form} (Q\+X\+Y\+Series $\ast$set, int chanel)
+\begin{DoxyCompactList}\small\item\em subscribe\+Wave\+Form -\/ subscribe Q\+ML Element to visual update after update data; \end{DoxyCompactList}\item 
+void \hyperlink{class_graph_filter_service_a710cfa42186e53b0ffbe9f34d57184a7}{un\+Subscribe\+Wave\+Formm} (Q\+X\+Y\+Series $\ast$set, int chanel)
+\item 
+void \hyperlink{class_graph_filter_service_a815f1067416248564e36f876d34c57d8}{subscribe\+Spectrum} (Q\+X\+Y\+Series $\ast$set, int chanel)
+\item 
+void \hyperlink{class_graph_filter_service_aae672b63fafe0403b7ae68844bbf90fa}{un\+Subscribe\+Spectrum} (Q\+X\+Y\+Series $\ast$set, int chanel)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_graph_filter_service_af10b79e7d0a0736df08ab20733311b67}{Graph\+Filter\+Service} (\hyperlink{class_engine}{Engine} $\ast$engine, Q\+List$<$ \hyperlink{class_filter}{Filter} $\ast$$>$ \&filters, Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_graph_filter_service}{Graph\+Filter\+Service}. \end{DoxyCompactList}\item 
+\hyperlink{class_graph_filter_service_a9036ef6a3b6348698c9386e71371d488}{$\sim$\+Graph\+Filter\+Service} ()
+\item 
+Q\+String \hyperlink{class_graph_filter_service_a16e88d8a688024ab96a4e3ed6a19e238}{get\+Name} () const
+\item 
+void \hyperlink{class_graph_filter_service_abcbd3365d2c735616f61de87a0af8ea4}{set\+Name} (const Q\+String \&value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_graph_filter_service}{Graph\+Filter\+Service} class This class acts as an intermediate element between the user interface and classes for charts. 
+
+\begin{DoxyAuthor}{Author}
+Nicolas 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_graph_filter_service_af10b79e7d0a0736df08ab20733311b67}{}\label{class_graph_filter_service_af10b79e7d0a0736df08ab20733311b67} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{Graph\+Filter\+Service()}{GraphFilterService()}}
+{\footnotesize\ttfamily Graph\+Filter\+Service\+::\+Graph\+Filter\+Service (\begin{DoxyParamCaption}\item[{\hyperlink{class_engine}{Engine} $\ast$}]{engine,  }\item[{Q\+List$<$ \hyperlink{class_filter}{Filter} $\ast$$>$ \&}]{filters,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_graph_filter_service}{Graph\+Filter\+Service}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em engine} & -\/ need for auto subscribe to buffer change; \\
+\hline
+{\em filters} & -\/ list of filters which will be apply \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graph_filter_service_a9036ef6a3b6348698c9386e71371d488}{}\label{class_graph_filter_service_a9036ef6a3b6348698c9386e71371d488} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!````~Graph\+Filter\+Service@{$\sim$\+Graph\+Filter\+Service}}
+\index{````~Graph\+Filter\+Service@{$\sim$\+Graph\+Filter\+Service}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{$\sim$\+Graph\+Filter\+Service()}{~GraphFilterService()}}
+{\footnotesize\ttfamily Graph\+Filter\+Service\+::$\sim$\+Graph\+Filter\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_graph_filter_service_a399267e98d3977af552dfd0c0c39bac2}{}\label{class_graph_filter_service_a399267e98d3977af552dfd0c0c39bac2} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!apply\+Filters@{apply\+Filters}}
+\index{apply\+Filters@{apply\+Filters}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{apply\+Filters}{applyFilters}}
+{\footnotesize\ttfamily Q\+Byte\+Array Graph\+Filter\+Service\+::apply\+Filters (\begin{DoxyParamCaption}\item[{const Q\+Byte\+Array \&}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\hyperlink{class_graph_filter_service_a399267e98d3977af552dfd0c0c39bac2}{Graph\+Filter\+Service\+::apply\+Filters}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & -\/ data for procces \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+performed data 
+\end{DoxyReturn}
+\hypertarget{class_graph_filter_service_a0e7878bc2027bd8cb1480baf82783ed7}{}\label{class_graph_filter_service_a0e7878bc2027bd8cb1480baf82783ed7} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!buffer\+Changed@{buffer\+Changed}}
+\index{buffer\+Changed@{buffer\+Changed}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{buffer\+Changed}{bufferChanged}}
+{\footnotesize\ttfamily void Graph\+Filter\+Service\+::buffer\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position,  }\item[{qint64}]{length,  }\item[{const Q\+Byte\+Array \&}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_graph_filter_service_a16e88d8a688024ab96a4e3ed6a19e238}{}\label{class_graph_filter_service_a16e88d8a688024ab96a4e3ed6a19e238} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Q\+String Graph\+Filter\+Service\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_graph_filter_service_a0ce26d46d68fd45bc4de9104e9b7a317}{}\label{class_graph_filter_service_a0ce26d46d68fd45bc4de9104e9b7a317} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!save@{save}}
+\index{save@{save}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{save}{save}}
+{\footnotesize\ttfamily bool Graph\+Filter\+Service\+::save (\begin{DoxyParamCaption}\item[{qint64}]{start,  }\item[{qint64}]{end,  }\item[{Q\+I\+O\+Device $\ast$}]{out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+save -\/ function for dump filtered data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ start time in mk seconds \\
+\hline
+{\em end} & -\/ finish time in mk seconds \\
+\hline
+{\em out} & -\/ output stream (ex\+: Q\+File) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is success? 
+\end{DoxyReturn}
+\hypertarget{class_graph_filter_service_abcbd3365d2c735616f61de87a0af8ea4}{}\label{class_graph_filter_service_abcbd3365d2c735616f61de87a0af8ea4} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily void Graph\+Filter\+Service\+::set\+Name (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{value }\end{DoxyParamCaption})}
+
+\hypertarget{class_graph_filter_service_a815f1067416248564e36f876d34c57d8}{}\label{class_graph_filter_service_a815f1067416248564e36f876d34c57d8} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!subscribe\+Spectrum@{subscribe\+Spectrum}}
+\index{subscribe\+Spectrum@{subscribe\+Spectrum}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{subscribe\+Spectrum}{subscribeSpectrum}}
+{\footnotesize\ttfamily void Graph\+Filter\+Service\+::subscribe\+Spectrum (\begin{DoxyParamCaption}\item[{Q\+X\+Y\+Series $\ast$}]{set,  }\item[{int}]{chanel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_graph_filter_service_af02cad074674e6ff8030c2e8fc3be111}{}\label{class_graph_filter_service_af02cad074674e6ff8030c2e8fc3be111} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!subscribe\+Wave\+Form@{subscribe\+Wave\+Form}}
+\index{subscribe\+Wave\+Form@{subscribe\+Wave\+Form}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{subscribe\+Wave\+Form}{subscribeWaveForm}}
+{\footnotesize\ttfamily void Graph\+Filter\+Service\+::subscribe\+Wave\+Form (\begin{DoxyParamCaption}\item[{Q\+X\+Y\+Series $\ast$}]{set,  }\item[{int}]{chanel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+subscribe\+Wave\+Form -\/ subscribe Q\+ML Element to visual update after update data; 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set} & -\/ Q\+ML points for inject data \\
+\hline
+{\em chanel} & -\/ number of chanel \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_graph_filter_service_aae672b63fafe0403b7ae68844bbf90fa}{}\label{class_graph_filter_service_aae672b63fafe0403b7ae68844bbf90fa} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!un\+Subscribe\+Spectrum@{un\+Subscribe\+Spectrum}}
+\index{un\+Subscribe\+Spectrum@{un\+Subscribe\+Spectrum}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{un\+Subscribe\+Spectrum}{unSubscribeSpectrum}}
+{\footnotesize\ttfamily void Graph\+Filter\+Service\+::un\+Subscribe\+Spectrum (\begin{DoxyParamCaption}\item[{Q\+X\+Y\+Series $\ast$}]{set,  }\item[{int}]{chanel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_graph_filter_service_a710cfa42186e53b0ffbe9f34d57184a7}{}\label{class_graph_filter_service_a710cfa42186e53b0ffbe9f34d57184a7} 
+\index{Graph\+Filter\+Service@{Graph\+Filter\+Service}!un\+Subscribe\+Wave\+Formm@{un\+Subscribe\+Wave\+Formm}}
+\index{un\+Subscribe\+Wave\+Formm@{un\+Subscribe\+Wave\+Formm}!Graph\+Filter\+Service@{Graph\+Filter\+Service}}
+\subsubsection{\texorpdfstring{un\+Subscribe\+Wave\+Formm}{unSubscribeWaveFormm}}
+{\footnotesize\ttfamily void Graph\+Filter\+Service\+::un\+Subscribe\+Wave\+Formm (\begin{DoxyParamCaption}\item[{Q\+X\+Y\+Series $\ast$}]{set,  }\item[{int}]{chanel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{graphfilterservice_8h}{graphfilterservice.\+h}\item 
+app/\hyperlink{graphfilterservice_8cpp}{graphfilterservice.\+cpp}\end{DoxyCompactItemize}

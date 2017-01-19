@@ -48,7 +48,7 @@
 #include <QtCharts/QXYSeries>
 
 /**
- * Widget which displays a spectrograph showing the frequency spectrum
+ * Service which displays a spectrograph showing the frequency spectrum
  * of the window of audio samples most recently analyzed by the Engine.
  */
 
@@ -100,6 +100,10 @@ private:
     void selectBar(int index);
 
 private:
+    /**
+     * @brief The Bar struct
+     * use only for image scpectr
+     */
     struct Bar {
         Bar() : value(0.0), clipped(false) { }
         qreal   value;

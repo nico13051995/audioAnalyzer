@@ -1,0 +1,444 @@
+\hypertarget{class_engine}{}\section{Engine Class Reference}
+\label{class_engine}\index{Engine@{Engine}}
+
+
+{\ttfamily \#include $<$engine.\+h$>$}
+
+Inheritance diagram for Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_engine}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_engine_a642ce405fe251d783cd5766925286477}{start\+Recording} ()
+\item 
+void \hyperlink{class_engine_aa8314a12e4d220c5540605dd8ac3bd3a}{start\+Playback} ()
+\item 
+void \hyperlink{class_engine_a5a6a21b73b9571b41d45eadec6a86edd}{suspend} ()
+\item 
+void \hyperlink{class_engine_a382efef270e3ebe98e1b26945d080fa9}{stop\+Playback} ()
+\item 
+void \hyperlink{class_engine_a14fc1862412916b29b6d885d6e4865bf}{set\+Audio\+Input\+Device} (const Q\+Audio\+Device\+Info \&device)
+\item 
+void \hyperlink{class_engine_ae45195b977998e53441aed3006c9a35e}{set\+Audio\+Output\+Device} (const Q\+Audio\+Device\+Info \&device)
+\item 
+void \hyperlink{class_engine_ad36cd20d882c533e02cf6164cbc6e774}{set\+Window\+Function} (\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function} func)
+\item 
+qint64 \hyperlink{class_engine_a165b8efe8055b3da607db4a6bb977a0c}{get\+Duration} ()
+\item 
+qint64 \hyperlink{class_engine_a9861606422c32d2dcd78ca7666f43785}{get\+Time\+Position} ()
+\item 
+void \hyperlink{class_engine_a52d2f257b439735853144f7cb4199f86}{set\+Time\+Position} (qint64 time)
+\item 
+void \hyperlink{class_engine_a56fbf122df09a4f2c7d8ef053b355459}{set\+Play\+Template} (Q\+String name)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_engine_abd773c71dbe9b8433062dda03b40dc2e}{state\+Changed} (Q\+Audio\+::\+Mode \hyperlink{class_engine_a63bb47972a1e0692432dd704a60e49bc}{mode}, Q\+Audio\+::\+State \hyperlink{class_engine_af21cf755f29c026ce0bc54f392d74adc}{state})
+\item 
+void \hyperlink{class_engine_a8b33312dbe69efdb8f5c311439015bc3}{info\+Message} (const Q\+String \&message, int duration\+Ms)
+\item 
+void \hyperlink{class_engine_a15540c6090eaa691b572d89d45d72e35}{error\+Message} (const Q\+String \&heading, const Q\+String \&detail)
+\item 
+void \hyperlink{class_engine_a08be5a3820381f266b3bf2b3a3b91549}{format\+Changed} (const Q\+Audio\+Format \&\hyperlink{class_engine_a275e6b498d8d956e10bdeeef9c494673}{format})
+\item 
+void \hyperlink{class_engine_a3870ec1ab9c7ee50a8126ffb5a2dbb04}{buffer\+Length\+Changed} (qint64 duration)
+\item 
+void \hyperlink{class_engine_a3316fdfd7db81a74416b8180c264f361}{data\+Length\+Changed} (qint64 duration)
+\item 
+void \hyperlink{class_engine_ad44be9915af75cf3dab1c3a5a4665693}{record\+Position\+Changed} (qint64 position)
+\item 
+void \hyperlink{class_engine_afe3298aca565219a67698bf7974a5257}{play\+Position\+Changed} (qint64 position)
+\item 
+void \hyperlink{class_engine_acccf2905ae48b05c44e9f4ec363079ab}{level\+Changed} (qreal \hyperlink{class_engine_a0a7764981d74fab25e390fa6f91aeb03}{rms\+Level}, qreal \hyperlink{class_engine_aab1cbc9a117974fe64cb0875a02792ab}{peak\+Level}, int num\+Samples)
+\item 
+void \hyperlink{class_engine_a99575be39ebf22f90a48ab2c23c2d482}{spectrum\+Changed} (qint64 position, qint64 length, const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&spectrum)
+\item 
+void \hyperlink{class_engine_a4e54e59d1adc73cce8f6d2c4457dc06d}{buffer\+Changed} (qint64 position, qint64 length, const Q\+Byte\+Array \&buffer)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_engine_aa9a980fee0abf2524c4c449c0894c383}{Engine} (Q\+Object $\ast$parent=0)
+\item 
+\hyperlink{class_engine_a8ef7030a089ecb30bbfcb9e43094717a}{$\sim$\+Engine} ()
+\item 
+const Q\+List$<$ Q\+Audio\+Device\+Info $>$ \& \hyperlink{class_engine_a6e06ecaa303e1b03581ce9ea296740e8}{available\+Audio\+Input\+Devices} () const
+\item 
+const Q\+List$<$ Q\+Audio\+Device\+Info $>$ \& \hyperlink{class_engine_a6b4c101c20dcd1843832049c379c334b}{available\+Audio\+Output\+Devices} () const
+\item 
+Q\+Audio\+::\+Mode \hyperlink{class_engine_a63bb47972a1e0692432dd704a60e49bc}{mode} () const
+\item 
+Q\+Audio\+::\+State \hyperlink{class_engine_af21cf755f29c026ce0bc54f392d74adc}{state} () const
+\item 
+const Q\+Audio\+Format \& \hyperlink{class_engine_a275e6b498d8d956e10bdeeef9c494673}{format} () const
+\item 
+void \hyperlink{class_engine_ac3b86066213c3e8a1b5186426c12bb50}{reset} ()
+\item 
+bool \hyperlink{class_engine_aad11dc39fb12f9ab53f9c2ec29a02aa5}{load\+File} (const Q\+String \&file\+Name)
+\item 
+bool \hyperlink{class_engine_aaaa5e9ce9bf266dac28460e2adaa1270}{generate\+Tone} (const \hyperlink{struct_tone}{Tone} \&tone)
+\item 
+bool \hyperlink{class_engine_a0fa43cb25d35f9da09b58612a8af9e77}{generate\+Swept\+Tone} (qreal amplitude)
+\item 
+bool \hyperlink{class_engine_a00ceb1aec88fc531e5c4decfac40b8a4}{initialize\+Record} ()
+\item 
+qint64 \hyperlink{class_engine_a6d176811eefe7ae0979481862670003a}{record\+Position} () const
+\item 
+qreal \hyperlink{class_engine_a0a7764981d74fab25e390fa6f91aeb03}{rms\+Level} () const
+\item 
+qreal \hyperlink{class_engine_aab1cbc9a117974fe64cb0875a02792ab}{peak\+Level} () const
+\item 
+qint64 \hyperlink{class_engine_a2b295fe42d3e6e4f04f56c3f63ebe945}{play\+Position} () const
+\item 
+qint64 \hyperlink{class_engine_a1e21c3b6d92bfa97d8ad77ce67f28264}{buffer\+Length} () const
+\item 
+qint64 \hyperlink{class_engine_a046bdd2d3c60411e1c08253bb1af28df}{data\+Length} () const
+\item 
+Q\+Map$<$ Q\+String, \hyperlink{class_graph_filter_service}{Graph\+Filter\+Service} $\ast$ $>$ \hyperlink{class_engine_a252738800567e88de862458d94bcad15}{get\+Created\+Templates} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_engine_a83047ff6af71dc546eeabccfde31d9aa}{push\+Timer\+Expired} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class interfaces with the Qt Multimedia audio classes, and also with the \hyperlink{class_spectrum_analyser}{Spectrum\+Analyser} class. Its role is to manage the capture and playback of audio data, meanwhile performing real-\/time analysis of the audio level and frequency spectrum. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_engine_aa9a980fee0abf2524c4c449c0894c383}{}\label{class_engine_aa9a980fee0abf2524c4c449c0894c383} 
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{Engine()}{Engine()}}
+{\footnotesize\ttfamily Engine\+::\+Engine (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\hypertarget{class_engine_a8ef7030a089ecb30bbfcb9e43094717a}{}\label{class_engine_a8ef7030a089ecb30bbfcb9e43094717a} 
+\index{Engine@{Engine}!````~Engine@{$\sim$\+Engine}}
+\index{````~Engine@{$\sim$\+Engine}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{$\sim$\+Engine()}{~Engine()}}
+{\footnotesize\ttfamily Engine\+::$\sim$\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_engine_a6e06ecaa303e1b03581ce9ea296740e8}{}\label{class_engine_a6e06ecaa303e1b03581ce9ea296740e8} 
+\index{Engine@{Engine}!available\+Audio\+Input\+Devices@{available\+Audio\+Input\+Devices}}
+\index{available\+Audio\+Input\+Devices@{available\+Audio\+Input\+Devices}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{available\+Audio\+Input\+Devices()}{availableAudioInputDevices()}}
+{\footnotesize\ttfamily const Q\+List$<$Q\+Audio\+Device\+Info$>$\& Engine\+::available\+Audio\+Input\+Devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_engine_a6b4c101c20dcd1843832049c379c334b}{}\label{class_engine_a6b4c101c20dcd1843832049c379c334b} 
+\index{Engine@{Engine}!available\+Audio\+Output\+Devices@{available\+Audio\+Output\+Devices}}
+\index{available\+Audio\+Output\+Devices@{available\+Audio\+Output\+Devices}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{available\+Audio\+Output\+Devices()}{availableAudioOutputDevices()}}
+{\footnotesize\ttfamily const Q\+List$<$Q\+Audio\+Device\+Info$>$\& Engine\+::available\+Audio\+Output\+Devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_engine_a4e54e59d1adc73cce8f6d2c4457dc06d}{}\label{class_engine_a4e54e59d1adc73cce8f6d2c4457dc06d} 
+\index{Engine@{Engine}!buffer\+Changed@{buffer\+Changed}}
+\index{buffer\+Changed@{buffer\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{buffer\+Changed}{bufferChanged}}
+{\footnotesize\ttfamily void Engine\+::buffer\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position,  }\item[{qint64}]{length,  }\item[{const Q\+Byte\+Array \&}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Buffer containing audio data has changed. 
+\begin{DoxyParams}{Parameters}
+{\em position} & Position of start of buffer in bytes \\
+\hline
+{\em buffer} & Buffer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_engine_a1e21c3b6d92bfa97d8ad77ce67f28264}{}\label{class_engine_a1e21c3b6d92bfa97d8ad77ce67f28264} 
+\index{Engine@{Engine}!buffer\+Length@{buffer\+Length}}
+\index{buffer\+Length@{buffer\+Length}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{buffer\+Length()}{bufferLength()}}
+{\footnotesize\ttfamily qint64 Engine\+::buffer\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Length of the internal engine buffer. \begin{DoxyReturn}{Returns}
+Buffer length in bytes. 
+\end{DoxyReturn}
+\hypertarget{class_engine_a3870ec1ab9c7ee50a8126ffb5a2dbb04}{}\label{class_engine_a3870ec1ab9c7ee50a8126ffb5a2dbb04} 
+\index{Engine@{Engine}!buffer\+Length\+Changed@{buffer\+Length\+Changed}}
+\index{buffer\+Length\+Changed@{buffer\+Length\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{buffer\+Length\+Changed}{bufferLengthChanged}}
+{\footnotesize\ttfamily void Engine\+::buffer\+Length\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Length of buffer has changed. 
+\begin{DoxyParams}{Parameters}
+{\em duration} & Duration in microseconds \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_engine_a046bdd2d3c60411e1c08253bb1af28df}{}\label{class_engine_a046bdd2d3c60411e1c08253bb1af28df} 
+\index{Engine@{Engine}!data\+Length@{data\+Length}}
+\index{data\+Length@{data\+Length}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{data\+Length()}{dataLength()}}
+{\footnotesize\ttfamily qint64 Engine\+::data\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Amount of data held in the buffer. \begin{DoxyReturn}{Returns}
+Data length in bytes. 
+\end{DoxyReturn}
+\hypertarget{class_engine_a3316fdfd7db81a74416b8180c264f361}{}\label{class_engine_a3316fdfd7db81a74416b8180c264f361} 
+\index{Engine@{Engine}!data\+Length\+Changed@{data\+Length\+Changed}}
+\index{data\+Length\+Changed@{data\+Length\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{data\+Length\+Changed}{dataLengthChanged}}
+{\footnotesize\ttfamily void Engine\+::data\+Length\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Amount of data in buffer has changed. 
+\begin{DoxyParams}{Parameters}
+{\em Length} & of data in bytes \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_engine_a15540c6090eaa691b572d89d45d72e35}{}\label{class_engine_a15540c6090eaa691b572d89d45d72e35} 
+\index{Engine@{Engine}!error\+Message@{error\+Message}}
+\index{error\+Message@{error\+Message}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{error\+Message}{errorMessage}}
+{\footnotesize\ttfamily void Engine\+::error\+Message (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{heading,  }\item[{const Q\+String \&}]{detail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Error message for modal display \hypertarget{class_engine_a275e6b498d8d956e10bdeeef9c494673}{}\label{class_engine_a275e6b498d8d956e10bdeeef9c494673} 
+\index{Engine@{Engine}!format@{format}}
+\index{format@{format}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{format()}{format()}}
+{\footnotesize\ttfamily const Q\+Audio\+Format\& Engine\+::format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Current audio format 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+May be Q\+Audio\+Format() if engine is not initialized 
+\end{DoxyNote}
+\hypertarget{class_engine_a08be5a3820381f266b3bf2b3a3b91549}{}\label{class_engine_a08be5a3820381f266b3bf2b3a3b91549} 
+\index{Engine@{Engine}!format\+Changed@{format\+Changed}}
+\index{format\+Changed@{format\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{format\+Changed}{formatChanged}}
+{\footnotesize\ttfamily void Engine\+::format\+Changed (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Format \&}]{format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Format of audio data has changed \hypertarget{class_engine_a0fa43cb25d35f9da09b58612a8af9e77}{}\label{class_engine_a0fa43cb25d35f9da09b58612a8af9e77} 
+\index{Engine@{Engine}!generate\+Swept\+Tone@{generate\+Swept\+Tone}}
+\index{generate\+Swept\+Tone@{generate\+Swept\+Tone}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{generate\+Swept\+Tone()}{generateSweptTone()}}
+{\footnotesize\ttfamily bool Engine\+::generate\+Swept\+Tone (\begin{DoxyParamCaption}\item[{qreal}]{amplitude }\end{DoxyParamCaption})}
+
+Generate tone \hypertarget{class_engine_aaaa5e9ce9bf266dac28460e2adaa1270}{}\label{class_engine_aaaa5e9ce9bf266dac28460e2adaa1270} 
+\index{Engine@{Engine}!generate\+Tone@{generate\+Tone}}
+\index{generate\+Tone@{generate\+Tone}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{generate\+Tone()}{generateTone()}}
+{\footnotesize\ttfamily bool Engine\+::generate\+Tone (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_tone}{Tone} \&}]{tone }\end{DoxyParamCaption})}
+
+Generate tone \hypertarget{class_engine_a252738800567e88de862458d94bcad15}{}\label{class_engine_a252738800567e88de862458d94bcad15} 
+\index{Engine@{Engine}!get\+Created\+Templates@{get\+Created\+Templates}}
+\index{get\+Created\+Templates@{get\+Created\+Templates}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{get\+Created\+Templates()}{getCreatedTemplates()}}
+{\footnotesize\ttfamily Q\+Map$<$ Q\+String, \hyperlink{class_graph_filter_service}{Graph\+Filter\+Service} $\ast$ $>$ Engine\+::get\+Created\+Templates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Set window function applied to audio data before spectral analysis. \hypertarget{class_engine_a165b8efe8055b3da607db4a6bb977a0c}{}\label{class_engine_a165b8efe8055b3da607db4a6bb977a0c} 
+\index{Engine@{Engine}!get\+Duration@{get\+Duration}}
+\index{get\+Duration@{get\+Duration}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{get\+Duration}{getDuration}}
+{\footnotesize\ttfamily qint64 Engine\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_a9861606422c32d2dcd78ca7666f43785}{}\label{class_engine_a9861606422c32d2dcd78ca7666f43785} 
+\index{Engine@{Engine}!get\+Time\+Position@{get\+Time\+Position}}
+\index{get\+Time\+Position@{get\+Time\+Position}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{get\+Time\+Position}{getTimePosition}}
+{\footnotesize\ttfamily qint64 Engine\+::get\+Time\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_a8b33312dbe69efdb8f5c311439015bc3}{}\label{class_engine_a8b33312dbe69efdb8f5c311439015bc3} 
+\index{Engine@{Engine}!info\+Message@{info\+Message}}
+\index{info\+Message@{info\+Message}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{info\+Message}{infoMessage}}
+{\footnotesize\ttfamily void Engine\+::info\+Message (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{message,  }\item[{int}]{duration\+Ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Informational message for non-\/modal display \hypertarget{class_engine_a00ceb1aec88fc531e5c4decfac40b8a4}{}\label{class_engine_a00ceb1aec88fc531e5c4decfac40b8a4} 
+\index{Engine@{Engine}!initialize\+Record@{initialize\+Record}}
+\index{initialize\+Record@{initialize\+Record}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{initialize\+Record()}{initializeRecord()}}
+{\footnotesize\ttfamily bool Engine\+::initialize\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize for recording \hypertarget{class_engine_acccf2905ae48b05c44e9f4ec363079ab}{}\label{class_engine_acccf2905ae48b05c44e9f4ec363079ab} 
+\index{Engine@{Engine}!level\+Changed@{level\+Changed}}
+\index{level\+Changed@{level\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{level\+Changed}{levelChanged}}
+{\footnotesize\ttfamily void Engine\+::level\+Changed (\begin{DoxyParamCaption}\item[{qreal}]{rms\+Level,  }\item[{qreal}]{peak\+Level,  }\item[{int}]{num\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Level changed 
+\begin{DoxyParams}{Parameters}
+{\em rms\+Level} & R\+MS level in range 0.\+0 -\/ 1.\+0 \\
+\hline
+{\em peak\+Level} & Peak level in range 0.\+0 -\/ 1.\+0 \\
+\hline
+{\em num\+Samples} & Number of audio samples analyzed \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_engine_aad11dc39fb12f9ab53f9c2ec29a02aa5}{}\label{class_engine_aad11dc39fb12f9ab53f9c2ec29a02aa5} 
+\index{Engine@{Engine}!load\+File@{load\+File}}
+\index{load\+File@{load\+File}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{load\+File()}{loadFile()}}
+{\footnotesize\ttfamily bool Engine\+::load\+File (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{file\+Name }\end{DoxyParamCaption})}
+
+Load data from W\+AV file \hypertarget{class_engine_a63bb47972a1e0692432dd704a60e49bc}{}\label{class_engine_a63bb47972a1e0692432dd704a60e49bc} 
+\index{Engine@{Engine}!mode@{mode}}
+\index{mode@{mode}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{mode()}{mode()}}
+{\footnotesize\ttfamily Q\+Audio\+::\+Mode Engine\+::mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_engine_aab1cbc9a117974fe64cb0875a02792ab}{}\label{class_engine_aab1cbc9a117974fe64cb0875a02792ab} 
+\index{Engine@{Engine}!peak\+Level@{peak\+Level}}
+\index{peak\+Level@{peak\+Level}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{peak\+Level()}{peakLevel()}}
+{\footnotesize\ttfamily qreal Engine\+::peak\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Peak level of the most recently processed set of audio samples. \begin{DoxyReturn}{Returns}
+Level in range (0.\+0, 1.\+0) 
+\end{DoxyReturn}
+\hypertarget{class_engine_a2b295fe42d3e6e4f04f56c3f63ebe945}{}\label{class_engine_a2b295fe42d3e6e4f04f56c3f63ebe945} 
+\index{Engine@{Engine}!play\+Position@{play\+Position}}
+\index{play\+Position@{play\+Position}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{play\+Position()}{playPosition()}}
+{\footnotesize\ttfamily qint64 Engine\+::play\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Position of the audio output device. \begin{DoxyReturn}{Returns}
+Position in bytes. 
+\end{DoxyReturn}
+\hypertarget{class_engine_afe3298aca565219a67698bf7974a5257}{}\label{class_engine_afe3298aca565219a67698bf7974a5257} 
+\index{Engine@{Engine}!play\+Position\+Changed@{play\+Position\+Changed}}
+\index{play\+Position\+Changed@{play\+Position\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{play\+Position\+Changed}{playPositionChanged}}
+{\footnotesize\ttfamily void Engine\+::play\+Position\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Position of the audio output device has changed. 
+\begin{DoxyParams}{Parameters}
+{\em position} & Position in bytes \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_engine_a83047ff6af71dc546eeabccfde31d9aa}{}\label{class_engine_a83047ff6af71dc546eeabccfde31d9aa} 
+\index{Engine@{Engine}!push\+Timer\+Expired@{push\+Timer\+Expired}}
+\index{push\+Timer\+Expired@{push\+Timer\+Expired}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{push\+Timer\+Expired}{pushTimerExpired}}
+{\footnotesize\ttfamily void Engine\+::push\+Timer\+Expired (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+\hypertarget{class_engine_a6d176811eefe7ae0979481862670003a}{}\label{class_engine_a6d176811eefe7ae0979481862670003a} 
+\index{Engine@{Engine}!record\+Position@{record\+Position}}
+\index{record\+Position@{record\+Position}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{record\+Position()}{recordPosition()}}
+{\footnotesize\ttfamily qint64 Engine\+::record\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Position of the audio input device. \begin{DoxyReturn}{Returns}
+Position in bytes. 
+\end{DoxyReturn}
+\hypertarget{class_engine_ad44be9915af75cf3dab1c3a5a4665693}{}\label{class_engine_ad44be9915af75cf3dab1c3a5a4665693} 
+\index{Engine@{Engine}!record\+Position\+Changed@{record\+Position\+Changed}}
+\index{record\+Position\+Changed@{record\+Position\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{record\+Position\+Changed}{recordPositionChanged}}
+{\footnotesize\ttfamily void Engine\+::record\+Position\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Position of the audio input device has changed. 
+\begin{DoxyParams}{Parameters}
+{\em position} & Position in bytes \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_engine_ac3b86066213c3e8a1b5186426c12bb50}{}\label{class_engine_ac3b86066213c3e8a1b5186426c12bb50} 
+\index{Engine@{Engine}!reset@{reset}}
+\index{reset@{reset}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Engine\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stop any ongoing recording or playback, and reset to ground state. \hypertarget{class_engine_a0a7764981d74fab25e390fa6f91aeb03}{}\label{class_engine_a0a7764981d74fab25e390fa6f91aeb03} 
+\index{Engine@{Engine}!rms\+Level@{rms\+Level}}
+\index{rms\+Level@{rms\+Level}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{rms\+Level()}{rmsLevel()}}
+{\footnotesize\ttfamily qreal Engine\+::rms\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+R\+MS level of the most recently processed set of audio samples. \begin{DoxyReturn}{Returns}
+Level in range (0.\+0, 1.\+0) 
+\end{DoxyReturn}
+\hypertarget{class_engine_a14fc1862412916b29b6d885d6e4865bf}{}\label{class_engine_a14fc1862412916b29b6d885d6e4865bf} 
+\index{Engine@{Engine}!set\+Audio\+Input\+Device@{set\+Audio\+Input\+Device}}
+\index{set\+Audio\+Input\+Device@{set\+Audio\+Input\+Device}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{set\+Audio\+Input\+Device}{setAudioInputDevice}}
+{\footnotesize\ttfamily void Engine\+::set\+Audio\+Input\+Device (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Device\+Info \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_ae45195b977998e53441aed3006c9a35e}{}\label{class_engine_ae45195b977998e53441aed3006c9a35e} 
+\index{Engine@{Engine}!set\+Audio\+Output\+Device@{set\+Audio\+Output\+Device}}
+\index{set\+Audio\+Output\+Device@{set\+Audio\+Output\+Device}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{set\+Audio\+Output\+Device}{setAudioOutputDevice}}
+{\footnotesize\ttfamily void Engine\+::set\+Audio\+Output\+Device (\begin{DoxyParamCaption}\item[{const Q\+Audio\+Device\+Info \&}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_a56fbf122df09a4f2c7d8ef053b355459}{}\label{class_engine_a56fbf122df09a4f2c7d8ef053b355459} 
+\index{Engine@{Engine}!set\+Play\+Template@{set\+Play\+Template}}
+\index{set\+Play\+Template@{set\+Play\+Template}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{set\+Play\+Template}{setPlayTemplate}}
+{\footnotesize\ttfamily void Engine\+::set\+Play\+Template (\begin{DoxyParamCaption}\item[{Q\+String}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_a52d2f257b439735853144f7cb4199f86}{}\label{class_engine_a52d2f257b439735853144f7cb4199f86} 
+\index{Engine@{Engine}!set\+Time\+Position@{set\+Time\+Position}}
+\index{set\+Time\+Position@{set\+Time\+Position}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{set\+Time\+Position}{setTimePosition}}
+{\footnotesize\ttfamily void Engine\+::set\+Time\+Position (\begin{DoxyParamCaption}\item[{qint64}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_ad36cd20d882c533e02cf6164cbc6e774}{}\label{class_engine_ad36cd20d882c533e02cf6164cbc6e774} 
+\index{Engine@{Engine}!set\+Window\+Function@{set\+Window\+Function}}
+\index{set\+Window\+Function@{set\+Window\+Function}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{set\+Window\+Function}{setWindowFunction}}
+{\footnotesize\ttfamily void Engine\+::set\+Window\+Function (\begin{DoxyParamCaption}\item[{\hyperlink{spectrum_8h_adae4545e1609513867a86cc5e91fc1d4}{Window\+Function}}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_a99575be39ebf22f90a48ab2c23c2d482}{}\label{class_engine_a99575be39ebf22f90a48ab2c23c2d482} 
+\index{Engine@{Engine}!spectrum\+Changed@{spectrum\+Changed}}
+\index{spectrum\+Changed@{spectrum\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{spectrum\+Changed}{spectrumChanged}}
+{\footnotesize\ttfamily void Engine\+::spectrum\+Changed (\begin{DoxyParamCaption}\item[{qint64}]{position,  }\item[{qint64}]{length,  }\item[{const \hyperlink{class_frequency_spectrum}{Frequency\+Spectrum} \&}]{spectrum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Spectrum has changed. 
+\begin{DoxyParams}{Parameters}
+{\em position} & Position of start of window in bytes \\
+\hline
+{\em length} & Length of window in bytes \\
+\hline
+{\em spectrum} & Resulting frequency spectrum \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_engine_aa8314a12e4d220c5540605dd8ac3bd3a}{}\label{class_engine_aa8314a12e4d220c5540605dd8ac3bd3a} 
+\index{Engine@{Engine}!start\+Playback@{start\+Playback}}
+\index{start\+Playback@{start\+Playback}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{start\+Playback}{startPlayback}}
+{\footnotesize\ttfamily void Engine\+::start\+Playback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_a642ce405fe251d783cd5766925286477}{}\label{class_engine_a642ce405fe251d783cd5766925286477} 
+\index{Engine@{Engine}!start\+Recording@{start\+Recording}}
+\index{start\+Recording@{start\+Recording}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{start\+Recording}{startRecording}}
+{\footnotesize\ttfamily void Engine\+::start\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_af21cf755f29c026ce0bc54f392d74adc}{}\label{class_engine_af21cf755f29c026ce0bc54f392d74adc} 
+\index{Engine@{Engine}!state@{state}}
+\index{state@{state}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{state()}{state()}}
+{\footnotesize\ttfamily Q\+Audio\+::\+State Engine\+::state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_engine_abd773c71dbe9b8433062dda03b40dc2e}{}\label{class_engine_abd773c71dbe9b8433062dda03b40dc2e} 
+\index{Engine@{Engine}!state\+Changed@{state\+Changed}}
+\index{state\+Changed@{state\+Changed}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{state\+Changed}{stateChanged}}
+{\footnotesize\ttfamily void Engine\+::state\+Changed (\begin{DoxyParamCaption}\item[{Q\+Audio\+::\+Mode}]{mode,  }\item[{Q\+Audio\+::\+State}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\hypertarget{class_engine_a382efef270e3ebe98e1b26945d080fa9}{}\label{class_engine_a382efef270e3ebe98e1b26945d080fa9} 
+\index{Engine@{Engine}!stop\+Playback@{stop\+Playback}}
+\index{stop\+Playback@{stop\+Playback}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{stop\+Playback}{stopPlayback}}
+{\footnotesize\ttfamily void Engine\+::stop\+Playback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\hypertarget{class_engine_a5a6a21b73b9571b41d45eadec6a86edd}{}\label{class_engine_a5a6a21b73b9571b41d45eadec6a86edd} 
+\index{Engine@{Engine}!suspend@{suspend}}
+\index{suspend@{suspend}!Engine@{Engine}}
+\subsubsection{\texorpdfstring{suspend}{suspend}}
+{\footnotesize\ttfamily void Engine\+::suspend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{engine_8h}{engine.\+h}\item 
+app/\hyperlink{engine_8cpp}{engine.\+cpp}\end{DoxyCompactItemize}

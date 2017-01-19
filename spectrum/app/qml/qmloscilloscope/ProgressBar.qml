@@ -45,7 +45,7 @@ Item {
             _progressBar.value = _progressBar.max;
         if(_progressBar.value < _progressBar.min)
             _progressBar.value = _progressBar.min;
-        valueRect.width = _progressBar.width*((_progressBar.value - _progressBar.min)/(_progressBar.max - _progressBar.min));
+        valueRect.width = background.width*((_progressBar.value - _progressBar.min)/(_progressBar.max - _progressBar.min));
         _progressBar.virtualValue = _progressBar.value;
     }
 
@@ -114,7 +114,7 @@ Item {
                         if(valueRect.width < 0)
                             valueRect.width = 0;
 
-                        _progressBar.virtualValue = ((valueRect.width*(_progressBar.max - _progressBar.min))/_progressBar.width) + _progressBar.min;
+                        _progressBar.virtualValue = ((valueRect.width*(_progressBar.max - _progressBar.min))/background.width) + _progressBar.min;
                        // control.x = valueRect.width - control.width/2;
                     }
                 }
@@ -126,7 +126,7 @@ Item {
                 onReleased: {
                     if(controlMouseArea.savedWidth != -1/* && valueRect.width != controlMouseArea.savedWidth*/)
                     {
-                        var value = ((valueRect.width*(_progressBar.max - _progressBar.min))/_progressBar.width) + _progressBar.min;
+                        var value = ((valueRect.width*(_progressBar.max - _progressBar.min))/background.width) + _progressBar.min;
                         _progressBar.value = value;
                         _progressBar.userChangeValue();
                         controlMouseArea.savedWidth = -1;

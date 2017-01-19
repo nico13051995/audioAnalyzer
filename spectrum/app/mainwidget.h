@@ -84,7 +84,8 @@ public:
 
     // QObject
     void timerEvent(QTimerEvent *event);
-
+signals:
+    void modeChanged(int mode);
 public slots:
     void stateChanged(QAudio::Mode mode, QAudio::State state);
     void formatChanged(const QAudioFormat &format);
@@ -101,6 +102,7 @@ public slots:
     void play_pause();
     bool isFullScreen();
     void stop();
+    bool saveDump();
     double getDuration();
     double getTimePosition();
     void setTimePosition(double time);
@@ -112,22 +114,43 @@ public slots:
     Q_INVOKABLE bool unSubscribeToTemplate(Graph * graph, QXYSeries *set, int chanel);
     Q_INVOKABLE void changePlayTemplate(QString name);
 
+    /**
+     * @brief switch to full screen mode
+     */
     void switchFullScreen();
+    /**
+     * @brief create image from current tab
+     */
     void getScreenShot();
 protected:
     void keyReleaseEvent(QKeyEvent *event);
     void keyPressEvent(QKeyEvent *event);
 
+protected slots:
+    void aboutQt();
 private:
+    /**
+     * @brief init custom UI
+     */
     void createUi();
+    /**
+     * @brief createMenus
+     * @deprecated
+     */
     void createMenus();
+    /**
+     * @brief connect UI to event handels
+     */
     void connectUi();
+    /**
+     * @brief reset UI
+     */
     void reset();
 
     enum Mode {
-        NoMode,
-        RecordMode,
-        LoadFileMode
+        NoMode = 0,
+        RecordMode = 1,
+        LoadFileMode = 2
     };
 
     void setMode(Mode mode);
@@ -141,15 +164,21 @@ private:
     Waveform*               m_waveform;
 #endif
     QQuickWidget viewer;
+
+
+    SettingsDialog*         m_settingsDialog;
+    QMap<int,QMap<int,Graph*>> graphs;
+    Ui::MainWindow *ui;
+    bool eventFilter(QObject *Object, QEvent *Event);
+    /********************************************//**
+     *  Not use, peleas ignore this variables!!!
+     ***********************************************/
     WaveFormCustom *dataSource;
     ProgressBar*            m_progressBar;
     Spectrograph*           m_spectrograph;
     LevelMeter*             m_levelMeter;
-    SettingsDialog*         m_settingsDialog;
-    QMap<int,QMap<int,Graph*>> graphs;
-    Ui::MainWindow *ui;
 
-    bool eventFilter(QObject *Object, QEvent *Event);
+
 };
 
 #endif // MAINWIDGET_H
